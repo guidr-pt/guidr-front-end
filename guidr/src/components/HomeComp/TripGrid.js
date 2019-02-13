@@ -2,28 +2,16 @@ import React from 'react';
 import TripCard from './TripCard';
 
 import { connect } from 'react-redux';
-import { getTrips } from '../../actions';
 
-
-class TripGrid extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount(){
-    this.props.getTrips();
-  }
-
-  render() {
+const TripGrid = props =>{
     return(
       <div>
-      {  this.props.trips.map(item => <TripCard name={item.name}
+      {  props.trips.map(item => <TripCard name={item.name}
                                                 desc={item.description}
                                                 dur={item.duration}
                                                 img={item.img} />)  }
       </div>
     );
-  }
 }
 
 const mstp = state => {
@@ -32,4 +20,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, { getTrips })(TripGrid);
+export default connect(mstp, {})(TripGrid);

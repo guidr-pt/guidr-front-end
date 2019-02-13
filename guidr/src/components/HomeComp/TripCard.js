@@ -6,7 +6,6 @@ const TripCard = props => {
       <h2>{props.name}</h2>
       <p>{props.desc}</p>
 
-      <p>{props.dur}</p>
       <img src={props.img} alt={props.name} />
     </div>
   );

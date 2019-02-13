@@ -2,14 +2,28 @@ import React from 'react';
 import TripGrid from '../components/HomeComp/TripGrid';
 import TripModal from '../components/HomeComp/TripModal';
 
-const Home = props => {
-  return(
-    <div>
-      <h2>Home</h2>
-      <TripGrid />
-      <TripModal />
-    </div>
-  );
+import { connect } from 'react-redux';
+import { getTrips, getTrip } from '../actions';
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount(){
+    this.props.getTrips();
+    this.props.getTrip();
+  }
+
+  render() {
+    return(
+      <div>
+        <h2>Home</h2>
+        <TripGrid />
+        <TripModal />
+      </div>
+    );
+  }
 }
 
-export default Home;
+export default connect(null, { getTrips, getTrip })(Home);

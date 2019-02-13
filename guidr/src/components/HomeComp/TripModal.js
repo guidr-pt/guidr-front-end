@@ -1,11 +1,33 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 const TripModal = props => {
-  return(
-    <div>
-      <h3>TripModal</h3>
-    </div>
-  );
+    const trip = props.trip;
+
+    return(
+      <div>
+        <h2>{trip.name}</h2>
+        <h3>{trip.description}</h3>
+        <img src={trip.img} />
+        <h5>{trip.type}</h5>
+
+        <div>
+          <input type='checkbox' /> {String(trip.private)}
+        </div>
+
+        <p>{trip.duration}</p>
+        <p>{trip.date}</p>
+      </div>
+    );
 }
 
-export default TripModal;
+const mstp = state => {
+  console.log(state)
+  return {
+    ...state,
+    trip: state.appReducer.activeTrip
+  }
+}
+
+export default connect(mstp, {})(TripModal);
