@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 const Navigation = props => {
   return(
     <div>
-      <a to='/Home'>Home</a>
-      <a to='/Portfolio'>Portfolio</a>
+      <NavLink to='/Home'>Home</NavLink>
+      <NavLink to='/Portfolio'>Portfolio</NavLink>
     </div>
   );
 }
