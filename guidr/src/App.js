@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+import Navigation from './components/Navigation';
 import Register from './views/Register';
 import Home from './views/Home';
-import Navigation from './components/Navigation';
+import Portfolio from './views/Portfolio';
+
 
 
 import './App.css';
@@ -14,6 +17,7 @@ class App extends Component {
         <Navigation />
         <Register />
         <Home />
+        <Portfolio />
       </div>
     );
   }
