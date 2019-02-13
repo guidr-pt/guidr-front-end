@@ -15,7 +15,61 @@ const user = {
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
       private: false,
       type: 'type',
+      duration: '24 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
       duration: '4 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
+      duration: '23 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
+      duration: '62 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
+      duration: '12 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
+      duration: '2 days',
+      date: 'MM/DD/YYYY'
+    },
+    {
+      name: 'trip name',
+      description: 'I went on a trip!',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
+      private: false,
+      type: 'type',
+      duration: '9 days',
       date: 'MM/DD/YYYY'
     },
   ]
