@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 const Register = props => {
   return(
     <div className='login'>
-      <Route path='/welcome' component={Login} />
+      <Route path='/' component={Login} />
     </div>
   );
 }

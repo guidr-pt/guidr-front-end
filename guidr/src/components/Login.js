@@ -10,8 +10,15 @@ class Login extends React.Component {
     this.state = {
       userVal: '',
       passVal: '',
-      remember: false
+      remember: false,
+      register: false
     }
+  }
+
+  toggleView = () => {
+    this.setState(prevState => ({
+      register: !prevState.register,
+    }));
   }
 
   toggleRemember = e => {
@@ -26,20 +33,12 @@ class Login extends React.Component {
     });
   }
 
-  pageReset = () => {
-    this.setState({
-      userVal: '',
-      passVal: '',
-      remember: false
-    })
-  }
-
   componentDidMount() {
 
   }
 
   render () {
-    const pathname = this.props.location.pathname.toLowerCase();
+    const register = this.state.register;
 
     return(
       <div>
@@ -71,22 +70,22 @@ class Login extends React.Component {
               <input onClick={this.toggleRemember} type='checkbox' /> <span>Remember Me</span>
             </div>
 
-            { pathname === '/welcome/signup' ? <button>Create Account</button> : <button>Log In</button>}
+            { register ? <button>Create Account</button> : <button>Log In</button>}
           </form>
         </div>
 
 
-        { pathname === '/welcome/signup' ? <p> Have An Account?
-                                              <Link onClick={this.pageReset} to='/welcome'>
-                                                Log In
-                                              </Link>
-                                            </p>
+        { register ? <p> Have An Account?
+                          <span onClick={this.toggleView}>
+                            Log In
+                          </span>
+                        </p>
 
-                                            : <p> Need An Account?
-                                                  <Link onClick={this.pageReset} to='/welcome/signup'>
-                                                    Create One
-                                                  </Link>
-                                              </p> }
+                        : <p> Need An Account?
+                              <span onClick={this.toggleView}>
+                                Create One
+                              </span>
+                          </p> }
 
       </div>
     );

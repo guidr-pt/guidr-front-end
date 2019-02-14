@@ -49,6 +49,8 @@ html {
   background-image: linear-gradient(to left bottom, #133139, #15434f, #155667, #136a81, #0e7e9b, #1e8aaa, #2b97ba, #38a3ca, #4daad2, #5fb1d9, #70b9e1, #7fc0e8);
   height: 100vh;
   width: 100%;
+  position: relative;
+  z-index: 50000;
   display: flex;
   flex-direction: column;
   align-items: center;
