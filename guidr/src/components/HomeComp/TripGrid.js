@@ -4,6 +4,10 @@ import TripCard from './TripCard';
 import { connect } from 'react-redux';
 
 const TripGrid = props =>{
+    if(props.demo) {
+      
+    }
+
     return(
       <div className='grid'>
       {  props.trips.map(item => <TripCard trip={item}

@@ -5,7 +5,7 @@ const user = {
   username: 'username',
   password: 'password',
   title: 'title',
-  tagline: 'tagline',
+  tagline: 'tagline: a short description of the type of guide they are',
   age: 25,
   timeAsGuide: 8,
   trips: [

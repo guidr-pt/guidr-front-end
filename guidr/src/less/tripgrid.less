@@ -1,29 +1,29 @@
-.home {
-    .grid {
-    width: 100%;
+/* Grid Styles */
+.grid {
+width: 100%;
+background-color: #eee;
+
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+
+@media(min-width: 768px) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.tripgrid__card {
+  background-color: #ddd;
+  text-align: center;
+  font-size: 1.8rem;
+
+  padding: 8px 12px;
+
+  &:nth-of-type(even) {
     background-color: #eee;
-
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-
-    @media(min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-
-    .tripgrid__card {
-      background-color: #ddd;
-      text-align: center;
-      font-size: 1.8rem;
-
-      padding: 8px 12px;
-
-      &:nth-of-type(even) {
-        background-color: #eee;
-      }
-    }
   }
 }
+}
+
 
 /* Modal Styles */
 

@@ -13,10 +13,8 @@ class Portfolio extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Portfolio</h2>
+      <div className='portfolio'>
         <Profile />
-        <TripForm />
       </div>
     );
   }

@@ -183,24 +183,58 @@ html {
   align-items: center;
   margin-top: 45px;
 }
-.home .grid {
+.portfolio {
+  width: 100%;
+  max-width: 1026px;
+  margin: 125px auto;
+}
+.portfolio .portfolio__profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.portfolio .portfolio__profile .portfolio__profile__bio {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 250px;
+}
+.portfolio .portfolio__profile .portfolio__profile__bio img {
+  width: 100px;
+  height: 100px;
+}
+.portfolio .portfolio__profile h3 {
+  width: 40%;
+}
+.portfolio .portfolio__profile .portfolio__profile__time {
+  margin: 40px 20px 25px 15px;
+}
+.portfolio .portfolio__profile .portfolio__profile__time p {
+  font-size: 1.6rem;
+}
+.portfolio .portfolio__profile spacer {
+  flex: 2;
+}
+/* Grid Styles */
+.grid {
   width: 100%;
   background-color: #eee;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
 @media (min-width: 768px) {
-  .home .grid {
+  .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.home .grid .tripgrid__card {
+.grid .tripgrid__card {
   background-color: #ddd;
   text-align: center;
   font-size: 1.8rem;
   padding: 8px 12px;
 }
-.home .grid .tripgrid__card:nth-of-type(even) {
+.grid .tripgrid__card:nth-of-type(even) {
   background-color: #eee;
 }
 /* Modal Styles */
