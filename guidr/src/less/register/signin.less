@@ -8,67 +8,81 @@
   align-items: center;
   justify-content: center;
 
-  .login__form--container {
+  div {
     width: 100%;
-    max-width: 450px;
-    height: 600px;
-    margin-bottom: 15px;
-
-    background-color: #55a04b;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    justify-content: center;
 
-  .login__form--head {
-    background-image: url("../img/login-header-bg.jpeg");
-    background-color: #cccccc;
-    height: 250px;
-    width: 100%;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+    .login__form--container {
+      width: 100%;
+      max-width: 450px;
+      height: 600px;
+      margin-bottom: 15px;
 
-  form {
-    margin-top: 70px;
+      background-color: #55a04b;
 
-    .login__input--container {
-      font-size: 2rem;
-
-      i {
-        margin-right: 12px;
-      }
-    }
-
-    div {
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+    }
 
-      margin: 0 auto;
-      margin-bottom: 25px;
+    .login__form--head {
+      background-image: url("../img/login-header-bg.jpeg");
+      background-color: #cccccc;
+      height: 250px;
+      width: 100%;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-      span {
-        font-size: 1.2rem;
-        margin-bottom: 3px;
+    form {
+      margin-top: 70px;
+
+      .login__input--container {
+        font-size: 2rem;
+
+        i {
+          margin-right: 12px;
+        }
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+
+        margin: 0 auto;
+        margin-bottom: 25px;
+
+        span {
+          font-size: 1.2rem;
+          margin-bottom: 3px;
+        }
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        border: none;
+
+        height: 30px;
+        width: 150px;
+
+        background-color: #133139;
+        color: white;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
 
-    button {
-      display: block;
-      margin: 0 auto;
-      border: none;
-
-      height: 30px;
-      width: 150px;
-
-      background-color: #133139;
-      color: white;
+    p {
+      font-size: 1.4rem;
     }
-  }
-
-  p {
-    font-size: 1.4rem;
   }
 }

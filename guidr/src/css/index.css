@@ -143,7 +143,14 @@ html {
   align-items: center;
   justify-content: center;
 }
-.login .login__form--container {
+.login div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login div .login__form--container {
   width: 100%;
   max-width: 450px;
   height: 600px;
@@ -152,8 +159,9 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
-.login .login__form--head {
+.login div .login__form--head {
   background-image: url("../img/login-header-bg.jpeg");
   background-color: #cccccc;
   height: 250px;
@@ -162,29 +170,26 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.login form {
+.login div form {
   margin-top: 70px;
 }
-.login form .login__input--container {
+.login div form .login__input--container {
   font-size: 2rem;
 }
-.login form .login__input--container i {
+.login div form .login__input--container i {
   margin-right: 12px;
 }
-.login form .login__input--container input {
-  height: 30px;
-}
-.login form div {
+.login div form div {
   display: flex;
   align-items: center;
   margin: 0 auto;
   margin-bottom: 25px;
 }
-.login form div span {
+.login div form div span {
   font-size: 1.2rem;
   margin-bottom: 3px;
 }
-.login form button {
+.login div form button {
   display: block;
   margin: 0 auto;
   border: none;
@@ -193,6 +198,9 @@ html {
   background-color: #133139;
   color: white;
 }
-.login p {
+.login div form button:focus {
+  outline: none;
+}
+.login div p {
   font-size: 1.4rem;
 }

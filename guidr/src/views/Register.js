@@ -1,11 +1,12 @@
 import React from 'react';
-import SignUp from '../components/RegisterComp/SignUp';
 import Login from '../components/RegisterComp/Login';
+
+import { Route } from 'react-router-dom';
 
 const Register = props => {
   return(
-    <div>
-      <Login />
+    <div className='login'>
+      <Route path='/welcome' component={Login} />
     </div>
   );
 }
