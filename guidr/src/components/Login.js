@@ -5,6 +5,28 @@ import { Link } from 'react-router-dom';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      userVal: '',
+      passVal: '',
+      remember: false
+    }
+  }
+
+  changeHandler = e => {
+    console.log(this.state)
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  pageReset = () => {
+    this.setState({
+      userVal: '',
+      passVal: '',
+      remember: false
+    })
   }
 
   render () {
@@ -20,7 +42,9 @@ class Login extends React.Component {
               <i className="fas fa-user"></i>
               <input type='text'
                      placeholder='username'
-                     name='username'
+                     name='userVal'
+                     onChange={this.changeHandler}
+                     value={this.state.userVal}
                      />
             </div>
 
@@ -28,7 +52,9 @@ class Login extends React.Component {
               <i className="fas fa-lock"></i>
               <input type='text'
                      placeholder='password'
-                     name='password'
+                     name='passVal'
+                     onChange={this.changeHandler}
+                     value={this.state.passVal}
                      />
             </div>
 
@@ -42,13 +68,13 @@ class Login extends React.Component {
 
 
         { pathname === '/welcome/signup' ? <p> Have An Account?
-                                              <Link to='/welcome'>
+                                              <Link onClick={this.pageReset} to='/welcome'>
                                                 Log In
                                               </Link>
                                             </p>
 
                                             : <p> Need An Account?
-                                                  <Link to='/welcome/signup'>
+                                                  <Link onClick={this.pageReset} to='/welcome/signup'>
                                                     Create One
                                                   </Link>
                                               </p> }
