@@ -13,10 +13,14 @@ class Login extends React.Component {
     }
   }
 
-  changeHandler = e => {
-    console.log(this.state)
+  toggleRemember = e => {
     this.setState({
-      ...this.state,
+      remember: e.target.checked
+    })
+  }
+
+  changeHandler = e => {
+    this.setState({
       [e.target.name]: e.target.value
     });
   }
@@ -59,7 +63,7 @@ class Login extends React.Component {
             </div>
 
             <div>
-              <input type='checkbox' /> <span>Remember Me</span>
+              <input onClick={this.toggleRemember} type='checkbox' /> <span>Remember Me</span>
             </div>
 
             { pathname === '/welcome/signup' ? <button>Create Account</button> : <button>Log In</button>}
