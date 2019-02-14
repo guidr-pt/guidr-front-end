@@ -1,0 +1,198 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html {
+  font-size: 62.5%;
+}
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.login {
+  background-image: linear-gradient(to left bottom, #133139, #15434f, #155667, #136a81, #0e7e9b, #1e8aaa, #2b97ba, #38a3ca, #4daad2, #5fb1d9, #70b9e1, #7fc0e8);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login .login__form--container {
+  width: 100%;
+  max-width: 450px;
+  height: 600px;
+  margin-bottom: 15px;
+  background-color: #55a04b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login .login__form--head {
+  background-image: url("../img/login-header-bg.jpeg");
+  background-color: #cccccc;
+  height: 250px;
+  width: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login form {
+  margin-top: 70px;
+}
+.login form .login__input--container {
+  font-size: 2rem;
+}
+.login form .login__input--container i {
+  margin-right: 12px;
+}
+.login form .login__input--container input {
+  height: 30px;
+}
+.login form div {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.login form div span {
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+}
+.login form button {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  height: 30px;
+  width: 150px;
+  background-color: #133139;
+  color: white;
+}
+.login p {
+  font-size: 1.4rem;
+}

@@ -8,14 +8,14 @@ import Portfolio from './views/Portfolio';
 import { Route } from 'react-router-dom';
 
 
-import './App.css';
+import './css/index.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Navigation />
-        <Route path='/welcome' component={Register} />
+        <Route exact path='/' component={Register} />
         <Route path='/home' component={Home} />
         <Route path='/portfolio' component={Portfolio} />
       </div>
