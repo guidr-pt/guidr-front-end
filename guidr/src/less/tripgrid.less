@@ -25,8 +25,31 @@
   }
 }
 
+/* Modal Styles */
+
 div {
   .modal.show .modal-dialog {
     transform: translateY(20%);
+
+    .modal-body {
+      display: flex;
+
+      .modal-info {
+        display: flex;
+
+        img {
+          width: 150px;
+          height: 150px;
+        }
+
+        div {
+          margin: 10px;
+        }
+      }
+    }
+
+    .modal-footer {
+      justify-content: space-between;
+    }
   }
 }
