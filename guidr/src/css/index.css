@@ -196,9 +196,19 @@ html {
   width: 150px;
   background-color: #133139;
   color: white;
+  letter-spacing: 1px;
+  transition: background-color 0.5s, color 0.5s, height 0.5s, width 0.5s, font-size 0.5s;
 }
 .login div form button:focus {
   outline: none;
+}
+.login div form button:hover {
+  background-color: #7fc0e8;
+  color: #133139;
+  font-weight: bold;
+  height: 40px;
+  width: 170px;
+  font-size: 1.6rem;
 }
 .login div p {
   font-size: 1.4rem;

@@ -74,8 +74,22 @@
         background-color: #133139;
         color: white;
 
+        letter-spacing: 1px;
+
+        transition: background-color .5s, color .5s, height .5s, width .5s, font-size .5s;
+
         &:focus {
           outline: none;
+        }
+
+        &:hover {
+          background-color: #7fc0e8;
+          color: #133139;
+          font-weight: bold;
+          height: 40px;
+          width: 170px;
+
+          font-size: 1.6rem;
         }
       }
     }
