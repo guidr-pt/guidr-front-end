@@ -2,11 +2,9 @@ import React from 'react';
 
 const TripCard = props => {
   return(
-    <div>
+    <div className='tripgrid__card'>
       <h2>{props.name}</h2>
       <p>{props.desc}</p>
-
-      <img src={props.img} alt={props.name} />
     </div>
   );
 }

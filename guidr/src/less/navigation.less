@@ -1,5 +1,51 @@
 .navigation {
   position: fixed;
+  z-index: 9001;
   top: 0;
   left: 0;
+
+  height: 45px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #f99e54;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-size: 1.6rem;
+
+  a {
+    text-decoration: none;
+
+    color: #f99e54;
+    box-sizing: border-box;
+    padding: 15px;
+
+    transition: color 300ms;
+
+    @media(min-width: 1024px) {
+      color: #133139;
+
+      &:hover {
+        color: #f99e54;
+      }
+    }
+  }
+
+  .active {
+    color: #133139;
+    background-color: #f99e54;
+    font-weight: 600;
+
+    @media(min-width: 1024px) {
+      color: inherit;
+      background-color: transparent;
+      font-weight: inherit;
+
+      &:hover {
+        color: #f99e54;
+      }
+    }
+  }
 }

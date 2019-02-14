@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const TripGrid = props =>{
     return(
-      <div>
+      <div className='grid'>
       {  props.trips.map(item => <TripCard name={item.name}
                                            desc={item.description}
                                            dur={item.duration}
