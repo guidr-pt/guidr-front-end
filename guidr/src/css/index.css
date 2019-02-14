@@ -16,10 +16,9 @@ html {
   font-size: 1.6rem;
 }
 .navigation a {
-  text-decoration: none;
   color: #f99e54;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 10px 20px;
   transition: color 300ms;
 }
 @media (min-width: 1024px) {
@@ -28,6 +27,7 @@ html {
   }
   .navigation a:hover {
     color: #f99e54;
+    text-decoration: none;
   }
 }
 .navigation .active {
