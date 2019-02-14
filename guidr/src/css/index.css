@@ -328,3 +328,6 @@ html {
 .home .grid .tripgrid__card:nth-of-type(even) {
   background-color: #eee;
 }
+div .modal.show .modal-dialog {
+  transform: translateY(20%);
+}

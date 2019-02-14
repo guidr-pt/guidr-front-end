@@ -10,6 +10,7 @@ import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 

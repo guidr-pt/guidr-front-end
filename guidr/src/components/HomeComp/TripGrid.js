@@ -6,10 +6,7 @@ import { connect } from 'react-redux';
 const TripGrid = props =>{
     return(
       <div className='grid'>
-      {  props.trips.map(item => <TripCard name={item.name}
-                                           desc={item.description}
-                                           dur={item.duration}
-                                           img={item.img}
+      {  props.trips.map(item => <TripCard trip={item}
                                            key={Math.random()} />)  }
       </div>
     );

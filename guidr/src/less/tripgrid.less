@@ -1,5 +1,5 @@
 .home {
-  .grid {
+    .grid {
     width: 100%;
     background-color: #eee;
 
@@ -12,15 +12,21 @@
 
 
     .tripgrid__card {
-        background-color: #ddd;
-        text-align: center;
-        font-size: 1.8rem;
+      background-color: #ddd;
+      text-align: center;
+      font-size: 1.8rem;
 
-        padding: 8px 12px;
+      padding: 8px 12px;
 
-        &:nth-of-type(even) {
-          background-color: #eee;
-        }
+      &:nth-of-type(even) {
+        background-color: #eee;
+      }
     }
+  }
+}
+
+div {
+  .modal.show .modal-dialog {
+    transform: translateY(20%);
   }
 }
