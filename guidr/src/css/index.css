@@ -172,12 +172,62 @@ html {
 }
 .login div form {
   margin-top: 70px;
+  width: 80%;
 }
 .login div form .login__input--container {
   font-size: 2rem;
 }
 .login div form .login__input--container i {
   margin-right: 12px;
+  color: white;
+}
+.login div form .login__input--container input {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid #133139;
+  padding: 5px 10px;
+  width: 40%;
+  color: white;
+  letter-spacing: 1px;
+  transition: width 0.7s, height 0.7s, background-color 0.7s, color 0.7s;
+}
+.login div form .login__input--container input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:focus {
+  outline: none;
+  height: 20px;
+  width: 52%;
+  background-color: #133139;
+}
+.login div form .login__input--container input:focus::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+.login div form .login__input--container input:focus::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+.login div form .login__input--container input:focus:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+.login div form .login__input--container input:focus:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
 }
 .login div form div {
   flex-direction: row;
@@ -191,24 +241,24 @@ html {
 .login div form button {
   display: block;
   margin: 0 auto;
-  border: none;
+  border: 2px solid #133139;
   height: 30px;
   width: 150px;
-  background-color: #133139;
-  color: white;
+  background-color: transparent;
+  color: #133139;
   letter-spacing: 1px;
+  font-size: 1.6rem;
   transition: background-color 0.5s, color 0.5s, height 0.5s, width 0.5s, font-size 0.5s;
 }
 .login div form button:focus {
   outline: none;
 }
 .login div form button:hover {
-  background-color: #7fc0e8;
-  color: #133139;
-  font-weight: bold;
+  background-color: #133139;
+  color: white;
   height: 40px;
   width: 170px;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 .login div p {
   font-size: 1.4rem;
