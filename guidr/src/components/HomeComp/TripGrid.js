@@ -7,9 +7,10 @@ const TripGrid = props =>{
     return(
       <div>
       {  props.trips.map(item => <TripCard name={item.name}
-                                                desc={item.description}
-                                                dur={item.duration}
-                                                img={item.img} />)  }
+                                           desc={item.description}
+                                           dur={item.duration}
+                                           img={item.img}
+                                           key={Math.random()} />)  }
       </div>
     );
 }

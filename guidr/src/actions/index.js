@@ -7,7 +7,7 @@ const user = {
   title: 'title',
   tagline: 'tagline',
   age: 25,
-  timeAdGuide: 8,
+  timeAsGuide: 8,
   trips: [
     {
       name: 'trip name',

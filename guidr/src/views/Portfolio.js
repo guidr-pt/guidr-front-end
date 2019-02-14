@@ -2,14 +2,28 @@ import React from 'react';
 import Profile from '../components/PortfolioComp/Profile';
 import TripForm from '../components/PortfolioComp/TripForm';
 
-const Portfolio = props => {
-  return (
-    <div>
-      <h2>Portfolio</h2>
-      <Profile />
-      <TripForm />
-    </div>
-  );
+import { connect } from 'react-redux';
+import { getUser } from '../actions';
+
+
+class Portfolio extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount(){
+    this.props.getUser()
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Portfolio</h2>
+        <Profile />
+        <TripForm />
+      </div>
+    );  
+  }
 }
 
-export default Portfolio;
+export default connect(null, { getUser })(Portfolio);
