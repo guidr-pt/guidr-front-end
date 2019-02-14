@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
 
 class Login extends React.Component {
   constructor(props) {
@@ -31,6 +32,10 @@ class Login extends React.Component {
       passVal: '',
       remember: false
     })
+  }
+
+  componentDidMount() {
+
   }
 
   render () {
@@ -88,4 +93,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mstp = state => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mstp, {})(Login);

@@ -9,7 +9,7 @@ const TripModal = props => {
       <div>
         <h2>{trip.name}</h2>
         <h3>{trip.description}</h3>
-        <img src={trip.img} />
+        <img src={trip.img} alt={trip.name}/>
         <h5>{trip.type}</h5>
 
         <div>

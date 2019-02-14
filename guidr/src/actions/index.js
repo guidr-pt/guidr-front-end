@@ -75,7 +75,7 @@ const user = {
   ]
 }
 
-{/*   Action Calls and Creators for App Reducer   */}
+/*   Action Calls and Creators for App Reducer   */
 
 export const GET_USER = 'GET_USER';
 export const GET_TRIP = 'GET_TRIP';
@@ -85,11 +85,11 @@ export const DELETE_TRIP = 'DELETE_TRIP';
 export const ADD_TRIP = 'ADD_TRIP';
 
 
-{/*   Action Calls and Creators for multiple reducers   */}
+/*   Action Calls and Creators for multiple reducers   */
 
 export const LOADING = 'LOADING';
 
-{/*   Get current user data   */}
+/*   Get current user data   */
 
 export const getUser = () => dispatch => {
   dispatch({ type: LOADING });
@@ -97,7 +97,7 @@ export const getUser = () => dispatch => {
   dispatch({ type: GET_USER, payload: user })
 }
 
-{/*   Get user selected trip   */}
+/*   Get user selected trip   */
 
 export const getTrip = () => dispatch => {
     dispatch({ type: LOADING });
@@ -105,7 +105,7 @@ export const getTrip = () => dispatch => {
     dispatch({ type: GET_TRIP, payload: user.trips[0] })
 }
 
-{/*   Get all user trips   */}
+/*   Get all user trips   */
 
 export const getTrips = () => dispatch => {
   dispatch({ type: LOADING });

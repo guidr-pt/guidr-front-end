@@ -6,10 +6,6 @@ import { connect } from 'react-redux';
 import { getTrips, getTrip } from '../actions';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount(){
     this.props.getTrips();
     this.props.getTrip();

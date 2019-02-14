@@ -7,10 +7,6 @@ import { getUser } from '../actions';
 
 
 class Portfolio extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount(){
     this.props.getUser()
   }
@@ -22,7 +18,7 @@ class Portfolio extends React.Component {
         <Profile />
         <TripForm />
       </div>
-    );  
+    );
   }
 }
 
