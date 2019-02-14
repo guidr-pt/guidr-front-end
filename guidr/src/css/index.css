@@ -180,8 +180,7 @@ html {
   margin-right: 12px;
 }
 .login div form div {
-  display: flex;
-  align-items: center;
+  flex-direction: row;
   margin: 0 auto;
   margin-bottom: 25px;
 }
