@@ -3,10 +3,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   signout = () => {
     localStorage.removeItem('jwtToken');
     this.props.history.push('/');

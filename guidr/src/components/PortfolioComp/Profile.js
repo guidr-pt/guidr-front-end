@@ -1,6 +1,5 @@
 import React from 'react';
 import TripGrid from '../HomeComp/TripGrid';
-import TripForm from './TripForm';
 
 import { connect } from 'react-redux';
 
@@ -51,7 +50,6 @@ class Profile extends React.Component {
         </div>
 
         <TripGrid />
-        <TripForm />
       </div>
     );
   }

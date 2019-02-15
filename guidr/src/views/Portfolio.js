@@ -6,11 +6,18 @@ import { getUser } from '../actions';
 
 
 class Portfolio extends React.Component {
-  constructor(props) {
-    super(props);
+  authenticate = () => {
+    const token = localStorage.getItem('jwtToken');
+
+    if(token) {
+      this.props.history.push('/portfolio')
+    } else {
+      this.props.history.push('/access-denied');
+    }
   }
 
   componentDidMount(){
+    this.authenticate();
     this.props.getUser()
   }
 

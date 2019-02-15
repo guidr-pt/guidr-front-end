@@ -24,51 +24,64 @@ class TripForm extends React.Component {
 
   render() {
     return (
-      <form>
-        <h2>Add Another Trip?</h2>
+      <div className='trip-form__container'>
+        <form>
+          <h2>Add Another Trip?</h2>
 
-        <label>Name:</label>
-        <input type='text'
-               name='name'
-               placeholder='Grand Falls'
-               onChange={this.handleChange}
-               value={this.state.Name} />
+          <div className='textbox'>
+            <label>Name:</label>
+            <input type='text'
+                   name='name'
+                   placeholder='Grand Falls'
+                   onChange={this.handleChange}
+                   value={this.state.Name} />
+          </div>
 
-        <label>Type:</label>
-        <input type='text'
-               name='type'
-               placeholder='type'
-               onChange={this.handleChange}
-               value={this.state.type} />
+          <div className='textbox'>
+            <label>Type:</label>
+            <input type='text'
+                   name='type'
+                   placeholder='type'
+                   onChange={this.handleChange}
+                   value={this.state.type} />
+          </div>
 
-        <label>Duration:</label>
-        <input type='text'
-               name='duration'
-               placeholder='XX Days'
-               onChange={this.handleChange}
-               value={this.state.duration} />
+          <div className='textbox'>
+            <label>Duration:</label>
+            <input type='text'
+                   name='duration'
+                   placeholder='XX Days'
+                   onChange={this.handleChange}
+                   value={this.state.duration} />
+          </div>
 
-        <label>Date:</label>
-        <input type='text'
-               name='date'
-               placeholder='MM / DD / YYYY'
-               onChange={this.handleChange}
-               value={this.state.date}/>
+          <div className='textbox'>
+            <label>Date:</label>
+            <input type='text'
+                   name='date'
+                   placeholder='MM / DD / YYYY'
+                   onChange={this.handleChange}
+                   value={this.state.date}/>
+          </div>
 
-        <div>
-          <input type='checkbox'
-                 name='private'
-                 onChange={this.handleChange}
-                 value={this.state.date} />
+          <div className='checkbox'>
+            <input type='checkbox'
+                   name='private'
+                   onChange={this.handleChange}
+                   value={this.state.date} />
 
-          <span>Private</span>
-        </div>
+            <span>Private</span>
+          </div>
 
-        <label>Description:</label>
-        <textarea name='description'
-                  onChange={this.handleChange}
-                  value={this.state.description} />
-      </form>
+          <div className='description'>
+            <label>Description:</label>
+            <textarea name='description'
+                      onChange={this.handleChange}
+                      value={this.state.description} />
+          </div>
+
+        </form>
+      </div>
     )
   }
 }
