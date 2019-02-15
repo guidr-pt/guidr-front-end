@@ -7,7 +7,7 @@ const Navigation = props => {
     <div className='navigation'>
       <NavLink to='/Home' className="normal" activeClassName="active">Home</NavLink>
       <NavLink to='/Portfolio' className="normal" activeClassName="active">Portfolio</NavLink>
-      <NavLink to='/' className="normal" activeClassName="active">Log Out</NavLink>
+      <NavLink to='/' className="normal">Log Out</NavLink>
     </div>
   );
 }

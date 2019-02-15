@@ -15,20 +15,23 @@ html {
   align-items: center;
   font-size: 1.6rem;
 }
-.navigation a {
+.navigation .normal {
   color: #f99e54;
   box-sizing: border-box;
   padding: 10px 20px;
+  text-decoration: none;
   transition: color 300ms;
 }
 @media (min-width: 1024px) {
-  .navigation a {
+  .navigation .normal {
     color: #133139;
   }
-  .navigation a:hover {
+  .navigation .normal:hover {
     color: #f99e54;
-    text-decoration: none;
   }
+}
+.navigation .normal:hover {
+  text-decoration: none;
 }
 .navigation .active {
   color: #133139;

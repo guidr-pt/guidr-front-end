@@ -1,5 +1,6 @@
 import React from 'react';
 import TripGrid from '../HomeComp/TripGrid';
+import TripForm from './TripForm';
 
 import { connect } from 'react-redux';
 
@@ -45,11 +46,12 @@ class Profile extends React.Component {
 
           <div className='portfolio__profile__time'>
             { editMode ? <input placeholder='Age' /> : <p>Age: {this.props.user.age}</p> }
-            { editMode ? <input placeholder='Time As Guide' /> : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }            
+            { editMode ? <input placeholder='Time As Guide' /> : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }
           </div>
         </div>
 
         <TripGrid />
+        <TripForm />
       </div>
     );
   }
