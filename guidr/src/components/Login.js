@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
@@ -47,9 +47,14 @@ class Login extends React.Component {
 
     axios.post(endpoint, userInfo)
          .then(res => {
-           console.log(res)
            localStorage.setItem('jwtToken', res.data.token);
-           console.log('success')
+           const token = localStorage.getItem('jwtToken');
+
+           if(token) {
+             this.props.history.push('/portfolio')
+           } else {
+             console.log('you suck')
+           }
          })
          .catch(err => { console.log('error:', err) })
   }
@@ -147,4 +152,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, {})(Login);
+export default connect(mstp, {})(withRouter(Login));

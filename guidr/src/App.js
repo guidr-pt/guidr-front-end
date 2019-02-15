@@ -5,7 +5,7 @@ import Register from './views/Register';
 import Home from './views/Home';
 import Portfolio from './views/Portfolio';
 
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 
 import './css/index.css';
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path='/' component={Register} />
+        <Route exact path='/' render={props => <Register {...props}/>} />
         <Route path='/home' component={Home} />
         <Route path='/portfolio' component={Portfolio} />
       </div>
@@ -23,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
