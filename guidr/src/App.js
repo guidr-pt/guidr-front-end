@@ -21,7 +21,7 @@ class App extends Component {
         <Route path='/home' component={Home} />
         <Route path='/portfolio' component={Portfolio} />
         <Route path='/add-trip' component={TripForm} />
-        <Route path='access-denied' component={AccessDenied} />
+        <Route path='/access-denied' component={AccessDenied} />
       </div>
     );
   }

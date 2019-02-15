@@ -22,6 +22,20 @@ class TripForm extends React.Component {
    });
 }
 
+authenticate = () => {
+  const token = localStorage.getItem('jwtToken');
+
+  if(token) {
+    this.props.history.push('/add-trip')
+  } else {
+    this.props.history.push('/access-denied');
+  }
+}
+
+componentDidMount() {
+  this.authenticate();
+}
+
   render() {
     return (
       <div className='trip-form__container'>
