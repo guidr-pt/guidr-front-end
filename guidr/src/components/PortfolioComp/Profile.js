@@ -3,34 +3,56 @@ import TripGrid from '../HomeComp/TripGrid';
 
 import { connect } from 'react-redux';
 
-const Profile = props => {
-  console.log(props)
-  return(
-    <div className='portfolio-container'>
+import { Button } from 'reactstrap';
 
-      <div className='portfolio__profile'>
-        <div className='portfolio__profile__bio'>
-          <img src='http://svgur.com/i/65U.svg' alt={props.user.name} />
+class Profile extends React.Component {
+  constructor(props) {
+    super(props);
 
-          <div>
-            <h1>{props.user.username}</h1>
-            <h2>{props.user.title}</h2>
+    this.state = {
+      edit: false,
+    }
+  }
+
+  toggleEdit = () => {
+    this.setState(prevState => ({
+      edit: !prevState.edit,
+    }));
+  }
+
+  render() {
+    const editMode = this.state.edit;
+
+    return(
+      <div className='portfolio-container'>
+
+        <div className='portfolio__profile'>
+
+        <Button color="primary" onClick={this.toggleEdit}> Edit </Button>
+
+          <div className='portfolio__profile__bio'>
+            <img src='http://svgur.com/i/65U.svg' alt={this.props.user.name} />
+
+            <div>
+              { editMode ? <input placeholder={this.props.user.username} /> : <h1>{this.props.user.username}</h1> }
+              { editMode ? <input placeholder={this.props.user.title} /> : <h2>{this.props.user.title}</h2> }
+            </div>
+          </div>
+
+          <div className='spacer' />
+            { editMode ? <input placeholder='tagline' /> : <h3>{this.props.user.tagline}</h3> }
+          <div className='spacer' />
+
+          <div className='portfolio__profile__time'>
+            { editMode ? <input placeholder='Age' /> : <p>Age: {this.props.user.age}</p> }
+            { editMode ? <input placeholder='Time As Guide' /> : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }            
           </div>
         </div>
 
-        <spacer></spacer>
-          <h3>{props.user.tagline}</h3>
-        <spacer></spacer>
-
-        <div className='portfolio__profile__time'>
-          <p>Age: {props.user.age}</p>
-          <p>Time As Guide: {props.user.timeAsGuide}</p>
-        </div>
+        <TripGrid />
       </div>
-
-      <TripGrid />
-    </div>
-  );
+    );
+  }
 }
 
 const mstp = state => {

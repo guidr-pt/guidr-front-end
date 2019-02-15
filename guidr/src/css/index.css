@@ -192,6 +192,12 @@ html {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  position: relative;
+}
+.portfolio .portfolio__profile .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .portfolio .portfolio__profile .portfolio__profile__bio {
   display: flex;
@@ -213,7 +219,7 @@ html {
 .portfolio .portfolio__profile .portfolio__profile__time p {
   font-size: 1.6rem;
 }
-.portfolio .portfolio__profile spacer {
+.portfolio .portfolio__profile .spacer {
   flex: 2;
 }
 /* Grid Styles */
