@@ -15,30 +15,59 @@ class TripForm extends React.Component {
     }
   }
 
+  handleChange = e => {
+  this.setState({
+     ...this.state,
+     [e.target.name]: e.target.value
+   });
+}
+
   render() {
     return (
       <form>
         <h2>Add Another Trip?</h2>
 
         <label>Name:</label>
-        <input type='text' placeholder='Name' />
+        <input type='text'
+               name='name'
+               placeholder='Grand Falls'
+               onChange={this.handleChange}
+               value={this.state.Name} />
 
-        <label>Name:</label>
-        <input type='text' placeholder='type' />
+        <label>Type:</label>
+        <input type='text'
+               name='type'
+               placeholder='type'
+               onChange={this.handleChange}
+               value={this.state.type} />
 
-        <label>Name:</label>
-        <input type='text' placeholder='Duration' />
+        <label>Duration:</label>
+        <input type='text'
+               name='duration'
+               placeholder='XX Days'
+               onChange={this.handleChange}
+               value={this.state.duration} />
 
-        <label>Name:</label>
-        <input type='text' placeholder='MM / DD / YYYY' />
+        <label>Date:</label>
+        <input type='text'
+               name='date'
+               placeholder='MM / DD / YYYY'
+               onChange={this.handleChange}
+               value={this.state.date}/>
 
         <div>
-          <input type='checkbox' />
+          <input type='checkbox'
+                 name='private'
+                 onChange={this.handleChange}
+                 value={this.state.date} />
+
           <span>Private</span>
         </div>
 
         <label>Description:</label>
-        <input type='textarea' placeholder='Description' />
+        <textarea name='description'
+                  onChange={this.handleChange}
+                  value={this.state.description} />
       </form>
     )
   }

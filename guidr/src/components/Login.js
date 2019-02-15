@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -10,6 +12,7 @@ class Login extends React.Component {
     this.state = {
       userVal: '',
       passVal: '',
+      nameVal:'chris',
       remember: false,
       register: false
     }
@@ -33,6 +36,41 @@ class Login extends React.Component {
     });
   }
 
+  login = e => {
+    e.preventDefault();
+
+    const endpoint =  'http://localhost:7070/user/login';
+    const userInfo = {
+        username: this.state.userVal,
+        password: this.state.passVal
+    }
+
+    axios.post(endpoint, userInfo)
+         .then(res => {
+           console.log(res)
+           localStorage.setItem('jwtToken', res.data.token);
+           console.log('success')
+         })
+         .catch(err => { console.log('error:', err) })
+  }
+
+  registration = e => {
+    e.preventDefault();
+
+    const endpoint =  'http://localhost:7070/user/registration';
+    const registerInfo = {
+      username: this.state.userVal,
+      name: this.state.nameVal,
+      password: this.state.passVal
+    }
+
+    axios.post(endpoint, registerInfo)
+          .then(res => {
+            this.setState({ register: false })
+          })
+          .catch(err => console.log('Error: ', err));
+  }
+
   componentDidMount() {
 
   }
@@ -45,7 +83,18 @@ class Login extends React.Component {
         <div className='login__form--container'>
           <div className='login__form--head'></div>
 
-          <form>
+          <form onSubmit={!register?this.login:this.registration}>
+            { register ? <div className='login__input--container'>
+                          <i className="fas fa-user"></i>
+                          <input type='text'
+                                placeholder='name'
+                                name='nameVal'
+                                onChange={this.changeHandler}
+                                value={this.state.name}
+                                />
+                        </div> 
+                        : null }
+
             <div className='login__input--container'>
               <i className="fas fa-user"></i>
               <input type='text'
@@ -70,7 +119,7 @@ class Login extends React.Component {
               <input onClick={this.toggleRemember} type='checkbox' /> <span>Remember Me</span>
             </div>
 
-            { register ? <button>Create Account</button> : <button>Log In</button>}
+            { register ? <button>Create Account</button> : <button type='submit'>Log In</button>}
           </form>
         </div>
 
