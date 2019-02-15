@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Register from './views/Register';
 import Home from './views/Home';
 import Portfolio from './views/Portfolio';
+import AccessDenied from './views/AccessDenied';
 
 import { Route, withRouter } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path='/' render={props => <Register {...props}/>} />
         <Route path='/home' component={Home} />
         <Route path='/portfolio' component={Portfolio} />
+        <Route path='access-denied' component={AccessDenied} />
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Profile from '../components/PortfolioComp/Profile';
-import TripForm from '../components/PortfolioComp/TripForm';
 
 import { connect } from 'react-redux';
 import { getUser } from '../actions';
@@ -9,15 +8,10 @@ import { getUser } from '../actions';
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      
-    }
   }
 
   componentDidMount(){
     this.props.getUser()
-    
   }
 
   render() {

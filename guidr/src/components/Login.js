@@ -53,7 +53,7 @@ class Login extends React.Component {
            if(token) {
              this.props.history.push('/portfolio')
            } else {
-             console.log('you suck')
+             this.props.history.push('/access-denied');
            }
          })
          .catch(err => { console.log('error:', err) })
@@ -97,7 +97,7 @@ class Login extends React.Component {
                                 onChange={this.changeHandler}
                                 value={this.state.name}
                                 />
-                        </div> 
+                        </div>
                         : null }
 
             <div className='login__input--container'>
