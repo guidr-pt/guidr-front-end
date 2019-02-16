@@ -7,10 +7,9 @@
 
   form {
     border: 1px solid red;
-    display: flex;
-    flex-direction: column;
+
+    .flexColumnCenter();
     justify-content: space-around;
-    align-items: center;
 
     height: 600px;
     width: 100%;
@@ -43,9 +42,7 @@
     }
 
     .description {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      .flexColumnCenter();
       align-items: flex-start;
 
       max-width: 1000px;

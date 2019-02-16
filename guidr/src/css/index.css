@@ -90,15 +90,12 @@ html {
   max-width: 450px;
   height: 600px;
   margin-bottom: 15px;
-  background-color: #55a04b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #55A04B;
   justify-content: flex-start;
 }
 .login div .login__form--head {
   background-image: url("../img/login-header-bg.jpeg");
-  background-color: #cccccc;
+  background-color: #ddd;
   height: 250px;
   width: 100%;
   background-position: bottom;
@@ -114,7 +111,7 @@ html {
 }
 .login div form .login__input--container i {
   margin-right: 12px;
-  color: white;
+  color: #eee;
 }
 .login div form .login__input--container input {
   background-color: transparent;
@@ -123,7 +120,7 @@ html {
   padding: 5px 10px;
   height: 25px;
   width: 50%;
-  color: white;
+  color: #eee;
   letter-spacing: 1px;
   transition: width 0.7s, height 0.7s, background-color 0.7s, color 0.7s;
 }
@@ -151,19 +148,19 @@ html {
 }
 .login div form .login__input--container input:focus::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: white;
+  color: #eee;
 }
 .login div form .login__input--container input:focus::-moz-placeholder {
   /* Firefox 19+ */
-  color: white;
+  color: #eee;
 }
 .login div form .login__input--container input:focus:-ms-input-placeholder {
   /* IE 10+ */
-  color: white;
+  color: #eee;
 }
 .login div form .login__input--container input:focus:-moz-placeholder {
   /* Firefox 18- */
-  color: white;
+  color: #eee;
 }
 .login div form div {
   flex-direction: row;
@@ -191,7 +188,7 @@ html {
 }
 .login div form button:hover {
   background-color: #133139;
-  color: white;
+  color: #eee;
   height: 40px;
   width: 170px;
   font-size: 2rem;
@@ -296,8 +293,9 @@ div .modal.show .modal-dialog .modal-footer {
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
+  justify-content: space-around;
   height: 600px;
   width: 100%;
   max-width: 500px;
@@ -327,7 +325,8 @@ div .modal.show .modal-dialog .modal-footer {
 .trip-form__container form .description {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   align-items: flex-start;
   max-width: 1000px;
 }

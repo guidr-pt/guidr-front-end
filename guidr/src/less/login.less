@@ -11,10 +11,7 @@
   div {
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    .flexColumnCenter();
 
     .login__form--container {
       width: 100%;
@@ -22,17 +19,14 @@
       height: 600px;
       margin-bottom: 15px;
 
-      background-color: #55a04b;
+      background-color: @secondary;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: flex-start;
     }
 
     .login__form--head {
       background-image: url("../img/login-header-bg.jpeg");
-      background-color: #cccccc;
+      background-color: @white-1d;
       height: 250px;
       width: 100%;
       background-position: bottom;
@@ -49,19 +43,19 @@
 
         i {
           margin-right: 12px;
-          color: white;
+          color: @white-1l;
         }
 
         input {
           background-color: transparent;
           border-radius: 20px;
-          border: 1px solid #133139;
+          border: 1px solid @dark-main;
 
           padding: 5px 10px;
           height: 25px;
           width: 50%;
 
-          color: white;
+          color: @white-1l;
           letter-spacing: 1px;
 
           transition: width .7s, height .7s, background-color .7s, color .7s;
@@ -84,19 +78,19 @@
             height: 35px;
             width: 65%;
 
-            background-color: #133139;
+            background-color: @dark-main;
 
             &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-              color: white;
+              color: @white-1l;
             }
             &::-moz-placeholder { /* Firefox 19+ */
-              color: white;
+              color: @white-1l;
             }
             &:-ms-input-placeholder { /* IE 10+ */
-              color: white;
+              color: @white-1l;
             }
             &:-moz-placeholder { /* Firefox 18- */
-              color: white;
+              color: @white-1l;
             }
 
           }
@@ -118,13 +112,13 @@
       button {
         display: block;
         margin: 0 auto;
-        border: 2px solid #133139;
+        border: 2px solid @dark-main;
 
         height: 30px;
         width: 150px;
 
         background-color: transparent;
-        color: #133139;
+        color: @dark-main;
 
         letter-spacing: 1px;
         font-size: 1.6rem;
@@ -136,8 +130,8 @@
         }
 
         &:hover {
-          background-color: #133139;
-          color: white;
+          background-color: @dark-main;
+          color: @white-1l;
           height: 40px;
           width: 170px;
           font-size: 2rem;
