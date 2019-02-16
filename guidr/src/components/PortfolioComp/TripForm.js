@@ -100,7 +100,7 @@ componentDidMount() {
                    value={this.state.date}/>
           </div>
 
-          <div className='checkbox'>
+          <div className='btnbox'>
             <button onClick={this.privateSelect} className='selected'>Professional</button>
 
             <button onClick={this.privateSelect}>Private</button>

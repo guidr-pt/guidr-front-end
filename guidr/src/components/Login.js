@@ -87,7 +87,9 @@ class Login extends React.Component {
     return(
       <div>
         <div className='login__form--container'>
-          <div className='login__form--head'></div>
+          <div className='login__form--head'>
+            <h1>{ register ? 'Sign Up' : 'Log In'}</h1>
+          </div>
 
           <form onSubmit={!register?this.login:this.registration}>
             { register ? <div className='login__input--container'>
