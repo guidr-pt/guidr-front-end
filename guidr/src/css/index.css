@@ -10,6 +10,28 @@ html body {
   align-items: center;
   justify-content: center;
 }
+.denied {
+  background-color: #D3D3D3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 30vh auto;
+  padding: 75px 50px;
+  width: 40%;
+  height: 350px;
+}
+.denied a {
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #009ac0;
+}
+.denied a:hover {
+  text-decoration: none;
+  color: #133139;
+}
 .navigation {
   position: fixed;
   z-index: 9001;
@@ -23,6 +45,13 @@ html body {
   justify-content: flex-end;
   align-items: center;
   font-size: 1.6rem;
+}
+.navigation .search {
+  margin-right: 13%;
+}
+.navigation .search button {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
 }
 .navigation .normal {
   color: #f99e54;

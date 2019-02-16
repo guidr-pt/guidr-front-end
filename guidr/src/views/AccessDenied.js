@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AccessDenied = props => {
   return(
-    <div>
+    <div className='denied'>
       <h1>Access Denied</h1>
       <h2>Please, Login to Continue</h2>
       <Link to='/'>LOGIN</Link>
