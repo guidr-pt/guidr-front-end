@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+/* Custom Components */
 import Navigation from './components/Navigation';
 import TripForm from './components/PortfolioComp/TripForm';
 import Register from './views/Register';
@@ -7,11 +8,14 @@ import Home from './views/Home';
 import Portfolio from './views/Portfolio';
 import AccessDenied from './views/AccessDenied';
 
+/* React Router */
 import { Route, withRouter } from 'react-router-dom';
 
+/* Redux */
 import { connect } from 'react-redux';
 import { getTrips, getTrip, getUser } from './actions';
 
+/* Compiled CSS file */
 import './css/index.css';
 
 class App extends Component {
@@ -35,4 +39,5 @@ class App extends Component {
   }
 }
 
+/* Accessing props from React Router and the Redux Store via withRouter and connect */
 export default withRouter(connect(null, { getTrips, getTrip, getUser })(App));

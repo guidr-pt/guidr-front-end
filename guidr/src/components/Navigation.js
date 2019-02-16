@@ -3,6 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 
 
 class Navigation extends React.Component {
+  /* removes token to deny access until another login is completed */
   signout = () => {
     localStorage.removeItem('jwtToken');
     this.props.history.push('/');

@@ -19,6 +19,7 @@ class TripModal extends React.Component {
     };
   }
 
+  /* Open and Close Modal */
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal,
@@ -26,16 +27,19 @@ class TripModal extends React.Component {
     }));
   }
 
+  /* Get Status of Private/Professional Checkbox */
   getPrivate = e => {
     this.setState({ private: e.target.checked})
   }
 
+  /* Enter Edit View revealing Form Inputs */
   editMode = () => {
     this.setState(prevState => ({
       edit: !prevState.edit
     }));
   }
 
+  /* Update Trip based on Form Input in Edit mode */
   saveEdit = e => {
     const update = {
       name: this.state.name,
@@ -58,6 +62,7 @@ class TripModal extends React.Component {
     })
   }
 
+  /* Update State based on Form Inputs */
   handleChange = e => {
     this.setState({
        ...this.state,
@@ -74,6 +79,14 @@ class TripModal extends React.Component {
                             </div>
 
     return (
+
+      /*
+          Modal Contains Elements render in one of two views (display/edit)
+          The format for these are
+
+          { editMode(bool) ? <input/> : <display element> }
+      */
+
       <div className='modal-container'>
         <Button color="danger" onClick={this.toggle}>View</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+/* Dummy data to be deleted*/
 const user = {
   loggedIn: false,
   username: 'username',
@@ -129,6 +131,8 @@ export const editTrip = update => dispatch => {
 
   dispatch({ type: EDIT_TRIP, payload: update })
 }
+
+/* Edit User from Profile */
 
 export const editUser = update => dispatch => {
   dispatch({ type: LOADING });

@@ -18,24 +18,28 @@ class Login extends React.Component {
     }
   }
 
+  /* Changes between the Login and Singup views */
   toggleView = () => {
     this.setState(prevState => ({
       register: !prevState.register,
     }));
   }
 
+  /* Toggle the value of remember me in state */
   toggleRemember = e => {
     this.setState({
       remember: e.target.checked
     })
   }
 
+  /* Update State based on Form Inputs */
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
 
+  /* Login Authentication */
   login = e => {
     e.preventDefault();
 
@@ -59,6 +63,7 @@ class Login extends React.Component {
          .catch(err => { console.log('error:', err) })
   }
 
+  /* Registration of new user */
   registration = e => {
     e.preventDefault();
 
@@ -120,11 +125,12 @@ class Login extends React.Component {
               <input onClick={this.toggleRemember} type='checkbox' /> <span>Remember Me</span>
             </div>
 
+            {/* Determine if the LogIn or SignUp button is rendered */}
             { register ? <button>Create Account</button> : <button type='submit'>Log In</button>}
           </form>
         </div>
 
-
+        {/* Determine if the LogIn or SignUp toggle is rendered */}
         { register ? <p> Have An Account?
                           <span onClick={this.toggleView}>
                             Log In

@@ -19,12 +19,14 @@ class Profile extends React.Component {
     }
   }
 
+  /* Enter Edit View revealing Form Inputs */
   toggleEdit = () => {
     this.setState(prevState => ({
       edit: !prevState.edit,
     }));
   }
 
+  /* Update State based on Form Inputs */
   handleChange = e => {
   this.setState({
      ...this.state,
@@ -32,6 +34,7 @@ class Profile extends React.Component {
    });
  }
 
+/* Update User based on Form Input in Edit mode */
  saveEdit = () => {
    const update = {
      title: this.state.title,
@@ -54,12 +57,22 @@ class Profile extends React.Component {
     const editMode = this.state.edit;
 
     return(
-      <div className='portfolio-container'>
 
+      /*
+          Modal Contains Elements render in one of two views (display/edit)
+          The format for these are
+
+          { editMode(bool) ? <input/> : <display element> }
+      */
+
+      <div className='portfolio-container'>
         <div className='portfolio__profile'>
 
+
         <Button color="primary" onClick={this.toggleEdit}> {this.state.edit ? 'Close' : 'Edit'} </Button>
+
         { this.state.edit ? <Button color="primary" onClick={this.saveEdit}> Save </Button> : null }
+
 
           <div className='portfolio__profile__bio'>
             <img src='http://svgur.com/i/65U.svg' alt={this.props.user.name} />

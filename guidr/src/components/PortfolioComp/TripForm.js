@@ -18,6 +18,7 @@ class TripForm extends React.Component {
     }
   }
 
+  /* Update State based on Form Inputs */
   handleChange = e => {
   this.setState({
      ...this.state,
@@ -25,6 +26,7 @@ class TripForm extends React.Component {
    });
 }
 
+/* Ensure user is signed in by checking token, alternate route if denied */
 authenticate = () => {
   const token = localStorage.getItem('jwtToken');
 
@@ -35,6 +37,7 @@ authenticate = () => {
   }
 }
 
+/* Buttons that determine if trip is private or professional */
 privateSelect = e => {
   e.preventDefault();
 
@@ -44,6 +47,7 @@ privateSelect = e => {
   e.target.innerText.toLowerCase() === 'private' ? this.setState({ private: true }) : this.setState({ private: false })
 }
 
+/* Handler that sends the new trip to the action creator */
 addTripHandler = e => {
   e.preventDefault();
 
