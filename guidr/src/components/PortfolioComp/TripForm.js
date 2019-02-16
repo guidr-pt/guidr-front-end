@@ -32,6 +32,15 @@ authenticate = () => {
   }
 }
 
+privateSelect = e => {
+  e.preventDefault();
+
+  const buttons = e.target.parentNode.childNodes;
+  buttons.forEach(btn => btn.classList.toggle('selected'));
+
+  e.target.innerText.toLowerCase() === 'private' ? this.setState({ private: true }) : this.setState({ private: false })
+}
+
 componentDidMount() {
   this.authenticate();
 }
@@ -79,12 +88,9 @@ componentDidMount() {
           </div>
 
           <div className='checkbox'>
-            <input type='checkbox'
-                   name='private'
-                   onChange={this.handleChange}
-                   value={this.state.date} />
+            <button onClick={this.privateSelect} className='selected'>Professional</button>
 
-            <span>Private</span>
+            <button onClick={this.privateSelect}>Private</button>
           </div>
 
           <div className='description'>

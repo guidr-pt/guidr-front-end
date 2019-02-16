@@ -76,10 +76,6 @@ class Login extends React.Component {
           .catch(err => console.log('Error: ', err));
   }
 
-  componentDidMount() {
-
-  }
-
   render () {
     const register = this.state.register;
 
