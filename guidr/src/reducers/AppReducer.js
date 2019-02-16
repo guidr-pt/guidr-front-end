@@ -1,7 +1,10 @@
 import {
   GET_USER,
+  EDIT_USER,
   GET_TRIP,
   GET_TRIPS,
+  ADD_TRIP,
+  EDIT_TRIP
 } from '../actions';
 
 const initialState = {
@@ -19,6 +22,12 @@ export const appReducer = (state = initialState, action) => {
         user: action.payload
       }
 
+      case EDIT_USER:
+        return {
+          ...state
+        }
+      
+
     case GET_TRIP:
       return {
         ...state,
@@ -31,6 +40,17 @@ export const appReducer = (state = initialState, action) => {
         trips: action.payload,
         recentTrips: action.payload.slice(Math.max(action.payload.length - 5, 1))
       }
+
+    case ADD_TRIP:
+      return {
+        ...state
+      }
+
+    case EDIT_TRIP: {
+      return {
+        ...state
+      }
+    }
 
     default:
       return state;

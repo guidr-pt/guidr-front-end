@@ -2,6 +2,7 @@ import React from 'react';
 import TripGrid from '../HomeComp/TripGrid';
 
 import { connect } from 'react-redux';
+import { editUser } from '../../actions';
 
 import { Button } from 'reactstrap';
 
@@ -11,6 +12,10 @@ class Profile extends React.Component {
 
     this.state = {
       edit: false,
+      title: '',
+      tagline: '',
+      age: '',
+      timeAsGuide: ''
     }
   }
 
@@ -20,6 +25,31 @@ class Profile extends React.Component {
     }));
   }
 
+  handleChange = e => {
+  this.setState({
+     ...this.state,
+     [e.target.name]: e.target.value
+   });
+ }
+
+ saveEdit = () => {
+   const update = {
+     title: this.state.title,
+     tagline: this.state.tagline,
+     age: this.state.age,
+     timeAsGuide: this.state.timeAsGuide
+   }
+
+   this.props.editUser(update)
+   this.setState({
+     edit: false,
+     title: '',
+     tagline: '',
+     age: '',
+     timeAsGuide: ''
+   })
+ }
+
   render() {
     const editMode = this.state.edit;
 
@@ -28,24 +58,46 @@ class Profile extends React.Component {
 
         <div className='portfolio__profile'>
 
-        <Button color="primary" onClick={this.toggleEdit}> Edit </Button>
+        <Button color="primary" onClick={this.toggleEdit}> {this.state.edit ? 'Close' : 'Edit'} </Button>
+        { this.state.edit ? <Button color="primary" onClick={this.saveEdit}> Save </Button> : null }
 
           <div className='portfolio__profile__bio'>
             <img src='http://svgur.com/i/65U.svg' alt={this.props.user.name} />
 
             <div>
-              { editMode ? <input placeholder={this.props.user.username} /> : <h1>{this.props.user.username}</h1> }
-              { editMode ? <input placeholder={this.props.user.title} /> : <h2>{this.props.user.title}</h2> }
+              <h1>{this.props.user.username}</h1>
+              { editMode ? <input placeholder='New Title'
+                                  name='title'
+                                  onChange={this.handleChange}
+                                  value={this.state.title}/>
+
+                          : <h2>{this.props.user.title}</h2> }
             </div>
           </div>
 
           <div className='spacer' />
-            { editMode ? <input placeholder='tagline' /> : <h3>{this.props.user.tagline}</h3> }
+            { editMode ? <input placeholder='New Tagline'
+                                name='tagline'
+                                onChange={this.handleChange}
+                                value={this.state.tagline}/>
+
+                          : <h3>{this.props.user.tagline}</h3> }
           <div className='spacer' />
 
           <div className='portfolio__profile__time'>
-            { editMode ? <input placeholder='Age' /> : <p>Age: {this.props.user.age}</p> }
-            { editMode ? <input placeholder='Time As Guide' /> : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }
+            { editMode ? <input placeholder='Age'
+                                name='age'
+                                onChange={this.handleChange}
+                                value={this.state.age}/>
+
+                        : <p>Age: {this.props.user.age}</p> }
+
+            { editMode ? <input placeholder='Time As Guide'
+                                name='timeAsGuide'
+                                onChange={this.handleChange}
+                                value={this.state.timeAsGuide}/>
+
+                        : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }
           </div>
         </div>
 
@@ -61,4 +113,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, {})(Profile);
+export default connect(mstp, { editUser })(Profile);

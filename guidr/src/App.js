@@ -9,10 +9,18 @@ import AccessDenied from './views/AccessDenied';
 
 import { Route, withRouter } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { getTrips, getTrip, getUser } from './actions';
 
 import './css/index.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getTrips();
+    this.props.getTrip();
+    this.props.getUser()
+  }
+
   render() {
     return (
       <div className="App">
@@ -27,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default withRouter(connect(null, { getTrips, getTrip, getUser })(App));

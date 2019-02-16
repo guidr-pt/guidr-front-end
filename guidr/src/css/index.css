@@ -218,6 +218,9 @@ html {
   top: 0;
   right: 0;
 }
+.portfolio .portfolio__profile .btn:last-of-type {
+  right: 45px;
+}
 .portfolio .portfolio__profile .portfolio__profile__bio {
   display: flex;
   align-items: center;

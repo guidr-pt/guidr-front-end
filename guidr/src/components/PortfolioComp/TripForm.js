@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { addTrip } from '../../actions';
+
 class TripForm extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +44,12 @@ privateSelect = e => {
   e.target.innerText.toLowerCase() === 'private' ? this.setState({ private: true }) : this.setState({ private: false })
 }
 
+addTripHandler = e => {
+  e.preventDefault();
+
+  this.props.addTrip(this.state);
+}
+
 componentDidMount() {
   this.authenticate();
 }
@@ -48,7 +57,7 @@ componentDidMount() {
   render() {
     return (
       <div className='trip-form__container'>
-        <form>
+        <form onSubmit={this.addTripHandler}>
           <h2>Add Another Trip?</h2>
 
           <div className='textbox'>
@@ -100,6 +109,8 @@ componentDidMount() {
                       value={this.state.description} />
           </div>
 
+
+          <button type='submit'>Add Trip</button>
         </form>
       </div>
     )
@@ -107,4 +118,4 @@ componentDidMount() {
 }
 
 
-export default TripForm;
+export default connect(null, { addTrip })(TripForm);

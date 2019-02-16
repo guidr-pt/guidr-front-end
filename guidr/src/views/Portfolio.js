@@ -1,10 +1,6 @@
 import React from 'react';
 import Profile from '../components/PortfolioComp/Profile';
 
-import { connect } from 'react-redux';
-import { getUser } from '../actions';
-
-
 class Portfolio extends React.Component {
   authenticate = () => {
     const token = localStorage.getItem('jwtToken');
@@ -18,7 +14,6 @@ class Portfolio extends React.Component {
 
   componentDidMount(){
     this.authenticate();
-    this.props.getUser()
   }
 
   render() {
@@ -30,4 +25,4 @@ class Portfolio extends React.Component {
   }
 }
 
-export default connect(null, { getUser })(Portfolio);
+export default Portfolio;

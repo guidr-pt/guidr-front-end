@@ -78,6 +78,7 @@ const user = {
 /*   Action Calls and Creators for App Reducer   */
 
 export const GET_USER = 'GET_USER';
+export const EDIT_USER = 'EDIT_USER';
 export const GET_TRIP = 'GET_TRIP';
 export const GET_TRIPS = 'GET_TRIPS';
 export const EDIT_TRIP = 'EDIT_TRIP';
@@ -111,4 +112,26 @@ export const getTrips = () => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: GET_TRIPS, payload: user.trips })
+}
+
+/*  Post New Trip from Form */
+
+export const addTrip = newTrip => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: ADD_TRIP, payload: newTrip });
+}
+
+/*  Edit Trip from Modal */
+
+export const editTrip = update => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: EDIT_TRIP, payload: update })
+}
+
+export const editUser = update => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: EDIT_USER, payload: update })
 }
