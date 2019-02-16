@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.state = {
       userVal: '',
       passVal: '',
+      passDisplay: '',
       nameVal:'chris',
       remember: false,
       register: false
@@ -34,9 +35,27 @@ class Login extends React.Component {
 
   /* Update State based on Form Inputs */
   changeHandler = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    if(e.target.name !== 'passVal') {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    } else {
+      let newVal = this.state.passVal;
+      const display = [];
+      const value = e.target.value
+      newVal += value.substr(value.length - 1);
+
+      for(let i = 0; i < newVal.length; i++) {
+        display.push('*')
+      }
+
+      const displayStr = display.join('')
+
+      this.setState({
+        passVal: newVal,
+        passDisplay: displayStr
+      })
+    }
   }
 
   /* Login Authentication */
@@ -119,7 +138,7 @@ class Login extends React.Component {
                      placeholder='password'
                      name='passVal'
                      onChange={this.changeHandler}
-                     value={this.state.passVal}
+                     value={this.state.passDisplay}
                      />
             </div>
 
