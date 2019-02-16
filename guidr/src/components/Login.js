@@ -37,7 +37,7 @@ class Login extends React.Component {
   changeHandler = e => {
 
     console.log(e.nativeEvent.inputType)
-    if(e.nativeEvent.inputType === 'deleteContentBackward') {
+    if(e.nativeEvent.inputType === 'deleteContentBackward' && e.target.name === 'passVal') {
       const value = e.target.value;
       const resultVal = value.slice(0, -1);
 
