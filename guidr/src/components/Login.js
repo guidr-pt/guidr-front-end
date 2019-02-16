@@ -35,11 +35,27 @@ class Login extends React.Component {
 
   /* Update State based on Form Inputs */
   changeHandler = e => {
-    if(e.target.name !== 'passVal') {
+
+    console.log(e.nativeEvent.inputType)
+    if(e.nativeEvent.inputType === 'deleteContentBackward') {
+      const value = e.target.value;
+      const resultVal = value.slice(0, -1);
+
+      const display = this.state.passDisplay;
+      const resultDis = display.slice(0, -1)
+
+      this.setState({
+        passVal: resultVal,
+        passDisplay: resultDis
+      })
+
+    }else if(e.target.name !== 'passVal') {
       this.setState({
         [e.target.name]: e.target.value
       });
     } else {
+      /* Create hidden password display */
+
       let newVal = this.state.passVal;
       const display = [];
       const value = e.target.value
