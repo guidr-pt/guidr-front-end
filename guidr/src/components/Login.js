@@ -49,11 +49,7 @@ class Login extends React.Component {
         passDisplay: resultDis
       })
 
-    }else if(e.target.name !== 'passVal') {
-      this.setState({
-        [e.target.name]: e.target.value
-      });
-    } else {
+    }else if(e.target.name === 'passVal') {
       /* Create hidden password display */
 
       let newVal = this.state.passVal;
@@ -71,6 +67,13 @@ class Login extends React.Component {
         passVal: newVal,
         passDisplay: displayStr
       })
+
+    } else {
+
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+
     }
   }
 
@@ -154,7 +157,7 @@ class Login extends React.Component {
                      placeholder='password'
                      name='passVal'
                      onChange={this.changeHandler}
-                     value={this.state.passDisplay}
+                     value={ !register ? this.state.passDisplay : this.state.passVal }
                      />
             </div>
 
