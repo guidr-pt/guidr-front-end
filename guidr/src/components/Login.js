@@ -87,7 +87,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
 
-    const endpoint =  'http://localhost:7070/user/login';
+    const endpoint =  'https://guidr-back-end.herokuapp.com/user/login';
     const userInfo = {
         username: this.state.userVal,
         password: this.state.passVal
@@ -111,7 +111,7 @@ class Login extends React.Component {
   registration = e => {
     e.preventDefault();
 
-    const endpoint =  'http://localhost:7070/user/registration';
+    const endpoint =  'https://guidr-back-end.herokuapp.com/user/registration';
     const registerInfo = {
       username: this.state.userVal,
       name: this.state.nameVal,
