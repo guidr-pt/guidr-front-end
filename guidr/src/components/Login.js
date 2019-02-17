@@ -36,11 +36,13 @@ class Login extends React.Component {
   /* Update State based on Form Inputs */
   changeHandler = e => {
 
-    console.log(e.nativeEvent.inputType)
+    /* Check if backspace was pressed and if the input was for password */
     if(e.nativeEvent.inputType === 'deleteContentBackward' && e.target.name === 'passVal') {
+      /* get current value and remove last character */
       const value = e.target.value;
       const resultVal = value.slice(0, -1);
 
+      /* get current display and remove last character */
       const display = this.state.passDisplay;
       const resultDis = display.slice(0, -1)
 
@@ -49,14 +51,18 @@ class Login extends React.Component {
         passDisplay: resultDis
       })
 
-    }else if(e.target.name === 'passVal') {
+    /* Check if input was for password */
+    } else if(e.target.name === 'passVal') {
       /* Create hidden password display */
 
       let newVal = this.state.passVal;
       const display = [];
+
+      /* get current value and remove hidden characters */
       const value = e.target.value
       newVal += value.substr(value.length - 1);
 
+      /* create hidden character for every character in newVal */
       for(let i = 0; i < newVal.length; i++) {
         display.push('*')
       }

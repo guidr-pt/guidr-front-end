@@ -4,7 +4,9 @@ import {
   GET_TRIP,
   GET_TRIPS,
   ADD_TRIP,
-  EDIT_TRIP
+  EDIT_TRIP,
+  SEARCH_TRIPS,
+  SEARCH_USERS
 } from '../actions';
 
 const initialState = {
@@ -26,7 +28,7 @@ export const appReducer = (state = initialState, action) => {
         return {
           ...state
         }
-      
+
 
     case GET_TRIP:
       return {
@@ -46,11 +48,22 @@ export const appReducer = (state = initialState, action) => {
         ...state
       }
 
-    case EDIT_TRIP: {
+    case EDIT_TRIP:
       return {
         ...state
       }
-    }
+
+    case SEARCH_TRIPS:
+      return {
+        ...state,
+        trips: action.payload
+      }
+
+      case SEARCH_USERS:
+        console.log(action.payload);
+        return {
+          ...state,
+        }
 
     default:
       return state;

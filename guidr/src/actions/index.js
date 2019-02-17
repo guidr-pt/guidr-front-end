@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 /* Dummy data to be deleted*/
-const user = [
+export const user = [
     {
     loggedIn: false,
     username: 'username1',
@@ -13,7 +13,7 @@ const user = [
     timeAsGuide: 8,
     trips: [
       {
-        name: 'trip name',
+        name: 'Colorado',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -22,7 +22,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'Washington',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -31,7 +31,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'California',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -40,7 +40,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'New Hampshire',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -49,7 +49,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'New York',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -58,7 +58,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'New Zealand',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -67,7 +67,7 @@ const user = [
         date: 'MM/DD/YYYY'
       },
       {
-        name: 'trip name',
+        name: 'Canada',
         description: 'I went on a trip!',
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r1TFvgJ5ieoJKUjFfMg7mHzIXFJtwPvICrb_W21UQZtyqFOd',
         private: false,
@@ -162,6 +162,8 @@ export const GET_TRIPS = 'GET_TRIPS';
 export const EDIT_TRIP = 'EDIT_TRIP';
 export const DELETE_TRIP = 'DELETE_TRIP';
 export const ADD_TRIP = 'ADD_TRIP';
+export const SEARCH_TRIPS = 'SEARCH_TRIPS';
+export const SEARCH_USERS = 'SEARCH_USERS';
 
 
 /*   Action Calls and Creators for multiple reducers   */
@@ -214,4 +216,16 @@ export const editUser = update => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: EDIT_USER, payload: update })
+}
+
+export const searchTrip = filteredArr => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: SEARCH_TRIPS, payload: filteredArr })
+}
+
+export const searchUsers = filteredArr => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: SEARCH_USERS, payload: filteredArr })
 }
