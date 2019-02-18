@@ -1,4 +1,4 @@
 [build]
-base = 'guidr/'
+base = ''
 publish = 'guidr/build/'
 command = 'yarn build'
