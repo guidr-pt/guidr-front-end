@@ -19,8 +19,11 @@ class Search extends React.Component {
     /* Check if user backs completely out of input string */
     if(e.target.value === '' && this.state.tripSearch.length > 0) {
 
-      /* Resett results back to all trips  */
+      /* Reset results back to all trips  */
       this.props.searchTrip(user[0].trips);
+      return;
+    } else if (e.target.value === '' && this.state.userSearch.length > 0) {
+      this.props.searchUsers(user);
       return;
     }
 
