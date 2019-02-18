@@ -57,6 +57,8 @@ html body {
   margin-bottom: 15px;
   background-color: #55A04B;
   justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .login div .login__form--head {
   background-image: url("../img/login-header-bg.jpeg");
@@ -142,7 +144,8 @@ html body {
 }
 .login div form div span {
   font-size: 1.2rem;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
+  margin-left: 7px;
 }
 .login div form button {
   display: block;
@@ -167,7 +170,14 @@ html body {
   font-size: 2rem;
 }
 .login div p {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  color: #133139;
+}
+.login div p span {
+  margin-left: 5px;
+  color: #133139;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .navigation {
   position: fixed;
