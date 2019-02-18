@@ -1,0 +1,415 @@
+html {
+  font-size: 62.5%;
+}
+html body {
+  background-color: #ddd;
+}
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.denied {
+  background-color: #D3D3D3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 30vh auto;
+  padding: 75px 50px;
+  width: 40%;
+  height: 350px;
+}
+.denied a {
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #009ac0;
+}
+.denied a:hover {
+  text-decoration: none;
+  color: #133139;
+}
+.navigation {
+  position: fixed;
+  z-index: 9001;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  background-color: #eee;
+  border-bottom: 1px solid #f99e54;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.navigation .search {
+  margin-right: 13%;
+}
+.navigation .search button {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+.navigation .normal {
+  color: #f99e54;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 300ms;
+}
+@media (min-width: 1024px) {
+  .navigation .normal {
+    color: #133139;
+  }
+  .navigation .normal:hover {
+    color: #f99e54;
+  }
+}
+.navigation .normal:hover {
+  text-decoration: none;
+}
+.navigation .active {
+  color: #133139;
+  background-color: #f99e54;
+  font-weight: 600;
+}
+@media (min-width: 1024px) {
+  .navigation .active {
+    color: inherit;
+    background-color: transparent;
+    font-weight: inherit;
+  }
+  .navigation .active:hover {
+    color: #f99e54;
+  }
+}
+.navigation button {
+  border: 1px solid #133139;
+  font-weight: 500;
+  color: #133139;
+  background-color: transparent;
+  padding: 3px 8px;
+  margin: 0 30px 0 15px;
+  transition: background-color 0.4s;
+}
+.navigation button:hover {
+  background-color: #f99e54;
+  color: black;
+}
+.login {
+  background-image: linear-gradient(to left bottom, #f99e54, #dea142, #c1a338, #a3a435, #83a33b, #68a851, #49ac69, #1cae82, #00b5a8, #00bbc7, #4ebedd, #7fc0e8);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 50000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login div .login__form--container {
+  width: 100%;
+  max-width: 450px;
+  height: 600px;
+  margin-bottom: 15px;
+  background-color: #55A04B;
+  justify-content: flex-start;
+}
+.login div .login__form--head {
+  background-image: url("../img/login-header-bg.jpeg");
+  background-color: #D3D3D3;
+  height: 250px;
+  width: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.login div .login__form--head h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 4.8rem;
+  color: #eee;
+}
+.login div form {
+  margin-top: 70px;
+  width: 80%;
+}
+.login div form .login__input--container {
+  font-size: 1.6rem;
+}
+.login div form .login__input--container i {
+  margin-right: 12px;
+  color: #eee;
+}
+.login div form .login__input--container input {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid #133139;
+  padding: 5px 10px;
+  height: 25px;
+  width: 50%;
+  color: #eee;
+  letter-spacing: 1px;
+  transition: width 0.7s, height 0.7s, background-color 0.7s, color 0.7s;
+}
+.login div form .login__input--container input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.65);
+}
+.login div form .login__input--container input:focus {
+  outline: none;
+  height: 35px;
+  width: 65%;
+  background-color: #133139;
+}
+.login div form .login__input--container input:focus::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #eee;
+}
+.login div form .login__input--container input:focus::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #eee;
+}
+.login div form .login__input--container input:focus:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #eee;
+}
+.login div form .login__input--container input:focus:-moz-placeholder {
+  /* Firefox 18- */
+  color: #eee;
+}
+.login div form div {
+  flex-direction: row;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.login div form div span {
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+}
+.login div form button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #133139;
+  height: 30px;
+  width: 150px;
+  background-color: transparent;
+  color: #133139;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+  transition: background-color 0.5s, color 0.5s, height 0.5s, width 0.5s, font-size 0.5s;
+}
+.login div form button:focus {
+  outline: none;
+}
+.login div form button:hover {
+  background-color: #133139;
+  color: #eee;
+  height: 40px;
+  width: 170px;
+  font-size: 2rem;
+}
+.login div p {
+  font-size: 1.4rem;
+}
+.home {
+  margin-top: 45px;
+}
+.portfolio {
+  width: 100%;
+  max-width: 1026px;
+  margin: 75px auto;
+}
+.portfolio .portfolio__profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  background-color: white;
+}
+.portfolio .portfolio__profile .btn {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.portfolio .portfolio__profile .btn:last-of-type {
+  right: 45px;
+}
+.portfolio .portfolio__profile .portfolio__profile__bio {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 250px;
+}
+.portfolio .portfolio__profile .portfolio__profile__bio img {
+  width: 100px;
+  height: 100px;
+}
+.portfolio .portfolio__profile h3 {
+  width: 40%;
+}
+.portfolio .portfolio__profile .portfolio__profile__time {
+  margin: 40px 20px 25px 15px;
+}
+.portfolio .portfolio__profile .portfolio__profile__time p {
+  font-size: 1.6rem;
+}
+.portfolio .portfolio__profile .spacer {
+  flex: 2;
+}
+/* Grid Styles */
+.grid {
+  width: 100%;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.grid .tripgrid__card {
+  background-color: #D3D3D3;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 8px 12px;
+}
+.grid .tripgrid__card:nth-of-type(even) {
+  background-color: #eee;
+}
+/* Modal Styles */
+div .modal.show .modal-dialog {
+  transform: translateY(20%);
+}
+div .modal.show .modal-dialog .modal-body {
+  display: flex;
+}
+div .modal.show .modal-dialog .modal-body .modal-info {
+  display: flex;
+}
+div .modal.show .modal-dialog .modal-body .modal-info img {
+  width: 150px;
+  height: 150px;
+}
+div .modal.show .modal-dialog .modal-body .modal-info div {
+  margin: 10px;
+}
+div .modal.show .modal-dialog .modal-footer {
+  justify-content: space-between;
+}
+.trip-form__container {
+  height: 100vh;
+  padding: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D3D3D3;
+}
+.trip-form__container form {
+  background-color: #eee;
+  box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  height: 600px;
+  width: 100%;
+  max-width: 500px;
+  padding: 50px;
+  font-size: 1.4rem;
+}
+.trip-form__container form h2 {
+  font-size: 3.6rem;
+}
+.trip-form__container form label {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.trip-form__container form div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.trip-form__container form div input {
+  width: 100%;
+  max-width: 300px;
+}
+.trip-form__container form .textbox {
+  display: flex;
+  justify-content: space-between;
+}
+.trip-form__container form .btnbox {
+  width: 75px;
+}
+.trip-form__container form .btnbox:hover {
+  width: 75px;
+  font-size: inherit;
+}
+.trip-form__container form .btnbox button:last-of-type {
+  margin-left: 12px;
+}
+.trip-form__container form .btnbox .selected {
+  background-color: #133139;
+  color: #eee;
+}
+.trip-form__container form .description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1000px;
+}
+.trip-form__container form .description textarea {
+  width: 100%;
+  min-height: 100px;
+  max-height: 300px;
+  max-width: 600px;
+}
+.trip-form__container form button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #133139;
+  height: 30px;
+  width: 150px;
+  background-color: transparent;
+  color: #133139;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+  transition: background-color 0.5s, color 0.5s, height 0.5s, width 0.5s, font-size 0.5s;
+}
+.trip-form__container form button:focus {
+  outline: none;
+}
+.trip-form__container form button:hover {
+  background-color: #133139;
+  color: #eee;
+}
