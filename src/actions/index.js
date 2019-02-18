@@ -19,7 +19,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '24 days',
-        date: 'MM/DD/YYYY'
+        date: '11/12/1992'
       },
       {
         name: 'Washington',
@@ -28,7 +28,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '4 days',
-        date: 'MM/DD/YYYY'
+        date: '10/09/1989'
       },
       {
         name: 'California',
@@ -37,7 +37,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '23 days',
-        date: 'MM/DD/YYYY'
+        date: '02/17/2016'
       },
       {
         name: 'New Hampshire',
@@ -46,7 +46,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '62 days',
-        date: 'MM/DD/YYYY'
+        date: '04/21/2016'
       },
       {
         name: 'New York',
@@ -55,7 +55,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '12 days',
-        date: 'MM/DD/YYYY'
+        date: '09/10/2015'
       },
       {
         name: 'New Zealand',
@@ -64,7 +64,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '2 days',
-        date: 'MM/DD/YYYY'
+        date: '07/25/1977'
       },
       {
         name: 'Canada',
@@ -73,7 +73,7 @@ export const user = [
         private: false,
         type: 'type',
         duration: '9 days',
-        date: 'MM/DD/YYYY'
+        date: '05/24/1999'
       },
     ]
   },
@@ -164,6 +164,7 @@ export const DELETE_TRIP = 'DELETE_TRIP';
 export const ADD_TRIP = 'ADD_TRIP';
 export const SEARCH_TRIPS = 'SEARCH_TRIPS';
 export const SEARCH_USERS = 'SEARCH_USERS';
+export const FILTER_TRIPS = 'FILTER_TRIPS';
 
 
 /*   Action Calls and Creators for multiple reducers   */
@@ -228,4 +229,10 @@ export const searchUsers = filteredArr => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: SEARCH_USERS, payload: filteredArr })
+}
+
+export const filterTrips = filterArr => dispatch => {
+  dispatch({ type: LOADING });
+
+  dispatch({ type: FILTER_TRIPS, payload: filterArr });
 }

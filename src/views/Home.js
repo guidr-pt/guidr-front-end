@@ -1,6 +1,7 @@
 import React from 'react';
-import TripGrid from '../components/HomeComp/TripGrid';
 import Search from '../components/Search';
+import TripGrid from '../components/HomeComp/TripGrid';
+import SidePanel from '../components/HomeComp/SidePanel';
 
 class Home extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */
@@ -22,6 +23,7 @@ class Home extends React.Component {
     return(
       <div className='home'>
         <Search />
+        <SidePanel />
         <TripGrid />
       </div>
     );
