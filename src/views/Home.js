@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from '../components/Search';
 import TripGrid from '../components/HomeComp/TripGrid';
 import SidePanel from '../components/HomeComp/SidePanel';
 
@@ -22,7 +21,6 @@ class Home extends React.Component {
   render() {
     return(
       <div className='home'>
-        <Search />
         <SidePanel />
         <TripGrid />
       </div>

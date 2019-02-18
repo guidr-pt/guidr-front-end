@@ -1,4 +1,6 @@
 import React from 'react';
+import Search from '../Search';
+
 import { connect } from 'react-redux';
 import { filterTrips, user } from '../../actions';
 
@@ -51,7 +53,6 @@ const SidePanel = props => {
         return;
     }
 
-    console.log(trips);
     props.trips[0] === trips[0] ? props.filterTrips(trips.reverse()) : props.filterTrips(trips);
   }
 
@@ -61,11 +62,13 @@ const SidePanel = props => {
         <h1>Side Panel</h1>
       </div>
 
-      <div>
+      <Search />
+
+      <div className='side-panel__btn--container'>
         {
           filters.map(item => <button key={Math.random()}
                                       onClick={filterHandler}
-                                      className='siden-panel__btn'> {item} </button>)
+                                      className='side-panel__btn'> {item} </button>)
         }
       </div>
     </div>

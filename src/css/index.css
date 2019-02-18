@@ -32,73 +32,6 @@ html body {
   text-decoration: none;
   color: #133139;
 }
-.navigation {
-  position: fixed;
-  z-index: 9001;
-  top: 0;
-  left: 0;
-  height: 45px;
-  width: 100%;
-  background-color: #eee;
-  border-bottom: 1px solid #f99e54;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1.6rem;
-}
-.navigation .search {
-  margin-right: 13%;
-}
-.navigation .search button {
-  font-size: 1.3rem;
-  letter-spacing: 2px;
-}
-.navigation .normal {
-  color: #f99e54;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  text-decoration: none;
-  transition: color 300ms;
-}
-@media (min-width: 1024px) {
-  .navigation .normal {
-    color: #133139;
-  }
-  .navigation .normal:hover {
-    color: #f99e54;
-  }
-}
-.navigation .normal:hover {
-  text-decoration: none;
-}
-.navigation .active {
-  color: #133139;
-  background-color: #f99e54;
-  font-weight: 600;
-}
-@media (min-width: 1024px) {
-  .navigation .active {
-    color: inherit;
-    background-color: transparent;
-    font-weight: inherit;
-  }
-  .navigation .active:hover {
-    color: #f99e54;
-  }
-}
-.navigation button {
-  border: 1px solid #133139;
-  font-weight: 500;
-  color: #133139;
-  background-color: transparent;
-  padding: 3px 8px;
-  margin: 0 30px 0 15px;
-  transition: background-color 0.4s;
-}
-.navigation button:hover {
-  background-color: #f99e54;
-  color: black;
-}
 .login {
   background-image: linear-gradient(to left bottom, #f99e54, #dea142, #c1a338, #a3a435, #83a33b, #68a851, #49ac69, #1cae82, #00b5a8, #00bbc7, #4ebedd, #7fc0e8);
   height: 100vh;
@@ -236,8 +169,134 @@ html body {
 .login div p {
   font-size: 1.4rem;
 }
+.navigation {
+  position: fixed;
+  z-index: 9001;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  background-color: #eee;
+  border-bottom: 1px solid #f99e54;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.6rem;
+}
+.navigation .search {
+  margin-right: 13%;
+}
+.navigation .search button {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+.navigation .normal {
+  color: #f99e54;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 300ms;
+}
+@media (min-width: 1024px) {
+  .navigation .normal {
+    color: #133139;
+  }
+  .navigation .normal:hover {
+    color: #f99e54;
+  }
+}
+.navigation .normal:hover {
+  text-decoration: none;
+}
+.navigation .active {
+  color: #133139;
+  background-color: #f99e54;
+  font-weight: 600;
+}
+@media (min-width: 1024px) {
+  .navigation .active {
+    color: inherit;
+    background-color: transparent;
+    font-weight: inherit;
+  }
+  .navigation .active:hover {
+    color: #f99e54;
+  }
+}
+.navigation button {
+  border: 1px solid #133139;
+  font-weight: 500;
+  color: #133139;
+  background-color: transparent;
+  padding: 3px 8px;
+  margin: 0 30px 0 15px;
+  transition: background-color 0.4s;
+}
+.navigation button:hover {
+  background-color: #f99e54;
+  color: black;
+}
 .home {
   margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+.side-panel {
+  width: 20%;
+}
+.side-panel .side-panel__title {
+  font-size: 3rem;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #eee;
+}
+.side-panel .search {
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #eee;
+  padding: 20px;
+}
+.side-panel .search input {
+  width: 100%;
+  height: 25px;
+  border: none;
+  padding-left: 5px;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+}
+.side-panel .search input:focus {
+  outline: none;
+}
+.side-panel .search button {
+  border: none;
+  background-color: #55A04B;
+  color: #eee;
+  height: 25px;
+  width: 85px;
+  font-size: 1.4rem;
+}
+.side-panel .side-panel__btn--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.side-panel .side-panel__btn--container .side-panel__btn {
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #eee;
+  background-color: #D3D3D3;
+}
+.side-panel .side-panel__btn--container .side-panel__btn:hover {
+  background-color: #f99e54;
+}
+.side-panel .side-panel__btn--container .side-panel__btn:focus {
+  outline: none;
+  background-color: #55A04B;
 }
 .portfolio {
   width: 100%;
