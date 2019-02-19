@@ -63,6 +63,7 @@ addTripHandler = e => {
 }
 
 componentDidMount() {
+  /* Ensure User is Logged In*/
   this.authenticate();
 }
 

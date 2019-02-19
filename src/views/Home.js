@@ -1,9 +1,6 @@
 import React from 'react';
 
 import HomeSearch from '../components/HomeComp/HomeSearch.js'
-import RoutePage from '../components/HomeComp/RoutePage.js';
-
-import { Route } from 'react-router-dom';
 
 class Home extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */

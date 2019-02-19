@@ -153,27 +153,26 @@ export const user = [
   ]
 },
 ]
-/*   Action Calls and Creators for App Reducer   */
 
+/* Users */
 export const GET_USER = 'GET_USER';
 export const GET_USERS = 'GET_USERS';
 export const EDIT_USER = 'EDIT_USER';
+/* Trips */
 export const GET_TRIP = 'GET_TRIP';
 export const GET_TRIPS = 'GET_TRIPS';
 export const EDIT_TRIP = 'EDIT_TRIP';
 export const DELETE_TRIP = 'DELETE_TRIP';
 export const ADD_TRIP = 'ADD_TRIP';
+/* Search And Filter */
 export const SEARCH_TRIPS = 'SEARCH_TRIPS';
 export const SEARCH_USERS = 'SEARCH_USERS';
 export const FILTER_TRIPS = 'FILTER_TRIPS';
-
-
-/*   Action Calls and Creators for multiple reducers   */
-
+/* Multi-use */
 export const LOADING = 'LOADING';
 
-/*   Get current user data   */
 
+/*   Get current user data   */
 export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
 
@@ -190,7 +189,6 @@ export const getUser = id => dispatch => {
 }
 
 /*   Get user selected trip   */
-
 export const getTrip = () => dispatch => {
     dispatch({ type: LOADING });
 
@@ -198,7 +196,6 @@ export const getTrip = () => dispatch => {
 }
 
 /*   Get all user trips   */
-
 export const getTrips = () => dispatch => {
   dispatch({ type: LOADING });
 
@@ -206,7 +203,6 @@ export const getTrips = () => dispatch => {
 }
 
 /*  Post New Trip from Form */
-
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
 
@@ -214,7 +210,6 @@ export const addTrip = newTrip => dispatch => {
 }
 
 /*  Edit Trip from Modal */
-
 export const editTrip = update => dispatch => {
   dispatch({ type: LOADING });
 
@@ -222,7 +217,6 @@ export const editTrip = update => dispatch => {
 }
 
 /* Edit User from Profile */
-
 export const editUser = update => dispatch => {
   dispatch({ type: LOADING });
 
@@ -234,18 +228,21 @@ export const editUser = update => dispatch => {
 
 }
 
+/* Search For Trips By User Selection */
 export const searchTrip = filteredArr => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: SEARCH_TRIPS, payload: filteredArr })
 }
 
+/* Search For User */
 export const searchUsers = filteredArr => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: SEARCH_USERS, payload: filteredArr })
 }
 
+/* Filter Trips By User Selection */
 export const filterTrips = filterArr => dispatch => {
   dispatch({ type: LOADING });
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 /* Custom Components */
 import Navigation from './components/Navigation';
-import RoutePage from './components/HomeComp/RoutePage';
 import TripForm from './components/PortfolioComp/TripForm';
 
 import Register from './views/Register';
@@ -22,7 +21,9 @@ import './css/index.css';
 
 class App extends Component {
   componentDidMount() {
-
+    /* Get User Data on Load */
+    this.props.getTrips();
+    this.props.getTrip();
   }
 
   render() {

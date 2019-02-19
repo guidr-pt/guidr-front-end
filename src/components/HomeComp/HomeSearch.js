@@ -1,8 +1,11 @@
 import React from 'react';
+
 import TripGrid from './TripGrid';
 import UserList from './UserList';
 import RoutePage from './RoutePage';
 import SidePanel from './SidePanel';
+
+import { connect } from 'react-redux';
 
 class HomeSearch extends React.Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class HomeSearch extends React.Component {
     }
   }
 
+  /* Go To User Search */
   selectUsers = () => {
     this.setState({
       users: true,
@@ -22,6 +26,7 @@ class HomeSearch extends React.Component {
     })
   }
 
+  /* Go To Trip Search */  
   selectTrips = () => {
     this.setState({
       trips: true,
@@ -30,13 +35,13 @@ class HomeSearch extends React.Component {
   }
 
   render() {
-
     let display = '';
 
+    /* State Based Render */
     if(this.state.option) {
       display = <RoutePage handleUser={this.selectUsers} handleTrips={this.selectTrips}/>
     } else if(this.state.trips) {
-      display = <TripGrid />
+      display = <TripGrid trips={this.props.trips} />
     } else {
       display = <UserList />
     }
@@ -50,4 +55,8 @@ class HomeSearch extends React.Component {
   }
 }
 
-export default HomeSearch;
+const mstp = state => {
+  return { trips: state.appReducer.trips }
+}
+
+export default connect(mstp, {})(HomeSearch);

@@ -5,16 +5,20 @@ import { connect } from 'react-redux';
 import { filterTrips, user } from '../../actions';
 
 const SidePanel = props => {
+  /* Filters to Be Mapped to Buttons */
   const filters = ['Clear', 'Alphabetical', 'Duration', 'Date', ];
 
+  /* Handle Filter Selection, Sort based on Case */
   const filterHandler = e => {
     const type = e.target.innerText.toLowerCase();
     const trips = [ ...props.trips ];
 
     switch(type) {
+      /* Return to default order */
       case 'clear':
         return props.filterTrips(user[0].trips);
 
+      /* Sort By Duration - Longest First */
       case 'duration':
         trips.sort((a,b) => {
           const c = a[type].split(' ')[0];
@@ -23,27 +27,33 @@ const SidePanel = props => {
         });
         break;
 
+      /* Sort Alphabetically */
       case 'alphabetical':
         trips.sort((a,b) => {
           return ('' + a.name).localeCompare(b.name);
         })
         break;
 
+      /* Sort By Date - Newest First */
       case 'date':
         trips.sort((a,b) => {
+          /* Create Arrays of Date Numbers [Day, Month, Year] */
           let dateArr1 = a.date.split('/');
           let dateArr2 = b.date.split('/');
 
           dateArr1 = dateArr1.map(date => Number(date))
           dateArr2 = dateArr2.map(date => Number(date))
 
-          console.log(dateArr1[2], dateArr2[2])
-
+          /* Year and Month Match - Check Day */
           if(dateArr1[2] === dateArr2[2] && dateArr1[1] === dateArr2[1]) {
             return dateArr1[0] - dateArr2[0];
-          } else if(dateArr1[2] === dateArr2[2]) {
+          } 
+           /* Year - Check Month */
+          else if(dateArr1[2] === dateArr2[2]) {
             return dateArr1[1] - dateArr2[1];
-          } else {
+          } 
+           /* Check Year */
+          else {
             return dateArr1[2] - dateArr2[2];
           }
         })
@@ -53,6 +63,7 @@ const SidePanel = props => {
         return;
     }
 
+    /* If new order matches old order, reverse  */
     props.trips[0] === trips[0] ? props.filterTrips(trips.reverse()) : props.filterTrips(trips);
   }
 
@@ -65,6 +76,7 @@ const SidePanel = props => {
       <Search />
 
       <div className='side-panel__btn--container'>
+        {/* Create Filter Buttons */}
         {
           filters.map(item => <button key={Math.random()}
                                       onClick={filterHandler}
