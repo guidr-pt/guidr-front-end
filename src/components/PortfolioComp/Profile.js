@@ -15,7 +15,6 @@ class Profile extends React.Component {
       title: '',
       tagline: '',
       age: '',
-      timeAsGuide: ''
     }
   }
 
@@ -37,10 +36,10 @@ class Profile extends React.Component {
 /* Update User based on Form Input in Edit mode */
  saveEdit = () => {
    const update = {
-     title: this.state.title,
-     tagline: this.state.tagline,
-     age: this.state.age,
-     timeAsGuide: this.state.timeAsGuide
+     ...this.props.user,
+     title: this.state.title === '' ? this.props.user.title : this.state.title,
+     tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
+     age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
    }
 
    this.props.editUser(update)
@@ -105,12 +104,7 @@ class Profile extends React.Component {
 
                         : <p>Age: {this.props.user.age}</p> }
 
-            { editMode ? <input placeholder='Time As Guide'
-                                name='timeAsGuide'
-                                onChange={this.handleChange}
-                                value={this.state.timeAsGuide}/>
-
-                        : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }
+            <p>Time As Guide: {this.props.user.timeAsGuide}</p>
           </div>
         </div>
 

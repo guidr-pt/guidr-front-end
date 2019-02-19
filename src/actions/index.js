@@ -225,7 +225,12 @@ export const editTrip = update => dispatch => {
 export const editUser = update => dispatch => {
   dispatch({ type: LOADING });
 
-  dispatch({ type: EDIT_USER, payload: update })
+  const id = update.id;
+
+  axios.put(`http://localhost:7070/users/${id}`, update)
+       .then(res => dispatch({ type: EDIT_USER, payload: update }))
+       .catch(err => console.log(err));
+
 }
 
 export const searchTrip = filteredArr => dispatch => {

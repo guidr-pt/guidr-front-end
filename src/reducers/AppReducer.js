@@ -27,7 +27,8 @@ export const appReducer = (state = initialState, action) => {
 
       case EDIT_USER:
         return {
-          ...state
+          ...state,
+          user: action.payload
         }
 
 
