@@ -7,6 +7,8 @@ import { filterTrips, user } from '../../actions';
 const SidePanel = props => {
   /* Filters to Be Mapped to Buttons */
   const filters = ['Clear', 'Alphabetical', 'Duration', 'Date', ];
+  /* Search Bar to be rendered */
+  const searchbar = props.users ? <Search users /> : <Search />
 
   /* Handle Filter Selection, Sort based on Case */
   const filterHandler = e => {
@@ -73,7 +75,7 @@ const SidePanel = props => {
         <h1>Side Panel</h1>
       </div>
 
-      <Search />
+      {searchbar}
 
       <div className='side-panel__btn--container'>
         {/* Create Filter Buttons */}

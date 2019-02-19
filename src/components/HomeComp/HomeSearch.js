@@ -36,19 +36,22 @@ class HomeSearch extends React.Component {
 
   render() {
     let display = '';
+    let panel = '';
 
     /* State Based Render */
     if(this.state.option) {
       display = <RoutePage handleUser={this.selectUsers} handleTrips={this.selectTrips}/>
     } else if(this.state.trips) {
       display = <TripGrid trips={this.props.trips} />
+      panel = <SidePanel />
     } else {
       display = <UserList />
+      panel = <SidePanel users />
     }
 
     return(
       <div className='home-search'>
-        <SidePanel />
+        {panel}
         {display}
       </div>
     );
