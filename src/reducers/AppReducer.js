@@ -14,7 +14,7 @@ const initialState = {
   user: {},
   activeTrip: {},
   trips: [],
-  recentTrips: []
+  recentTrips: [],
 }
 
 export const appReducer = (state = initialState, action) => {

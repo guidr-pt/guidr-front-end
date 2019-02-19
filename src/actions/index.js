@@ -173,10 +173,19 @@ export const LOADING = 'LOADING';
 
 /*   Get current user data   */
 
-export const getUser = () => dispatch => {
+export const getAllUsers = () => dispatch => {
+    dispatch({ type: LOADING });
+
+}
+
+export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
 
-  dispatch({ type: GET_USER, payload: user[0] })
+  axios.get(`http://localhost:7070/users/${id}`)
+       .then(res => {
+         dispatch({ type: GET_USER, payload: res.data[0] })
+        })
+       .catch(err => console.log(err));
 }
 
 /*   Get user selected trip   */

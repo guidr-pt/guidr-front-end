@@ -12,17 +12,25 @@ class TripForm extends React.Component {
       description: '',
       img: '',
       private: false,
-      type: '',
+      type: 'hiking',
       duration: '',
       date: ''
     }
   }
 
-  /* Update State based on Form Inputs */
-  handleChange = e => {
+/* Update State based on Form Text Inputs */
+handleChange = e => {
   this.setState({
      ...this.state,
      [e.target.name]: e.target.value
+   });
+}
+
+/* Update State based on Form Select Inputs */
+handleDropdown = e => {
+  this.setState({
+     ...this.state,
+     type: e.target.value
    });
 }
 
@@ -74,12 +82,14 @@ componentDidMount() {
           </div>
 
           <div className='textbox'>
-            <label>Type:</label>
-            <input type='text'
-                   name='type'
-                   placeholder='type'
-                   onChange={this.handleChange}
-                   value={this.state.type} />
+          <label>Type:</label>
+            <select name="type"
+                    onChange={this.handleDropdown}>
+               <option value="hiking">Hiking</option>
+               <option value="camping">Camping</option>
+               <option value="rafting">Rafting</option>
+               <option value="backpacking">Backpacking</option>
+             </select>
           </div>
 
           <div className='textbox'>

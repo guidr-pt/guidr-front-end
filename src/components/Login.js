@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 import { withRouter } from 'react-router-dom';
-
 import { connect } from 'react-redux';
+import { getUser } from '../actions';
 
 class Login extends React.Component {
   constructor(props) {
@@ -87,7 +87,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
 
-    const endpoint =  'https://guidr-back-end.herokuapp.com/user/login';
+    const endpoint =  /*'https://guidr-back-end.herokuapp.com/user/login';*/ 'http://localhost:7070/users/login'
     const userInfo = {
         username: this.state.userVal,
         password: this.state.passVal
@@ -97,6 +97,9 @@ class Login extends React.Component {
          .then(res => {
            localStorage.setItem('jwtToken', res.data.token);
            const token = localStorage.getItem('jwtToken');
+
+           const id = res.data.id;
+           this.props.getUser(id)
 
            if(token) {
              this.props.history.push('/portfolio')
@@ -111,7 +114,7 @@ class Login extends React.Component {
   registration = e => {
     e.preventDefault();
 
-    const endpoint =  'https://guidr-back-end.herokuapp.com/user/registration';
+    const endpoint =  /*'https://guidr-back-end.herokuapp.com/user/registration'*/ 'http://localhost:7070/users/registration';
     const registerInfo = {
       username: this.state.userVal,
       name: this.state.nameVal,
@@ -139,7 +142,7 @@ class Login extends React.Component {
             { register ? <div className='login__input--container'>
                           <i className="fas fa-user"></i>
                           <input type='text'
-                                placeholder='name'
+                                placeholder='first last'
                                 name='nameVal'
                                 onChange={this.changeHandler}
                                 value={this.state.name}
@@ -200,4 +203,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, {})(withRouter(Login));
+export default connect(mstp, { getUser })(withRouter(Login));
