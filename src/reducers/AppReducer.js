@@ -1,6 +1,7 @@
 import {
-  GET_USER,
-  EDIT_USER,
+  GET_USER /* X */,
+  GET_USERS,
+  EDIT_USER /* X */,
   GET_TRIP,
   GET_TRIPS,
   ADD_TRIP,
@@ -25,11 +26,16 @@ export const appReducer = (state = initialState, action) => {
         user: action.payload
       }
 
-      case EDIT_USER:
-        return {
-          ...state,
-          user: action.payload
-        }
+    case GET_USERS:
+      return {
+        ...state
+      }
+
+    case EDIT_USER:
+      return {
+        ...state,
+        user: action.payload
+      }
 
 
     case GET_TRIP:

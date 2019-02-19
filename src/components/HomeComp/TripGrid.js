@@ -4,10 +4,6 @@ import TripCard from './TripCard';
 import { connect } from 'react-redux';
 
 const TripGrid = props =>{
-    if(props.demo) {
-
-    }
-
     return(
       <div className='grid'>
       {/* Create a TripCard for each trip associated with user */}

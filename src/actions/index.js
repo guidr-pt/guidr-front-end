@@ -156,6 +156,7 @@ export const user = [
 /*   Action Calls and Creators for App Reducer   */
 
 export const GET_USER = 'GET_USER';
+export const GET_USERS = 'GET_USERS';
 export const EDIT_USER = 'EDIT_USER';
 export const GET_TRIP = 'GET_TRIP';
 export const GET_TRIPS = 'GET_TRIPS';

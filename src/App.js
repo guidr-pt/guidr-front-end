@@ -22,9 +22,7 @@ import './css/index.css';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getTrips();
-    this.props.getTrip();
-    this.props.getUser()
+
   }
 
   render() {

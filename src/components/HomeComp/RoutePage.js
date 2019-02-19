@@ -1,11 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const RoutePage = props => {
+  console.log(props)
+
+  const handleUser = () => {
+    props.handleUser();
+  }
+
+  const handleTrips = () => {
+    props.handleTrips();
+  }
+
   return(
     <div>
       <div>
-        <Link to='/home/search'>Search</Link>
+        <button onClick={handleUser}>USERS</button>
+        <button onClick={handleTrips}>TRIPS</button>
       </div>
     </div>
   );
