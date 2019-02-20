@@ -4,7 +4,7 @@ import {
   GET_USERS /* X */,
   EDIT_USER /* X */,
   GET_TRIP /* - */,
-  GET_TRIPS /* - */, 
+  GET_TRIPS /* X */, 
   ADD_TRIP /* - */,
   EDIT_TRIP, 
   SEARCH_TRIPS /* X */,

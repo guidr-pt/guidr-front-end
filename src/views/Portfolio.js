@@ -19,10 +19,6 @@ class Portfolio extends React.Component {
 
   componentDidMount(){
     this.authenticate();
-
-    console.log(this.props.user);
-    const username = this.props.user.username;
-    console.log(username)
   }
 
   render() {

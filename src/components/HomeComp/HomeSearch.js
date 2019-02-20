@@ -38,10 +38,9 @@ class HomeSearch extends React.Component {
   render() {
     let display = '';
     let panel = '';
-    console.log('DISPLAY', this.props.filteredUsers)
+
     const displayUsers = this.props.filteredUsers.length > 0 ?  this.props.filteredUsers : this.props.allUsers
 
-    console.log(this.props.userTrips)
     /* State Based Render */
     if(this.state.option) {
       display = <RoutePage handleUser={this.selectUsers} handleTrips={this.selectTrips}/>

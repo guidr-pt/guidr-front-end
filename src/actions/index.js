@@ -216,7 +216,9 @@ export const getUserTrips = username => dispatch => {
 export const getTrips = () => dispatch => {
   dispatch({ type: LOADING });
 
-  console.log('test');
+  axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+       .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
+       .catch(err => console.log(err))
 
   /* dispatch({ type: GET_TRIPS, payload: user[0].trips }) */
 }
@@ -246,7 +248,6 @@ export const searchTrip = filteredArr => dispatch => {
 
 /* Search For User */
 export const searchUsers = filteredArr => dispatch => {
-  console.log('FILTERED', filteredArr);
   dispatch({ type: SEARCH_USERS, payload: filteredArr })
 }
 
