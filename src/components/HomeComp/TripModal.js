@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { editTrip } from '../../actions';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Badge } from 'reactstrap';
 
 
 class TripModal extends React.Component {
@@ -136,8 +136,8 @@ class TripModal extends React.Component {
 
                             : <p>{trip.description}</p> }
 
-                { editMode ? dropDownTypes : <p>{trip.type}</p> }
                 { editMode ? checkBoxPrivate : <p>{trip.private === true ? 'Private' : 'Professional'}</p> }
+                { editMode ? dropDownTypes : <Badge color={this.props.type === 'hiking' ? 'success' : 'primary'}>test badge</Badge> }
               </div>
 
 

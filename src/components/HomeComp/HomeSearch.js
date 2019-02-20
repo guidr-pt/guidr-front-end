@@ -45,7 +45,7 @@ class HomeSearch extends React.Component {
       display = <TripGrid trips={this.props.trips} />
       panel = <SidePanel />
     } else {
-      display = <UserList />
+      display = <UserList users={this.props.allUsers}/>
       panel = <SidePanel users />
     }
 
@@ -59,7 +59,10 @@ class HomeSearch extends React.Component {
 }
 
 const mstp = state => {
-  return { trips: state.appReducer.trips }
+  return { 
+    trips: state.appReducer.trips, 
+    allUsers: state.appReducer.allUsers
+  }
 }
 
 export default connect(mstp, {})(HomeSearch);

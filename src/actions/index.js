@@ -177,7 +177,7 @@ export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
 
     axios.get(`http://localhost:7070/users`)
-         .then(res => console.log(res))
+         .then(res => dispatch({ type: GET_USERS, payload: res.data}))
          .catch(err => console.log(err));
 
 }

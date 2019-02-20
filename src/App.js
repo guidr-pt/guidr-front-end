@@ -24,7 +24,7 @@ class App extends Component {
     /* Get User Data on Load */
     this.props.getTrips();
     this.props.getTrip();
-    console.log(this.props.getAllUsers)
+    this.props.getAllUsers();
   }
 
   render() {
