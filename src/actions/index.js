@@ -57,8 +57,8 @@ export const getUserTrips = username => dispatch => {
 }
 
 /*   Get all user trips   */
-export const getTrips = () => dispatch => {
-  dispatch({ type: LOADING });
+export const getTrips = clearSearch => dispatch => {
+  clearSearch ? console.log('continue') : dispatch({ type: LOADING });
 
   axios.get(`https://guidr-back-end.herokuapp.com/trips`)
        .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))

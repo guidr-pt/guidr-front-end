@@ -9,6 +9,7 @@ class TripForm extends React.Component {
 
     this.state = {
       "username": this.props.user.username,
+      "duration": '',
       "title": '',
       "description": '',
       "private": false,

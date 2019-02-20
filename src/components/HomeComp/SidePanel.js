@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '../Search';
 
 import { connect } from 'react-redux';
-import { filterTrips } from '../../actions';
+import { filterTrips, getTrips } from '../../actions';
 
 const SidePanel = props => {
   /* Filters to Be Mapped to Buttons */
@@ -18,7 +18,7 @@ const SidePanel = props => {
     switch(type) {
       /* Return to default order */
       case 'clear':
-        return props.filterTrips(trips);
+        return props.getTrips(true);
 
       /* Sort By Duration - Longest First */
       case 'duration':
@@ -39,12 +39,21 @@ const SidePanel = props => {
       /* Sort By Date - Newest First */
       case 'date':
         trips.sort((a,b) => {
+          /* Check for Date Field */ 
+          if(a.date === null) {
+            return -1;
+          } else if (b.date === null) {
+            return 1;
+          }
+
           /* Create Arrays of Date Numbers [Day, Month, Year] */
           let dateArr1 = a.date.split('/');
           let dateArr2 = b.date.split('/');
 
           dateArr1 = dateArr1.map(date => Number(date))
           dateArr2 = dateArr2.map(date => Number(date))
+
+          console.log('DATE',dateArr1)
 
           /* Year and Month Match - Check Day */
           if(dateArr1[2] === dateArr2[2] && dateArr1[1] === dateArr2[1]) {
@@ -96,4 +105,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, { filterTrips })(SidePanel);
+export default connect(mstp, { filterTrips, getTrips })(SidePanel);

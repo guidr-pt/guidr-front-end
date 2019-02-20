@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { searchTrip, searchUsers } from '../actions';
+import { searchTrip, searchUsers, getTrips } from '../actions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -20,7 +20,8 @@ class Search extends React.Component {
     if(e.target.value === '' && this.state.tripSearch.length > 0) {
 
       /* Reset results back to all trips  */
-      this.props.searchTrip(this.props.trips);
+      console.log('test')
+      this.props.getTrips(true);
       return;
     } else if (e.target.value === '' && this.state.userSearch.length > 0) {
       this.props.searchUsers(this.props.allUsers);
@@ -39,15 +40,13 @@ class Search extends React.Component {
           if tripSearch has value ? return trips value : return users value
      */
     const term = this.state.tripSearch.length > 0 ? this.state.tripSearch : this.state.userSearch
-    console.log('term', term)
-    console.log(this.props.allUsers[0])
+
     const filtered = this.state.tripSearch.length > 0 ?
                       /* Data: filter the trips based on names that include the search term */
-                      this.props.trips.filter(trip => trip.name.toLowerCase().includes(term.toLowerCase()))
+                      this.props.trips.filter(trip => trip.title.toLowerCase().includes(term.toLowerCase()))
                       /* Data: filter the users based on usersnames that include the search term */
                       : this.props.allUsers.filter(user => user.name.toLowerCase().includes(term.toLowerCase()));
 
-    console.log('filtered', filtered)
     this.state.tripSearch.length > 0 ? this.props.searchTrip(filtered)
                                      : this.props.searchUsers(filtered);
   }
@@ -78,4 +77,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, { searchTrip, searchUsers })(Search);
+export default connect(mstp, { searchTrip, searchUsers, getTrips })(Search);
