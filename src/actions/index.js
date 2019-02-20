@@ -70,12 +70,12 @@ export const getTrips = clearSearch => dispatch => {
 /*  Post New Trip from Form */
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
-  console.log(newTrip)
+ 
   axios.post(`https://guidr-back-end.herokuapp.com/trips`,newTrip)
-       .then(res => console.log(res))
-       .catch(err => console.log(err))
+       .then(dispatch({ type: ADD_TRIP }))
+       .catch(err => console.log(err));
 
-  /*dispatch({ type: ADD_TRIP, payload: newTrip });*/
+  
 }
 
 /*  Edit Trip from Modal */

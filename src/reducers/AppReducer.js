@@ -69,7 +69,8 @@ export const appReducer = (state = initialState, action) => {
 
     case ADD_TRIP:
       return {
-        ...state
+        ...state,
+        loading: false
       }
 
     case EDIT_TRIP:

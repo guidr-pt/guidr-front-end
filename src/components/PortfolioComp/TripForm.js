@@ -58,18 +58,8 @@ privateSelect = e => {
 addTripHandler = e => {
   e.preventDefault();
 
-  /* const newTrip = {
-    "username": "trip1701",
-    "title": "Another Park",
-    "description": "A lovely walk through the local park 2",
-    "type": "Rafting",
-    "duration": "5 days",
-    "private": false,
-    "date": '02/16/2017',
-  } */
-
   const newTrip = this.state;
-  console.log(newTrip)
+
   this.props.addTrip(newTrip);
 }
 
