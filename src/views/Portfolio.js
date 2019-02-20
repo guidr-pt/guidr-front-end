@@ -24,7 +24,7 @@ class Portfolio extends React.Component {
   render() {
     return (
       <div className='portfolio'>
-        { !this.props.loading && this.props.user.username ? <Profile username={this.props.user.username} id={this.props.user.id} /> : <Loader /> }
+        { !this.props.loading && this.props.user.username ? <Profile username={this.props.user.username} /> : <Loader /> }
       </div>
     );
   }

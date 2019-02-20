@@ -8,16 +8,11 @@ class TripForm extends React.Component {
     super(props);
 
     this.state = {
-      username: this.props.user.username,
-      id: this.props.user.id,
-      name: '',
-      title: '',
-      description: '',
-      image: '',
-      private: false,
-      type: 'hiking',
-      duration: '',
-      date: ''
+      "username": this.props.user.username,
+      "title": '',
+      "description": '',
+      "private": false,
+      "type": 'hiking',
     }
   }
 
@@ -62,14 +57,24 @@ privateSelect = e => {
 addTripHandler = e => {
   e.preventDefault();
 
-  this.props.addTrip(this.state);
+  /* const newTrip = {
+    "username": "trip1701",
+    "title": "Another Park",
+    "description": "A lovely walk through the local park 2",
+    "type": "Rafting",
+    "duration": "5 days",
+    "private": false,
+    "date": '02/16/2017',
+  } */
+
+  const newTrip = this.state;
+  console.log(newTrip)
+  this.props.addTrip(newTrip);
 }
 
 componentDidMount() {
   /* Ensure User is Logged In*/
   this.authenticate();
-
-  console.log('PROPS', this.props)
 }
 
   render() {
@@ -77,15 +82,6 @@ componentDidMount() {
       <div className='trip-form__container'>
         <form onSubmit={this.addTripHandler}>
           <h2>Add Another Trip?</h2>
-
-          <div className='textbox'>
-            <label>Name:</label>
-            <input type='text'
-                   name='name'
-                   placeholder='Grand Falls'
-                   onChange={this.handleChange}
-                   value={this.state.name} />
-          </div>
 
           <div className='textbox'>
             <label>Title:</label>
@@ -109,8 +105,7 @@ componentDidMount() {
 
           <div className='textbox'>
             <label>Duration:</label>
-            <input type='text'
-                   name='duration'
+            <input name='duration'
                    placeholder='XX Days'
                    onChange={this.handleChange}
                    value={this.state.duration} />

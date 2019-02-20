@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '../Search';
 
 import { connect } from 'react-redux';
-import { filterTrips, user } from '../../actions';
+import { filterTrips } from '../../actions';
 
 const SidePanel = props => {
   /* Filters to Be Mapped to Buttons */
@@ -18,7 +18,7 @@ const SidePanel = props => {
     switch(type) {
       /* Return to default order */
       case 'clear':
-        return props.filterTrips(user[0].trips);
+        return props.filterTrips(trips);
 
       /* Sort By Duration - Longest First */
       case 'duration':
@@ -68,6 +68,7 @@ const SidePanel = props => {
     /* If new order matches old order, reverse  */
     props.trips[0] === trips[0] ? props.filterTrips(trips.reverse()) : props.filterTrips(trips);
   }
+  
 
   return(
     <div className='side-panel'>
@@ -79,10 +80,10 @@ const SidePanel = props => {
 
       <div className='side-panel__btn--container'>
         {/* Create Filter Buttons */}
-        {
-          filters.map(item => <button key={Math.random()}
-                                      onClick={filterHandler}
-                                      className='side-panel__btn'> {item} </button>)
+        { !props.users ? filters.map(item => <button key={Math.random()}
+                                                     onClick={filterHandler}
+                                                     className='side-panel__btn'> {item} </button>)
+                            : null       
         }
       </div>
     </div>

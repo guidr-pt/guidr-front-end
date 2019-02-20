@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { searchTrip, searchUsers, user } from '../actions';
+import { searchTrip, searchUsers } from '../actions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Search extends React.Component {
     if(e.target.value === '' && this.state.tripSearch.length > 0) {
 
       /* Reset results back to all trips  */
-      this.props.searchTrip(user[0].trips);
+      this.props.searchTrip(this.props.trips);
       return;
     } else if (e.target.value === '' && this.state.userSearch.length > 0) {
       this.props.searchUsers(this.props.allUsers);
