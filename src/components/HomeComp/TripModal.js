@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { editTrip } from '../../actions';
+import { editTrip, deleteTrip, getUserTrips } from '../../actions';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Badge } from 'reactstrap';
 
 
@@ -11,11 +11,10 @@ class TripModal extends React.Component {
     this.state = {
       modal: false,
       edit: false,
-      name: '',
+      title: '',
       description: '',
       type: '',
       duration: '',
-      date: '',
       private: false,
     };
   }
@@ -43,25 +42,34 @@ class TripModal extends React.Component {
   /* Update Trip based on Form Input in Edit mode */
   saveEdit = e => {
     const update = {
-      name: this.state.name,
-      description: this.state.description,
-      duration: this.state.duration,
-      date: this.state.date,
-      private: this.state.private,
+      title: this.state.title || this.props.trip.title,
+      description: this.state.description || this.props.trip.description,
+      duration: this.state.duration || this.props.trip.duration,
+      date: this.state.date || this.props.trip.date,
+      private: this.state.private || this.props.trip.private,
+      type: this.state.type || this.props.trip.type
     }
 
+    const id = this.props.trip.id;
 
-    this.props.editTrip(update);
+    this.props.editTrip(update, id);
     this.setState({
       modal: true,
       edit: false,
-      name: '',
+      title: '',
       description: '',
       type: '',
       duration: '',
-      date: '',
       private: false,
     })
+  }
+
+  /* Delete TRip Based on Id */
+  deleteTripHandler = e => {
+    const id = this.props.trip.id;
+    const username = this.props.user.username;
+
+    this.props.deleteTrip(id, username);
   }
 
   /* Update State based on Form Inputs */
@@ -113,20 +121,23 @@ class TripModal extends React.Component {
         <Button color="danger" onClick={this.toggle}>View</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
 
-          <ModalHeader>{ trip.name }</ModalHeader>
+          <ModalHeader>
+            { trip.title }
+            <span onClick={this.deleteTripHandler}>&times;</span>
+          </ModalHeader>
 
           <ModalBody>
             <div className='modal-info'>
-              <img src={trip.img} alt={trip.name} id='modal-image'/>
+              <img src={trip.img} alt={trip.title} id='modal-image'/>
 
               <div>
-                { editMode ? <input placeholder={trip.name}
-                                    name='name'
+                { editMode ? <input placeholder={trip.title}
+                                    name='title'
                                     type='text'
                                     onChange={this.handleChange}
-                                    value={this.state.name}/>
+                                    value={this.state.title}/>
 
-                           : <h2>{trip.name}</h2> }
+                           : <h2>{trip.title}</h2> }
 
 
                 { editMode ? <textarea name='description'
@@ -175,5 +186,11 @@ class TripModal extends React.Component {
   }
 }
 
+const mstp = state => {
+  return {
+    user: state.appReducer.user
+  }
+}
 
-export default connect(null, { editTrip })(TripModal);
+
+export default connect(mstp, { editTrip, deleteTrip, getUserTrips })(TripModal);

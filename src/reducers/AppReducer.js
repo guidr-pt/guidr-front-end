@@ -2,11 +2,12 @@ import {
   LOADING /* X */,
   GET_USER /* X */,
   GET_USERS /* X */,
-  EDIT_USER /* X */,
-  GET_TRIP /* - */,
+  EDIT_USER /* - */,
+  GET_TRIP /* X */,
   GET_TRIPS /* X */, 
   ADD_TRIP /* X */,
-  EDIT_TRIP, 
+  EDIT_TRIP /* - */,
+  DELETE_TRIP /* - */, 
   SEARCH_TRIPS /* X */,
   SEARCH_USERS /* X */,
   FILTER_TRIPS /* X */
@@ -51,7 +52,6 @@ export const appReducer = (state = initialState, action) => {
         loading: false
       }
 
-
     case GET_TRIP:
       return {
         ...state,
@@ -75,7 +75,14 @@ export const appReducer = (state = initialState, action) => {
 
     case EDIT_TRIP:
       return {
-        ...state
+        ...state,
+        loading: false
+      }
+
+    case  DELETE_TRIP:
+      return {
+        ...state,
+        loading: false,
       }
 
     case SEARCH_TRIPS:

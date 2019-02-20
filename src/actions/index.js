@@ -42,6 +42,7 @@ export const editUser = update => dispatch => {
   dispatch({ type: LOADING });
 
   const id = update.id;
+  update.profileImage = 'test';
 
   axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update)
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
@@ -49,22 +50,20 @@ export const editUser = update => dispatch => {
 
 }
 
-/*   Get user selected trip   */
+/*   Get user trips  */
 export const getUserTrips = username => dispatch => {
     axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
          .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
          .catch(err => console.log(err))   
 }
 
-/*   Get all user trips   */
+/*   Get all trips   */
 export const getTrips = clearSearch => dispatch => {
   clearSearch ? console.log('continue') : dispatch({ type: LOADING });
 
   axios.get(`https://guidr-back-end.herokuapp.com/trips`)
        .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
        .catch(err => console.log(err))
-
-  /* dispatch({ type: GET_TRIPS, payload: user[0].trips }) */
 }
 
 /*  Post New Trip from Form */
@@ -74,15 +73,29 @@ export const addTrip = newTrip => dispatch => {
   axios.post(`https://guidr-back-end.herokuapp.com/trips`,newTrip)
        .then(dispatch({ type: ADD_TRIP }))
        .catch(err => console.log(err));
-
-  
 }
 
 /*  Edit Trip from Modal */
-export const editTrip = update => dispatch => {
+export const editTrip = (update,id) => dispatch => {
   dispatch({ type: LOADING });
 
+  axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, update)
+       .then(res => console.log(res))
+       .catch(err => console.log(err))
+
   dispatch({ type: EDIT_TRIP, payload: update })
+}
+
+/* Delete Trip from Modal */
+export const deleteTrip = (id, username) => dispatch => {
+  axios.delete(`https://guidr-back-end.herokuapp.com/trips/${id}`)
+       .then(res => {
+         /* Update User Trips after Deletion */
+          axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
+              .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
+              .catch(err => console.log(err))   
+       })
+       .catch(err => console.log(err));
 }
 
 /* Search For Trips By User Selection */
