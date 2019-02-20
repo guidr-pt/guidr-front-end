@@ -23,7 +23,7 @@ class Search extends React.Component {
       this.props.searchTrip(user[0].trips);
       return;
     } else if (e.target.value === '' && this.state.userSearch.length > 0) {
-      this.props.searchUsers(user);
+      this.props.searchUsers(this.props.allUsers);
       return;
     }
 
@@ -39,14 +39,15 @@ class Search extends React.Component {
           if tripSearch has value ? return trips value : return users value
      */
     const term = this.state.tripSearch.length > 0 ? this.state.tripSearch : this.state.userSearch
-
-
+    console.log('term', term)
+    console.log(this.props.allUsers[0])
     const filtered = this.state.tripSearch.length > 0 ?
                       /* Data: filter the trips based on names that include the search term */
                       this.props.trips.filter(trip => trip.name.toLowerCase().includes(term.toLowerCase()))
                       /* Data: filter the users based on usersnames that include the search term */
-                      : user.filter(user => user.username.toLowerCase().includes(term.toLowerCase()));
+                      : this.props.allUsers.filter(user => user.name.toLowerCase().includes(term.toLowerCase()));
 
+    console.log('filtered', filtered)
     this.state.tripSearch.length > 0 ? this.props.searchTrip(filtered)
                                      : this.props.searchUsers(filtered);
   }
@@ -73,7 +74,7 @@ class Search extends React.Component {
 const mstp = state => {
   return {
     trips: state.appReducer.trips,
-    user: state.appReducer.user
+    allUsers: state.appReducer.allUsers
   }
 }
 

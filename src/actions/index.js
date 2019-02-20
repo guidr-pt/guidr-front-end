@@ -176,18 +176,18 @@ export const LOADING = 'LOADING';
 export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
 
-    axios.get(`http://localhost:7070/users`)
+    axios.get(`https://guidr-back-end.herokuapp.com/users`)
          .then(res => dispatch({ type: GET_USERS, payload: res.data}))
          .catch(err => console.log(err));
-
 }
 
 /*   Get current user data   */
 export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
-
-  axios.get(`http://localhost:7070/users/${id}`)
+  
+  axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`)
        .then(res => {
+         console.log('payload', res.data[0])
          dispatch({ type: GET_USER, payload: res.data[0] })
         })
        .catch(err => console.log(err));
@@ -199,7 +199,7 @@ export const editUser = update => dispatch => {
 
   const id = update.id;
 
-  axios.put(`http://localhost:7070/users/${id}`, update)
+  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update)
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
        .catch(err => console.log(err));
 
@@ -207,9 +207,7 @@ export const editUser = update => dispatch => {
 
 /*   Get user selected trip   */
 export const getUserTrips = username => dispatch => {
-    dispatch({ type: LOADING });
-
-    axios.get(`http://localhost:7070/trips/${username}`)
+    axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
          .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
          .catch(err => console.log(err))   
 }
@@ -218,14 +216,20 @@ export const getUserTrips = username => dispatch => {
 export const getTrips = () => dispatch => {
   dispatch({ type: LOADING });
 
-  dispatch({ type: GET_TRIPS, payload: user[0].trips })
+  console.log('test');
+
+  /* dispatch({ type: GET_TRIPS, payload: user[0].trips }) */
 }
 
 /*  Post New Trip from Form */
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
+  console.log(newTrip)
+  axios.post(`https://guidr-back-end.herokuapp.com/trips`,newTrip)
+       .then(res => console.log(res))
+       .catch(err => console.log(err))
 
-  dispatch({ type: ADD_TRIP, payload: newTrip });
+  /*dispatch({ type: ADD_TRIP, payload: newTrip });*/
 }
 
 /*  Edit Trip from Modal */
@@ -237,21 +241,16 @@ export const editTrip = update => dispatch => {
 
 /* Search For Trips By User Selection */
 export const searchTrip = filteredArr => dispatch => {
-  dispatch({ type: LOADING });
-
   dispatch({ type: SEARCH_TRIPS, payload: filteredArr })
 }
 
 /* Search For User */
 export const searchUsers = filteredArr => dispatch => {
-  dispatch({ type: LOADING });
-
+  console.log('FILTERED', filteredArr);
   dispatch({ type: SEARCH_USERS, payload: filteredArr })
 }
 
 /* Filter Trips By User Selection */
 export const filterTrips = filterArr => dispatch => {
-  dispatch({ type: LOADING });
-
   dispatch({ type: FILTER_TRIPS, payload: filterArr });
 }

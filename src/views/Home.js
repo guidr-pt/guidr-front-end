@@ -1,6 +1,8 @@
 import React from 'react';
-
 import HomeSearch from '../components/HomeComp/HomeSearch.js'
+import Loader from '../components/Loader';
+
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */
@@ -21,10 +23,17 @@ class Home extends React.Component {
   render() {
     return(
       <div className='home'>
-        <HomeSearch />
+        { this.props.loading ? <Loader/> : <HomeSearch /> }
       </div>
     );
   }
 }
 
-export default Home;
+const mstp = state => {
+  return {
+    ...state,
+    loading: state.appReducer.loading
+  }
+}
+
+export default connect(mstp, {})(Home);

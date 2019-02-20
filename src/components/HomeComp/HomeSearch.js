@@ -38,7 +38,8 @@ class HomeSearch extends React.Component {
   render() {
     let display = '';
     let panel = '';
-
+    console.log('DISPLAY', this.props.filteredUsers)
+    const displayUsers = this.props.filteredUsers.length > 0 ?  this.props.filteredUsers : this.props.allUsers
 
     console.log(this.props.userTrips)
     /* State Based Render */
@@ -48,7 +49,7 @@ class HomeSearch extends React.Component {
       display = <TripGrid trips={this.props.trips} />
       panel = <SidePanel />
     } else {
-      display = <UserList users={this.props.allUsers}/>
+      display = <UserList users={displayUsers}/>
       panel = <SidePanel users />
     }
 
@@ -65,6 +66,7 @@ const mstp = state => {
   return { 
     trips: state.appReducer.trips, 
     allUsers: state.appReducer.allUsers,
+    filteredUsers: state.appReducer.filteredUsers,
     user: state.appReducer.user,
   }
 }

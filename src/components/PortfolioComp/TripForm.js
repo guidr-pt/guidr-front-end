@@ -8,9 +8,12 @@ class TripForm extends React.Component {
     super(props);
 
     this.state = {
+      username: this.props.user.username,
+      id: this.props.user.id,
       name: '',
+      title: '',
       description: '',
-      img: '',
+      image: '',
       private: false,
       type: 'hiking',
       duration: '',
@@ -65,6 +68,8 @@ addTripHandler = e => {
 componentDidMount() {
   /* Ensure User is Logged In*/
   this.authenticate();
+
+  console.log('PROPS', this.props)
 }
 
   render() {
@@ -79,7 +84,16 @@ componentDidMount() {
                    name='name'
                    placeholder='Grand Falls'
                    onChange={this.handleChange}
-                   value={this.state.Name} />
+                   value={this.state.name} />
+          </div>
+
+          <div className='textbox'>
+            <label>Title:</label>
+            <input type='text'
+                   name='title'
+                   placeholder='Title'
+                   onChange={this.handleChange}
+                   value={this.state.title} />
           </div>
 
           <div className='textbox'>
@@ -132,5 +146,11 @@ componentDidMount() {
   }
 }
 
+const mstp = state => {
+  return {
+    ...state,
+    user: state.appReducer.user
+  }
+}
 
-export default connect(null, { addTrip })(TripForm);
+export default connect(mstp, { addTrip })(TripForm);

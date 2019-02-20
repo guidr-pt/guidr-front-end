@@ -41,7 +41,7 @@ class Profile extends React.Component {
      tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
      age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
    }
-
+   console.log('UPDATE', update)
    this.props.editUser(update)
    this.setState({
      edit: false,
@@ -53,14 +53,14 @@ class Profile extends React.Component {
  }
 
  componentDidMount() {
-    console.log('DIDMOUNT', this.props.user);
-    const username = this.props.user.username;
+   const username = this.props.username;
 
-  }
+   this.props.getUserTrips(username);
+ }
 
   render() {
     const editMode = this.state.edit;
-    console.log(this.props.user, 'FROM RENDER')
+
     return(
 
       /*

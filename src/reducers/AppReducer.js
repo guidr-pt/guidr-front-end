@@ -1,18 +1,21 @@
 import {
+  LOADING /* X */,
   GET_USER /* X */,
-  GET_USERS,
+  GET_USERS /* X */,
   EDIT_USER /* X */,
-  GET_TRIP,
-  GET_TRIPS,
-  ADD_TRIP,
-  EDIT_TRIP,
-  SEARCH_TRIPS,
-  SEARCH_USERS,
-  FILTER_TRIPS
+  GET_TRIP /* - */,
+  GET_TRIPS /* - */, 
+  ADD_TRIP /* - */,
+  EDIT_TRIP, 
+  SEARCH_TRIPS /* X */,
+  SEARCH_USERS /* X */,
+  FILTER_TRIPS /* X */
 } from '../actions';
 
 const initialState = {
+  loading: false,
   allUsers: [],
+  filteredUsers: [],
   user: {},
   userTrips: [],
   trips: [],
@@ -21,36 +24,47 @@ const initialState = {
 
 export const appReducer = (state = initialState, action) => {
   switch(action.type) {
+    case LOADING: 
+      return {
+        ...state,
+        loading: true
+      }
+
     case GET_USER:
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+        loading: false
       }
 
     case GET_USERS:
       return {
         ...state,
-        allUsers: action.payload
+        allUsers: action.payload,
+        loading: false
       }
 
     case EDIT_USER:
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+        loading: false
       }
 
 
     case GET_TRIP:
       return {
         ...state,
-        userTrips: action.payload
+        userTrips: action.payload,
+        loading: false
       }
 
     case GET_TRIPS:
       return {
         ...state,
         trips: action.payload,
-        recentTrips: action.payload.slice(Math.max(action.payload.length - 5, 1))
+        recentTrips: action.payload.slice(Math.max(action.payload.length - 5, 1)),
+        loading: false,
       }
 
     case ADD_TRIP:
@@ -70,8 +84,10 @@ export const appReducer = (state = initialState, action) => {
       }
 
       case SEARCH_USERS:
+        console.log('PAYLOAD', action.payload)
         return {
           ...state,
+          filteredUsers: action.payload
         }
 
       case FILTER_TRIPS:

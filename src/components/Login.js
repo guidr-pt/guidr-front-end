@@ -87,7 +87,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
 
-    const endpoint =  /*'https://guidr-back-end.herokuapp.com/users/login';*/ 'http://localhost:7070/users/login'
+    const endpoint =  'https://guidr-back-end.herokuapp.com/users/login'; /*'http://localhost:7070/users/login'*/
     const userInfo = {
         username: this.state.userVal,
         password: this.state.passVal
@@ -99,6 +99,7 @@ class Login extends React.Component {
            const token = localStorage.getItem('jwtToken');
 
            const id = res.data.user.id;
+           
            this.props.getUser(id)
 
            if(token) {
@@ -114,7 +115,7 @@ class Login extends React.Component {
   registration = e => {
     e.preventDefault();
 
-    const endpoint =   /*'https://guidr-back-end.herokuapp.com/users/registration'*/'http://localhost:7070/users/registration';
+    const endpoint =   'https://guidr-back-end.herokuapp.com/users/registration' /*'http://localhost:7070/users/registration';*/
     const registerInfo = {
       username: this.state.userVal,
       name: this.state.nameVal,
