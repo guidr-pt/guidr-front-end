@@ -2,7 +2,7 @@ import React from 'react';
 import TripGrid from '../HomeComp/TripGrid';
 
 import { connect } from 'react-redux';
-import { editUser } from '../../actions';
+import { editUser, getUserTrips } from '../../actions';
 
 import { Button } from 'reactstrap';
 
@@ -52,9 +52,15 @@ class Profile extends React.Component {
    })
  }
 
+ componentDidMount() {
+    console.log('DIDMOUNT', this.props.user);
+    const username = this.props.user.username;
+
+  }
+
   render() {
     const editMode = this.state.edit;
-
+    console.log(this.props.user, 'FROM RENDER')
     return(
 
       /*
@@ -108,7 +114,7 @@ class Profile extends React.Component {
           </div>
         </div>
 
-        <TripGrid />
+        { this.props.userTrips ? <TripGrid trips={this.props.userTrips} /> : null }
       </div>
     );
   }
@@ -116,8 +122,11 @@ class Profile extends React.Component {
 
 const mstp = state => {
   return {
-    user: state.appReducer.user
+    ...state.appReducer,
+    user: state.appReducer.user,
+    userTrips: state.appReducer.userTrips
   }
 }
 
-export default connect(mstp, { editUser })(Profile);
+export default connect(mstp, { editUser, getUserTrips })(Profile);
+

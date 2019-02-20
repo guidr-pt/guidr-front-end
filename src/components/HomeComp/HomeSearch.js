@@ -6,6 +6,7 @@ import RoutePage from './RoutePage';
 import SidePanel from './SidePanel';
 
 import { connect } from 'react-redux';
+import { getUserTrips } from '../../actions';
 
 class HomeSearch extends React.Component {
   constructor(props) {
@@ -38,6 +39,8 @@ class HomeSearch extends React.Component {
     let display = '';
     let panel = '';
 
+
+    console.log(this.props.userTrips)
     /* State Based Render */
     if(this.state.option) {
       display = <RoutePage handleUser={this.selectUsers} handleTrips={this.selectTrips}/>
@@ -61,8 +64,9 @@ class HomeSearch extends React.Component {
 const mstp = state => {
   return { 
     trips: state.appReducer.trips, 
-    allUsers: state.appReducer.allUsers
+    allUsers: state.appReducer.allUsers,
+    user: state.appReducer.user,
   }
 }
 
-export default connect(mstp, {})(HomeSearch);
+export default connect(mstp, { getUserTrips })(HomeSearch);

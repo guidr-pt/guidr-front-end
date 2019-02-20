@@ -14,7 +14,7 @@ import {
 const initialState = {
   allUsers: [],
   user: {},
-  activeTrip: {},
+  userTrips: [],
   trips: [],
   recentTrips: [],
 }
@@ -28,7 +28,6 @@ export const appReducer = (state = initialState, action) => {
       }
 
     case GET_USERS:
-      console.log(action.payload)
       return {
         ...state,
         allUsers: action.payload
@@ -44,7 +43,7 @@ export const appReducer = (state = initialState, action) => {
     case GET_TRIP:
       return {
         ...state,
-        activeTrip: action.payload
+        userTrips: action.payload
       }
 
     case GET_TRIPS:

@@ -206,10 +206,12 @@ export const editUser = update => dispatch => {
 }
 
 /*   Get user selected trip   */
-export const getTrip = () => dispatch => {
+export const getUserTrips = username => dispatch => {
     dispatch({ type: LOADING });
 
-    dispatch({ type: GET_TRIP, payload: user[0].trips[0] })
+    axios.get(`http://localhost:7070/trips/${username}`)
+         .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
+         .catch(err => console.log(err))   
 }
 
 /*   Get all user trips   */

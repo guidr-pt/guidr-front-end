@@ -98,11 +98,11 @@ class Login extends React.Component {
            localStorage.setItem('jwtToken', res.data.token);
            const token = localStorage.getItem('jwtToken');
 
-           const id = res.data.id;
+           const id = res.data.user.id;
            this.props.getUser(id)
 
            if(token) {
-             this.props.history.push('/portfolio')
+             this.props.history.push('/portfolio');
            } else {
              this.props.history.push('/access-denied');
            }
