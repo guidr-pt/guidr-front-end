@@ -172,12 +172,17 @@ export const FILTER_TRIPS = 'FILTER_TRIPS';
 export const LOADING = 'LOADING';
 
 
-/*   Get current user data   */
+/*   Get all user data   */
 export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
 
+    axios.get(`http://localhost:7070/users`)
+         .then(res => console.log(res))
+         .catch(err => console.log(err));
+
 }
 
+/*   Get current user data   */
 export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
 
@@ -186,6 +191,18 @@ export const getUser = id => dispatch => {
          dispatch({ type: GET_USER, payload: res.data[0] })
         })
        .catch(err => console.log(err));
+}
+
+/* Edit User from Profile */
+export const editUser = update => dispatch => {
+  dispatch({ type: LOADING });
+
+  const id = update.id;
+
+  axios.put(`http://localhost:7070/users/${id}`, update)
+       .then(res => dispatch({ type: EDIT_USER, payload: update }))
+       .catch(err => console.log(err));
+
 }
 
 /*   Get user selected trip   */
@@ -214,18 +231,6 @@ export const editTrip = update => dispatch => {
   dispatch({ type: LOADING });
 
   dispatch({ type: EDIT_TRIP, payload: update })
-}
-
-/* Edit User from Profile */
-export const editUser = update => dispatch => {
-  dispatch({ type: LOADING });
-
-  const id = update.id;
-
-  axios.put(`http://localhost:7070/users/${id}`, update)
-       .then(res => dispatch({ type: EDIT_USER, payload: update }))
-       .catch(err => console.log(err));
-
 }
 
 /* Search For Trips By User Selection */

@@ -13,6 +13,7 @@ class TripModal extends React.Component {
       edit: false,
       name: '',
       description: '',
+      type: '',
       duration: '',
       date: '',
       private: false,
@@ -56,6 +57,7 @@ class TripModal extends React.Component {
       edit: false,
       name: '',
       description: '',
+      type: '',
       duration: '',
       date: '',
       private: false,
@@ -70,13 +72,33 @@ class TripModal extends React.Component {
      });
   }
 
+  /* Update State based on Form Select Inputs */
+  handleDropdown = e => {
+    this.setState({
+       ...this.state,
+       type: e.target.value
+     });
+  }
+
   render() {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     const trip = this.props.trip;
     const editMode = this.state.edit;
+
     const checkBoxPrivate = <div>
                               <input type='checkbox' onClick={this.getPrivate}/> Private
                             </div>
+
+    const dropDownTypes = <div>
+                            <label>Type:</label>
+                            <select name="type"
+                                    onChange={this.handleDropdown}>
+                              <option value="hiking">Hiking</option>
+                              <option value="camping">Camping</option>
+                              <option value="rafting">Rafting</option>
+                              <option value="backpacking">Backpacking</option>
+                            </select>
+                          </div>
 
     return (
 
@@ -114,6 +136,7 @@ class TripModal extends React.Component {
 
                             : <p>{trip.description}</p> }
 
+                { editMode ? dropDownTypes : <p>{trip.type}</p> }
                 { editMode ? checkBoxPrivate : <p>{trip.private === true ? 'Private' : 'Professional'}</p> }
               </div>
 

@@ -1,8 +1,6 @@
 import React from 'react';
 
 const RoutePage = props => {
-  console.log(props)
-
   /* Go To User Search */
   const handleUser = () => {
     props.handleUser();

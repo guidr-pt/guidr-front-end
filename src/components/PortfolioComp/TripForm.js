@@ -83,7 +83,7 @@ componentDidMount() {
           </div>
 
           <div className='textbox'>
-          <label>Type:</label>
+            <label>Type:</label>
             <select name="type"
                     onChange={this.handleDropdown}>
                <option value="hiking">Hiking</option>

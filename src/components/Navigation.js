@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from './Search';
 
 import { NavLink, withRouter } from 'react-router-dom';
 

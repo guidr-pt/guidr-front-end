@@ -14,7 +14,7 @@ import { Route, withRouter } from 'react-router-dom';
 
 /* Redux */
 import { connect } from 'react-redux';
-import { getTrips, getTrip, getUser, getAllUsers } from './actions';
+import { getTrips, getTrip, getAllUsers } from './actions';
 
 /* Compiled CSS file */
 import './css/index.css';
@@ -24,6 +24,7 @@ class App extends Component {
     /* Get User Data on Load */
     this.props.getTrips();
     this.props.getTrip();
+    console.log(this.props.getAllUsers)
   }
 
   render() {
@@ -41,4 +42,4 @@ class App extends Component {
 }
 
 /* Accessing props from React Router and the Redux Store via withRouter and connect */
-export default withRouter(connect(null, { getTrips, getTrip, getUser, getAllUsers })(App));
+export default withRouter(connect(null, { getTrips, getTrip, getAllUsers })(App));

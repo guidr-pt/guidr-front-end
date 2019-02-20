@@ -12,6 +12,7 @@ import {
 } from '../actions';
 
 const initialState = {
+  allUsers: [],
   user: {},
   activeTrip: {},
   trips: [],
@@ -28,7 +29,8 @@ export const appReducer = (state = initialState, action) => {
 
     case GET_USERS:
       return {
-        ...state
+        ...state,
+        allUsers: action.payload
       }
 
     case EDIT_USER:
