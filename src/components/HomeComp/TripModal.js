@@ -186,8 +186,8 @@ class TripModal extends React.Component {
             </div>
 
             <div>
-
-              {this.props.trip.username === this.props.user.username ? 
+              {/* If User is owner of trip, render button */}
+              {this.props.trip.username === this.props.user.username ? /* If edit mode is active render save btn else render edit btn*/
                                                                       editMode ? <Button color="primary" onClick={this.saveEdit}>Save</Button>
                                                                               : <Button color="primary" onClick={this.editMode}>Edit</Button>
                                                                       : null }

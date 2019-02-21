@@ -1,13 +1,20 @@
 import React from 'react';
-import TripCard from './TripCard';
+import UserCard from './UserCard';
+import { connect } from 'react-redux';
 
 const UserList = props => {
     return(
         <div>
-            {  props.users.map(item => <TripCard trip={item}
-                                                key={Math.random()} />)  }
+            {  props.users.map(item => <UserCard user={item}
+                                                 key={Math.random()} />)  }
         </div>
     );
 }
 
-export default UserList;
+const mstp = state => {
+    return {
+        users: state.appReducer.allUsers
+    }
+}
+
+export default connect(mstp, {})(UserList);

@@ -39,6 +39,7 @@ export const appReducer = (state = initialState, action) => {
       }
 
     case GET_USERS:
+      console.log(action.payload)
       return {
         ...state,
         allUsers: action.payload,
