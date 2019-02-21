@@ -132,19 +132,25 @@ class TripModal extends React.Component {
               <img src={trip.img} alt={trip.title} id='modal-image'/>
 
               <div>
-                { editMode ? <input placeholder={trip.title}
+                { editMode ? <div>
+                                <label>Title:</label>
+                                <input placeholder={trip.title}
                                     name='title'
                                     type='text'
                                     onChange={this.handleChange}
                                     value={this.state.title}/>
+                             </div>
 
                            : <h2>{trip.title}</h2> }
 
 
-                { editMode ? <textarea name='description'
+                { editMode ? <div>
+                                <label>Description</label> 
+                                <textarea name='description'
                                        placeholder='Description '
                                        onChange={this.handleChange}
-                                       value={this.state.description}></textarea >
+                                       value={this.state.description}></textarea>
+                             </div>
 
                             : <p>{trip.description}</p> }
 
@@ -157,19 +163,24 @@ class TripModal extends React.Component {
           </ModalBody>
           <ModalFooter>
             <div>
-              { editMode ? <input placeholder={trip.duration}
+              { editMode ? <div>
+                              <label>Duration:</label>
+                              <input placeholder={trip.duration}
                                   name='duration'
                                   type='text'
                                   onChange={this.handleChange}
                                   value={this.state.duration}/>
-
+                           </div>
                           : <p>{trip.duration}</p> }
 
-              { editMode ? <input placeholder={trip.date}
+              { editMode ? <div>
+                              <label>Date:</label>
+                              <input placeholder={trip.date}
                                   name='date'
                                   type='text'
                                   onChange={this.handleChange}
                                   value={this.state.date}/>
+                           </div>
 
                           : <p>{trip.date}</p> }
             </div>

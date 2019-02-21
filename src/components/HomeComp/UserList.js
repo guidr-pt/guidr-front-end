@@ -5,7 +5,7 @@ const UserList = props => {
     return(
         <div>
             {  props.users.map(item => <TripCard trip={item}
-                                    key={Math.random()} />)  }
+                                                key={Math.random()} />)  }
         </div>
     );
 }
