@@ -15,7 +15,8 @@ class Login extends React.Component {
       passDisplay: '',
       nameVal:'chris',
       remember: false,
-      register: false
+      register: false,
+      isValid: true,
     }
   }
 
@@ -108,7 +109,12 @@ class Login extends React.Component {
              this.props.history.push('/access-denied');
            }
          })
-         .catch(err => { console.log('error:', err) })
+         .catch(err => { 
+            console.log('error:', err)
+            this.setState(prevState => ({
+              isValid: !prevState.isValid,
+            }));
+          })
   }
 
   /* Registration of new user */
@@ -176,7 +182,8 @@ class Login extends React.Component {
             </div>
 
             {/* Determine if the LogIn or SignUp button is rendered */}
-            { register ? <button>Create Account</button> : <button type='submit'>Log In</button>}
+            { register ? <button type='submit'>Create Account</button> : <button type='submit'>Log In</button>}
+            { !this.state.isValid ? <p>There Was An Error. Please Try Again.</p> : null }
           </form>
         </div>
 

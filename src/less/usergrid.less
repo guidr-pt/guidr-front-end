@@ -1,0 +1,35 @@
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+
+    margin-top: 30px;
+
+    .user-grid__card {
+        background-color: @white-1l;
+        height: 150px;
+        .flexColumnCenter();
+        justify-content: space-between;
+
+        .user-grid__card__banner {
+            width: 100%;
+            height: 40px;
+            margin: 0;
+            background-color: @light-main;
+
+            .flexColumnCenter();
+        }
+
+        .modal-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                margin-bottom: 10px;
+                border-radius: 20px;
+                width: 75px;
+            }
+        }
+    }
+}

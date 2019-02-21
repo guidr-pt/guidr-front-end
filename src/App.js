@@ -21,6 +21,8 @@ import './css/index.css';
 
 class App extends Component {
   componentDidMount() {
+
+
     /* Get User Data on Load */
     this.props.getTrips();
     this.props.getAllUsers();

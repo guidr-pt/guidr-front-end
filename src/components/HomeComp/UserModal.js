@@ -17,12 +17,12 @@ class UserModal extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='modal-container'>
                 <Button color="danger" onClick={this.toggle}>View</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
 
                     <ModalHeader>
-                    { this.props.user.username }
+                        { this.props.user.username }
                     </ModalHeader>
 
                     <ModalBody>

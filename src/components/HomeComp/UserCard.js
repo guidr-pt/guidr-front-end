@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 
 const UserCard = props => {
   return(
-    <div className='tripgrid__card'>
-      <h2>{props.user.name}</h2>
+    <div className='user-grid__card'>
+      <div className='user-grid__card__banner'>
+        <h2>{props.user.username}</h2>\
+      </div>
+      
+      <div>
+        <h3>{props.user.name}</h3>
+      </div>
 
       <UserModal user={props.user} />
     </div>

@@ -18,12 +18,19 @@ export const FILTER_TRIPS = 'FILTER_TRIPS';
 /* Multi-use */
 export const LOADING = 'LOADING';
 
+const token = localStorage.getItem('jwtToken');
+const reqOptions = {
+  headers: {
+    Authorization: token
+  }
+}
+
 
 /*   Get all user data   */
 export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
 
-    axios.get(`https://guidr-back-end.herokuapp.com/users`)
+    axios.get(`https://guidr-back-end.herokuapp.com/users`, reqOptions)
          .then(res => dispatch({ type: GET_USERS, payload: res.data}))
          .catch(err => console.log(err));
 }
@@ -32,7 +39,7 @@ export const getAllUsers = () => dispatch => {
 export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
   
-  axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`)
+  axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`, reqOptions)
        .then(res => { dispatch({ type: GET_USER, payload: res.data[0] }) })
        .catch(err => console.log(err));
 }
@@ -44,7 +51,7 @@ export const editUser = update => dispatch => {
   const id = update.id;
   update.profileImage = 'test';
 
-  axios.put(`http://localhost:7070/users/${id}`, update)
+  axios.put(`http://localhost:7070/users/${id}`, reqOptions, update )
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
        .catch(err => console.log(err));
 
@@ -52,7 +59,7 @@ export const editUser = update => dispatch => {
 
 /*   Get user trips  */
 export const getUserTrips = username => dispatch => {
-    axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
+    axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`, reqOptions)
          .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
          .catch(err => console.log(err))   
 }
@@ -61,7 +68,7 @@ export const getUserTrips = username => dispatch => {
 export const getTrips = clearSearch => dispatch => {
   clearSearch ? console.log('continue') : dispatch({ type: LOADING });
 
-  axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+  axios.get(`https://guidr-back-end.herokuapp.com/trips`, reqOptions)
        .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
        .catch(err => console.log(err))
 }
@@ -70,12 +77,12 @@ export const getTrips = clearSearch => dispatch => {
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
  
-  axios.post(`https://guidr-back-end.herokuapp.com/trips`, newTrip)
+  axios.post(`https://guidr-back-end.herokuapp.com/trips`, reqOptions, newTrip)
        .then( res => {
          dispatch({ type: ADD_TRIP })
          
          /* Update All Trips after Addition */
-          axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+          axios.get(`https://guidr-back-end.herokuapp.com/trips`, reqOptions)
             .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
             .catch(err => console.log(err))
         })
@@ -87,7 +94,7 @@ export const editTrip = (update,id) => dispatch => {
   dispatch({ type: LOADING });
   console.log(update)
 
-  axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, update)
+  axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, reqOptions, update)
        .then(res => console.log(res))
        .catch(err => console.log(err))
 
@@ -96,15 +103,15 @@ export const editTrip = (update,id) => dispatch => {
 
 /* Delete Trip from Modal */
 export const deleteTrip = (id, username) => dispatch => {
-  axios.delete(`https://guidr-back-end.herokuapp.com/trips/${id}`)
+  axios.delete(`https://guidr-back-end.herokuapp.com/trips/${id}`, reqOptions)
        .then(res => {
          /* Update User Trips after Deletion */
-          axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
+          axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`, reqOptions)
               .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
               .catch(err => console.log(err))   
 
           /* Update All Trips after Deletion */
-          axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+          axios.get(`https://guidr-back-end.herokuapp.com/trips`, reqOptions)
               .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
               .catch(err => console.log(err))  
        })

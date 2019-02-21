@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const UserList = props => {
     return(
-        <div>
+        <div className='user-grid'>
             {  props.users.map(item => <UserCard user={item}
                                                  key={Math.random()} />)  }
         </div>
