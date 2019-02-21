@@ -7,7 +7,7 @@ import {
   GET_TRIPS /* X */, 
   ADD_TRIP /* X */,
   EDIT_TRIP /* - */,
-  DELETE_TRIP /* - */, 
+  DELETE_TRIP /* X */, 
   SEARCH_TRIPS /* X */,
   SEARCH_USERS /* X */,
   FILTER_TRIPS /* X */
