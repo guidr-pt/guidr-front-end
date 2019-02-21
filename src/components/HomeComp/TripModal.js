@@ -186,8 +186,11 @@ class TripModal extends React.Component {
             </div>
 
             <div>
-              { editMode ? <Button color="primary" onClick={this.saveEdit}>Save</Button>
-                         : <Button color="primary" onClick={this.editMode}>Edit</Button>}
+
+              {this.props.trip.username === this.props.user.username ? 
+                                                                      editMode ? <Button color="primary" onClick={this.saveEdit}>Save</Button>
+                                                                              : <Button color="primary" onClick={this.editMode}>Edit</Button>
+                                                                      : null }
 
               <Button color="secondary" onClick={this.toggle}>Close</Button>
             </div>
