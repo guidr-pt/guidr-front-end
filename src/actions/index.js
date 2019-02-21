@@ -44,7 +44,7 @@ export const editUser = update => dispatch => {
   const id = update.id;
   update.profileImage = 'test';
 
-  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update)
+  axios.put(`http://localhost:7070/users/${id}`, update)
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
        .catch(err => console.log(err));
 
@@ -70,14 +70,22 @@ export const getTrips = clearSearch => dispatch => {
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
  
-  axios.post(`https://guidr-back-end.herokuapp.com/trips`,newTrip)
-       .then(dispatch({ type: ADD_TRIP }))
+  axios.post(`https://guidr-back-end.herokuapp.com/trips`, newTrip)
+       .then( res => {
+         dispatch({ type: ADD_TRIP })
+         
+         /* Update All Trips after Addition */
+          axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+            .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
+            .catch(err => console.log(err))
+        })
        .catch(err => console.log(err));
 }
 
 /*  Edit Trip from Modal */
 export const editTrip = (update,id) => dispatch => {
   dispatch({ type: LOADING });
+  console.log(update)
 
   axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, update)
        .then(res => console.log(res))
@@ -94,6 +102,11 @@ export const deleteTrip = (id, username) => dispatch => {
           axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`)
               .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
               .catch(err => console.log(err))   
+
+          /* Update All Trips after Deletion */
+          axios.get(`https://guidr-back-end.herokuapp.com/trips`)
+              .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
+              .catch(err => console.log(err))  
        })
        .catch(err => console.log(err));
 }

@@ -123,7 +123,7 @@ class TripModal extends React.Component {
 
           <ModalHeader>
             { trip.title }
-            <span onClick={this.deleteTripHandler}>&times;</span>
+            {this.props.trip.username === this.props.user.username ? <span onClick={this.deleteTripHandler}>&times;</span> : null }
           </ModalHeader>
 
           <ModalBody>
