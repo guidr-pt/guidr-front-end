@@ -5,11 +5,11 @@ const UserCard = props => {
   return(
     <div className='user-grid__card'>
       <div className='user-grid__card__banner'>
-        <h2>{props.user.username}</h2>\
+        <h2>{props.user.name}</h2>
       </div>
       
       <div>
-        <h3>{props.user.name}</h3>
+        <img src={props.user.profileImage} alt={props.user.name} />
       </div>
 
       <UserModal user={props.user} />

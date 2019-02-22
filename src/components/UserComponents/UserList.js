@@ -13,7 +13,7 @@ const UserList = props => {
 
 const mstp = state => {
     return {
-        users: state.appReducer.allUsers
+        users: state.appReducer.filteredUsers[0] ? state.appReducer.filteredUsers : state.appReducer.allUsers
     }
 }
 

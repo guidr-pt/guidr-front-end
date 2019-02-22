@@ -98,7 +98,6 @@ export const appReducer = (state = initialState, action) => {
       }
 
       case SEARCH_USERS:
-        console.log('PAYLOAD', action.payload)
         return {
           ...state,
           filteredUsers: action.payload
