@@ -4,8 +4,7 @@ import TripModal from './TripModal';
 const TripCard = props => {
   return(
     <div className='tripgrid__card'>
-      <h2>{props.trip.name}</h2>
-      <p>{props.trip.description}</p>
+      <h2>{props.trip.title}</h2>
 
       <TripModal trip={props.trip} />
     </div>
