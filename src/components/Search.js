@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { searchTrip, searchUsers, user } from '../actions';
+import { searchTrip, searchUsers, getTrips } from '../actions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -20,10 +20,11 @@ class Search extends React.Component {
     if(e.target.value === '' && this.state.tripSearch.length > 0) {
 
       /* Reset results back to all trips  */
-      this.props.searchTrip(user[0].trips);
+      console.log('test')
+      this.props.getTrips(true);
       return;
     } else if (e.target.value === '' && this.state.userSearch.length > 0) {
-      this.props.searchUsers(user);
+      this.props.searchUsers(this.props.allUsers);
       return;
     }
 
@@ -40,12 +41,11 @@ class Search extends React.Component {
      */
     const term = this.state.tripSearch.length > 0 ? this.state.tripSearch : this.state.userSearch
 
-
     const filtered = this.state.tripSearch.length > 0 ?
                       /* Data: filter the trips based on names that include the search term */
-                      this.props.trips.filter(trip => trip.name.toLowerCase().includes(term.toLowerCase()))
+                      this.props.trips.filter(trip => trip.title.toLowerCase().includes(term.toLowerCase()))
                       /* Data: filter the users based on usersnames that include the search term */
-                      : user.filter(user => user.username.toLowerCase().includes(term.toLowerCase()));
+                      : this.props.allUsers.filter(user => user.name.toLowerCase().includes(term.toLowerCase()));
 
     this.state.tripSearch.length > 0 ? this.props.searchTrip(filtered)
                                      : this.props.searchUsers(filtered);
@@ -73,8 +73,8 @@ class Search extends React.Component {
 const mstp = state => {
   return {
     trips: state.appReducer.trips,
-    user: state.appReducer.user
+    allUsers: state.appReducer.allUsers
   }
 }
 
-export default connect(mstp, { searchTrip, searchUsers })(Search);
+export default connect(mstp, { searchTrip, searchUsers, getTrips })(Search);

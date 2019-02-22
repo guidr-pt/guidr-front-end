@@ -2,7 +2,7 @@ import React from 'react';
 import TripGrid from '../HomeComp/TripGrid';
 
 import { connect } from 'react-redux';
-import { editUser } from '../../actions';
+import { editUser, getUserTrips } from '../../actions';
 
 import { Button } from 'reactstrap';
 
@@ -15,7 +15,6 @@ class Profile extends React.Component {
       title: '',
       tagline: '',
       age: '',
-      timeAsGuide: ''
     }
   }
 
@@ -37,12 +36,12 @@ class Profile extends React.Component {
 /* Update User based on Form Input in Edit mode */
  saveEdit = () => {
    const update = {
-     title: this.state.title,
-     tagline: this.state.tagline,
-     age: this.state.age,
-     timeAsGuide: this.state.timeAsGuide
+     ...this.props.user,
+     title: this.state.title === '' ? this.props.user.title : this.state.title,
+     tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
+     age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
    }
-
+   console.log('UPDATE', update)
    this.props.editUser(update)
    this.setState({
      edit: false,
@@ -51,6 +50,12 @@ class Profile extends React.Component {
      age: '',
      timeAsGuide: ''
    })
+ }
+
+ componentDidMount() {
+   const username = this.props.username;
+
+   this.props.getUserTrips(username);
  }
 
   render() {
@@ -105,16 +110,11 @@ class Profile extends React.Component {
 
                         : <p>Age: {this.props.user.age}</p> }
 
-            { editMode ? <input placeholder='Time As Guide'
-                                name='timeAsGuide'
-                                onChange={this.handleChange}
-                                value={this.state.timeAsGuide}/>
-
-                        : <p>Time As Guide: {this.props.user.timeAsGuide}</p> }
+            <p>Time As Guide: {this.props.user.timeAsGuide}</p>
           </div>
         </div>
 
-        <TripGrid />
+        { this.props.userTrips ? <TripGrid trips={this.props.userTrips} /> : null }
       </div>
     );
   }
@@ -122,8 +122,11 @@ class Profile extends React.Component {
 
 const mstp = state => {
   return {
-    user: state.appReducer.user
+    ...state.appReducer,
+    user: state.appReducer.user,
+    userTrips: state.appReducer.userTrips
   }
 }
 
-export default connect(mstp, { editUser })(Profile);
+export default connect(mstp, { editUser, getUserTrips })(Profile);
+

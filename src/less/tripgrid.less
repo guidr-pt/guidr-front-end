@@ -1,32 +1,32 @@
-/* Grid Styles */
-.grid {
-width: 100%;
-background-color: @white-1l;
+.home-search, .portfolio-container {
+  /* Grid Styles */
+  .grid {
+  width: 100%;
+  background-color: @white-1l;
 
-display: grid;
-grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 
-@media(min-width: 768px) {
-  grid-template-columns: repeat(3, 1fr);
-}
+  @media(min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
 
-.tripgrid__card {
-  background-color: @white-1d;
-  text-align: center;
-  font-size: 1.8rem;
+  .tripgrid__card {
+    background-color: @white-1d;
+    text-align: center;
+    font-size: 1.8rem;
 
-  padding: 8px 12px;
+    padding: 8px 12px;
 
-  &:nth-of-type(even) {
-    background-color: @white-1l;
+      &:nth-of-type(even) {
+        background-color: @white-1l;
+      }
+    }
   }
 }
-}
-
 
 /* Modal Styles */
-
 div {
   .modal.show .modal-dialog {
     transform: translateY(20%);

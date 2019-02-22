@@ -1,6 +1,9 @@
 import React from 'react';
-import TripGrid from '../components/HomeComp/TripGrid';
-import SidePanel from '../components/HomeComp/SidePanel';
+import HomeSearch from '../components/HomeComp/HomeSearch.js'
+import Loader from '../components/Loader';
+
+import { connect } from 'react-redux';
+import { getTrips, getAllUsers } from '../actions';
 
 class Home extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */
@@ -16,16 +19,26 @@ class Home extends React.Component {
 
   componentDidMount(){
     this.authenticate();
+
+    /* Get User Data on Load */
+    this.props.getTrips();
+    this.props.getAllUsers();
   }
 
   render() {
     return(
       <div className='home'>
-        <SidePanel />
-        <TripGrid />
+        { this.props.loading ? <Loader/> : <HomeSearch /> }
       </div>
     );
   }
 }
 
-export default Home;
+const mstp = state => {
+  return {
+    ...state,
+    loading: state.appReducer.loading
+  }
+}
+
+export default connect(mstp, { getTrips, getAllUsers })(Home);

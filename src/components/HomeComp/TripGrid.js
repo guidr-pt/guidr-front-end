@@ -1,13 +1,7 @@
 import React from 'react';
 import TripCard from './TripCard';
 
-import { connect } from 'react-redux';
-
 const TripGrid = props =>{
-    if(props.demo) {
-
-    }
-
     return(
       <div className='grid'>
       {/* Create a TripCard for each trip associated with user */}
@@ -17,11 +11,4 @@ const TripGrid = props =>{
     );
 }
 
-const mstp = state => {
-  return {
-    /* User's trips from Redux Store */
-    trips: state.appReducer.trips
-  }
-}
-
-export default connect(mstp, {})(TripGrid);
+export default TripGrid;

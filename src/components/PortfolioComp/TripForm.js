@@ -8,21 +8,28 @@ class TripForm extends React.Component {
     super(props);
 
     this.state = {
-      name: '',
-      description: '',
-      img: '',
-      private: false,
-      type: '',
-      duration: '',
-      date: ''
+      "username": this.props.user.username,
+      "duration": '',
+      "title": '',
+      "description": '',
+      "private": false,
+      "type": 'hiking',
     }
   }
 
-  /* Update State based on Form Inputs */
-  handleChange = e => {
+/* Update State based on Form Text Inputs */
+handleChange = e => {
   this.setState({
      ...this.state,
      [e.target.name]: e.target.value
+   });
+}
+
+/* Update State based on Form Select Inputs */
+handleDropdown = e => {
+  this.setState({
+     ...this.state,
+     type: e.target.value
    });
 }
 
@@ -51,10 +58,13 @@ privateSelect = e => {
 addTripHandler = e => {
   e.preventDefault();
 
-  this.props.addTrip(this.state);
+  const newTrip = this.state;
+
+  this.props.addTrip(newTrip);
 }
 
 componentDidMount() {
+  /* Ensure User is Logged In*/
   this.authenticate();
 }
 
@@ -65,27 +75,28 @@ componentDidMount() {
           <h2>Add Another Trip?</h2>
 
           <div className='textbox'>
-            <label>Name:</label>
+            <label>Title:</label>
             <input type='text'
-                   name='name'
-                   placeholder='Grand Falls'
+                   name='title'
+                   placeholder='Title'
                    onChange={this.handleChange}
-                   value={this.state.Name} />
+                   value={this.state.title} />
           </div>
 
           <div className='textbox'>
             <label>Type:</label>
-            <input type='text'
-                   name='type'
-                   placeholder='type'
-                   onChange={this.handleChange}
-                   value={this.state.type} />
+            <select name="type"
+                    onChange={this.handleDropdown}>
+               <option value="hiking">Hiking</option>
+               <option value="camping">Camping</option>
+               <option value="rafting">Rafting</option>
+               <option value="backpacking">Backpacking</option>
+             </select>
           </div>
 
           <div className='textbox'>
             <label>Duration:</label>
-            <input type='text'
-                   name='duration'
+            <input name='duration'
                    placeholder='XX Days'
                    onChange={this.handleChange}
                    value={this.state.duration} />
@@ -121,5 +132,11 @@ componentDidMount() {
   }
 }
 
+const mstp = state => {
+  return {
+    ...state,
+    user: state.appReducer.user
+  }
+}
 
-export default connect(null, { addTrip })(TripForm);
+export default connect(mstp, { addTrip })(TripForm);

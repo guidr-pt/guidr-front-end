@@ -1,5 +1,9 @@
 import React from 'react';
 import Profile from '../components/PortfolioComp/Profile';
+import Loader from '../components/Loader';
+
+import { connect } from 'react-redux';
+import { getUserTrips } from '../actions';
 
 class Portfolio extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */
@@ -20,10 +24,18 @@ class Portfolio extends React.Component {
   render() {
     return (
       <div className='portfolio'>
-        <Profile />
+        { !this.props.loading && this.props.user.username ? <Profile username={this.props.user.username} /> : <Loader /> }
       </div>
     );
   }
 }
 
-export default Portfolio;
+const mstp = state => {
+  return {
+    ...state,
+    user: state.appReducer.user,
+    loading: state.appReducer.loading,
+  }
+}
+
+export default connect(mstp, { getUserTrips })(Portfolio);

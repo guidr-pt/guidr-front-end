@@ -2,8 +2,11 @@ import React from 'react';
 import axios from 'axios';
 
 import { withRouter } from 'react-router-dom';
-
 import { connect } from 'react-redux';
+import { getUser, setAuth, verifyUser } from '../actions';
+
+import jwt from 'jsonwebtoken';
+import { dispatch } from 'rxjs/internal/observable/pairs';
 
 class Login extends React.Component {
   constructor(props) {
@@ -15,7 +18,8 @@ class Login extends React.Component {
       passDisplay: '',
       nameVal:'chris',
       remember: false,
-      register: false
+      register: false,
+      isValid: true,
     }
   }
 
@@ -86,32 +90,48 @@ class Login extends React.Component {
   /* Login Authentication */
   login = e => {
     e.preventDefault();
-
-    const endpoint =  'https://guidr-back-end.herokuapp.com/user/login';
+    console.log('LOGIN')
+    const endpoint =  'https://guidr-back-end.herokuapp.com/users/login'; /*'http://localhost:7070/users/login'*/
     const userInfo = {
         username: this.state.userVal,
         password: this.state.passVal
     }
-
+  
     axios.post(endpoint, userInfo)
          .then(res => {
            localStorage.setItem('jwtToken', res.data.token);
+           localStorage.setItem('user', userInfo);
+          
            const token = localStorage.getItem('jwtToken');
+          
+           console.log(this.props)
+           this.props.setAuth(token);
 
+           const id = res.data.user.id;
+           
+           console.log('PRE GET USER');
+           this.props.getUser(id)
+
+           console.log('POST GET USER');
            if(token) {
-             this.props.history.push('/portfolio')
+             console.log('SUCCESS')
+             this.props.history.push('/portfolio');
            } else {
              this.props.history.push('/access-denied');
            }
          })
-         .catch(err => { console.log('error:', err) })
+         .catch(err => { 
+            this.setState(prevState => ({
+              isValid: !prevState.isValid,
+            }));
+          })
   }
 
   /* Registration of new user */
   registration = e => {
     e.preventDefault();
 
-    const endpoint =  'https://guidr-back-end.herokuapp.com/user/registration';
+    const endpoint =   'https://guidr-back-end.herokuapp.com/users/registration' /*'http://localhost:7070/users/registration';*/
     const registerInfo = {
       username: this.state.userVal,
       name: this.state.nameVal,
@@ -139,7 +159,7 @@ class Login extends React.Component {
             { register ? <div className='login__input--container'>
                           <i className="fas fa-user"></i>
                           <input type='text'
-                                placeholder='name'
+                                placeholder='full name'
                                 name='nameVal'
                                 onChange={this.changeHandler}
                                 value={this.state.name}
@@ -172,7 +192,8 @@ class Login extends React.Component {
             </div>
 
             {/* Determine if the LogIn or SignUp button is rendered */}
-            { register ? <button>Create Account</button> : <button type='submit'>Log In</button>}
+            { register ? <button type='submit'>Create Account</button> : <button type='submit'>Log In</button>}
+            { !this.state.isValid ? <p>There Was An Error. Please Try Again.</p> : null }
           </form>
         </div>
 
@@ -200,4 +221,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, {})(withRouter(Login));
+export default connect(mstp, { getUser, setAuth, verifyUser })(withRouter(Login));

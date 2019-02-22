@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from './Search';
 
 import { NavLink, withRouter } from 'react-router-dom';
 
@@ -14,7 +13,6 @@ class Navigation extends React.Component {
   render() {
     return(
       <div className='navigation'>
-        <Search users/>
         <NavLink to='/Home' className="normal" activeClassName="active">Home</NavLink>
         <NavLink to='/Portfolio' className="normal" activeClassName="active">Portfolio</NavLink>
         <NavLink to='/add-trip' className="normal" activeClassName="active">Add Trip</NavLink>
