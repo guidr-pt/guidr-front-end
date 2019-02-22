@@ -3,6 +3,7 @@ import HomeSearch from '../components/HomeComp/HomeSearch.js'
 import Loader from '../components/Loader';
 
 import { connect } from 'react-redux';
+import { getTrips, getAllUsers } from '../actions';
 
 class Home extends React.Component {
   /* Ensure user is signed in by checking token, alternate route if denied */
@@ -18,6 +19,10 @@ class Home extends React.Component {
 
   componentDidMount(){
     this.authenticate();
+
+    /* Get User Data on Load */
+    this.props.getTrips();
+    this.props.getAllUsers();
   }
 
   render() {
@@ -36,4 +41,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp, {})(Home);
+export default connect(mstp, { getTrips, getAllUsers })(Home);

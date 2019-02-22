@@ -17,6 +17,8 @@ export const SEARCH_USERS = 'SEARCH_USERS';
 export const FILTER_TRIPS = 'FILTER_TRIPS';
 /* Multi-use */
 export const LOADING = 'LOADING';
+/* LogIn */
+export const VERIFY_USER = 'VERIFY_USER';
 
 const token = localStorage.getItem('jwtToken');
 const reqOptions = {
@@ -116,6 +118,26 @@ export const deleteTrip = (id, username) => dispatch => {
               .catch(err => console.log(err))  
        })
        .catch(err => console.log(err));
+}
+
+/* Set Authorization for Login */ 
+export const setAuth = token => {
+  console.log(token)
+  if(token && localStorage.getItem('user')) {
+    console.log('win')
+    axios.defaults.headers.common['Authorization'] = `${token}`
+    console.log('hmm')
+  } else {
+    delete axios.defaults.headers.common['Authorization']
+  }
+}
+
+/* Verify User by Token */
+export const verifyUser = user => {
+  return {
+    type: VERIFY_USER,
+    payload: user
+  }
 }
 
 /* Search For Trips By User Selection */

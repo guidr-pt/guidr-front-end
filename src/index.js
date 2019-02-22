@@ -7,6 +7,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { setAuth, verifyUser } from './actions';
+
+import jwt from 'jsonwebtoken';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
@@ -18,6 +21,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+
+if(localStorage.jwtToken) {
+  setAuth(localStorage.jwtToken);
+  store.dispatch(verifyUser(jwt.decode(localStorage.jwtToken)))
+}
+
 
 ReactDOM.render(<Router>
                   <Provider store={store}>
