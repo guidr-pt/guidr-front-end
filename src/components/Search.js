@@ -20,7 +20,6 @@ class Search extends React.Component {
     if(e.target.value === '' && this.state.tripSearch.length > 0) {
 
       /* Reset results back to all trips  */
-      console.log('test')
       this.props.getTrips(true);
       return;
     } else if (e.target.value === '' && this.state.userSearch.length > 0) {
@@ -39,9 +38,11 @@ class Search extends React.Component {
         Fromate for conditionals:
           if tripSearch has value ? return trips value : return users value
      */
+    if(this.props.trips.length === 0) {  }
+
     const term = this.state.tripSearch.length > 0 ? this.state.tripSearch : this.state.userSearch
 
-    const filtered = this.state.tripSearch.length > 0 ?
+    let filtered = this.state.tripSearch.length > 0 ?
                       /* Data: filter the trips based on names that include the search term */
                       this.props.trips.filter(trip => trip.title.toLowerCase().includes(term.toLowerCase()))
                       /* Data: filter the users based on usersnames that include the search term */

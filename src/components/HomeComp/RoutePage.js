@@ -1,21 +1,13 @@
 import React from 'react';
 
 const RoutePage = props => {
-  /* Go To User Search */
-  const handleUser = () => {
-    props.handleUser();
-  }
-
-  /* Go To Trip Search */
-  const handleTrips = () => {
-    props.handleTrips();
-  }
-
   return(
     <div>
       <div>
-        <button onClick={handleUser}>USERS</button>
-        <button onClick={handleTrips}>TRIPS</button>
+         {/* Go To Trip Search */}
+        <button onClick={props.handleUser}>USERS</button>
+        {/* Go To User Search */}
+        <button onClick={props.handleTrips}>TRIPS</button>
       </div>
     </div>
   );

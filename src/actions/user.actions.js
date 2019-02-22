@@ -36,13 +36,17 @@ export const getUser = id => dispatch => {
 }
 
 /* Edit User from Profile */
-export const editUser = update => dispatch => {
+export const editUser = (update) => dispatch => {
   dispatch({ type: LOADING });
 
   const id = update.id;
   update.profileImage = 'test';
-  console.log(id)
+
   axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions )
-       .then(res => dispatch({ type: EDIT_USER, payload: update }))
+       .then(res =>{ 
+         console.log(res)
+         console.log(update);
+         dispatch({ type: EDIT_USER, payload: update }) 
+        })
        .catch(err => console.log(err));
 }

@@ -96,24 +96,25 @@ class Login extends React.Component {
   
     axios.post(endpoint, userInfo)
          .then(res => {
+           /* Store Authentication Data in Local Storage */
            localStorage.setItem('jwtToken', res.data.token);
            localStorage.setItem('user', userInfo);
           
+           /* Retrieve token from localStorage */
            const token = localStorage.getItem('jwtToken');
           
-           if(token) {
+          /* Set Auth Header */ 
+          if(token) {
             axios.defaults.headers.common['Authorization'] = token;
           }
 
+          /* Get current uder by id */
            const id = res.data.user.id;
-           
            this.props.getUser(id)
 
-           if(token) {
-             this.props.history.push('/portfolio');
-           } else {
-             this.props.history.push('/access-denied');
-           }
+           /* Determine Route Post Login */
+           token ? this.props.history.push('/portfolio') 
+                 : this.props.history.push('/access-denied') 
          })
          .catch(err => { 
             this.setState(prevState => ({

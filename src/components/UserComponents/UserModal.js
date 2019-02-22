@@ -11,6 +11,7 @@ class UserModal extends React.Component {
         }
     }
 
+    /* Open and CLose Modal */
     toggle = () => {
         this.setState(prevState => ({ modal: !prevState.modal }));
     }

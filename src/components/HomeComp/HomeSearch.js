@@ -11,7 +11,7 @@ import { getUserTrips } from '../../actions';
 class HomeSearch extends React.Component {
   constructor(props) {
     super(props);
-
+    /* Conditions for Render */
     this.state = {
       users: false,
       trips: false,
@@ -43,11 +43,14 @@ class HomeSearch extends React.Component {
 
     /* State Based Render */
     if(this.state.option) {
+      /* Render Select Page */
       display = <RoutePage handleUser={this.selectUsers} handleTrips={this.selectTrips}/>
     } else if(this.state.trips) {
+      /* Render List of Trips with Sort/Search Options */
       display = <TripGrid trips={this.props.trips} />
       panel = <SidePanel />
     } else {
+      /* Render List of Users with Search Option */
       display = <UserList users={displayUsers}/>
       panel = <SidePanel users />
     }

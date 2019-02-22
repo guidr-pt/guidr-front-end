@@ -37,9 +37,9 @@ class Profile extends React.Component {
  saveEdit = () => {
    const update = {
      ...this.props.user,
-     title: this.state.title === '' ? this.props.user.title : this.state.title,
-     tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
-     age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
+     "title": this.state.title === '' ? this.props.user.title : this.state.title,
+     "tagline": this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
+     "age": this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age) || 0,
    }
 
     console.log(update)
@@ -60,6 +60,7 @@ class Profile extends React.Component {
  }
 
   render() {
+    /* Condition for Render Type */
     const editMode = this.state.edit;
 
     return(
