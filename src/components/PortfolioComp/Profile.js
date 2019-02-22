@@ -1,5 +1,5 @@
 import React from 'react';
-import TripGrid from '../HomeComp/TripGrid';
+import TripGrid from '../TripComponents/TripGrid';
 
 import { connect } from 'react-redux';
 import { editUser, getUserTrips } from '../../actions';

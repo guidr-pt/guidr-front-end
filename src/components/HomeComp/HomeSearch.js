@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TripGrid from './TripGrid';
-import UserList from './UserList';
+import TripGrid from '../TripComponents/TripGrid';
+import UserList from '../UserComponents/UserList';
 import RoutePage from './RoutePage';
 import SidePanel from './SidePanel';
 
