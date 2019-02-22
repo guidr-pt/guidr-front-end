@@ -5,9 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser, setAuth, verifyUser } from '../actions';
 
-import jwt from 'jsonwebtoken';
-import { dispatch } from 'rxjs/internal/observable/pairs';
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -90,7 +87,7 @@ class Login extends React.Component {
   /* Login Authentication */
   login = e => {
     e.preventDefault();
-    console.log('LOGIN')
+
     const endpoint =  'https://guidr-back-end.herokuapp.com/users/login'; /*'http://localhost:7070/users/login'*/
     const userInfo = {
         username: this.state.userVal,
@@ -104,17 +101,15 @@ class Login extends React.Component {
           
            const token = localStorage.getItem('jwtToken');
           
-           console.log(this.props)
-           this.props.setAuth(token);
+           if(token) {
+            axios.defaults.headers.common['Authorization'] = token;
+          }
 
            const id = res.data.user.id;
            
-           console.log('PRE GET USER');
            this.props.getUser(id)
 
-           console.log('POST GET USER');
            if(token) {
-             console.log('SUCCESS')
              this.props.history.push('/portfolio');
            } else {
              this.props.history.push('/access-denied');

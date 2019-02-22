@@ -52,8 +52,9 @@ class TripModal extends React.Component {
     }
 
     const id = this.props.trip.id;
+    const username = this.props.user.username;
 
-    this.props.editTrip(update, id);
+    this.props.editTrip(update, id, username);
     this.setState({
       modal: true,
       edit: false,

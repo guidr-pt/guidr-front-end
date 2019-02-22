@@ -52,8 +52,6 @@ class HomeSearch extends React.Component {
       panel = <SidePanel users />
     }
 
-
-    console.log(this.props.allUsers)
     return(
       <div className='home-search'>
         {panel}

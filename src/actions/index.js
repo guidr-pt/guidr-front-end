@@ -53,7 +53,7 @@ export const editUser = update => dispatch => {
   const id = update.id;
   update.profileImage = 'test';
 
-  axios.put(`http://localhost:7070/users/${id}`, reqOptions, update )
+  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions)
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
        .catch(err => console.log(err));
 
@@ -79,7 +79,7 @@ export const getTrips = clearSearch => dispatch => {
 export const addTrip = newTrip => dispatch => {
   dispatch({ type: LOADING });
  
-  axios.post(`https://guidr-back-end.herokuapp.com/trips`, reqOptions, newTrip)
+  axios.post(`https://guidr-back-end.herokuapp.com/trips`, newTrip, reqOptions,)
        .then( res => {
          dispatch({ type: ADD_TRIP })
          
@@ -92,12 +92,20 @@ export const addTrip = newTrip => dispatch => {
 }
 
 /*  Edit Trip from Modal */
-export const editTrip = (update,id) => dispatch => {
+export const editTrip = (update,id, username) => dispatch => {
   dispatch({ type: LOADING });
-  console.log(update)
+  axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, update, reqOptions)
+       .then(res => {
+          /* Update User Trips after Deletion */
+          axios.get(`https://guidr-back-end.herokuapp.com/trips/${username}`, reqOptions)
+          .then(res => dispatch({ type: GET_TRIP, payload: res.data }))
+          .catch(err => console.log(err))   
 
-  axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, reqOptions, update)
-       .then(res => console.log(res))
+          /* Update All Trips after Deletion */
+          axios.get(`https://guidr-back-end.herokuapp.com/trips`, reqOptions)
+              .then(res => dispatch({ type: GET_TRIPS, payload: res.data }))
+              .catch(err => console.log(err))  
+       })
        .catch(err => console.log(err))
 
   dispatch({ type: EDIT_TRIP, payload: update })
@@ -122,11 +130,8 @@ export const deleteTrip = (id, username) => dispatch => {
 
 /* Set Authorization for Login */ 
 export const setAuth = token => {
-  console.log(token)
   if(token && localStorage.getItem('user')) {
-    console.log('win')
     axios.defaults.headers.common['Authorization'] = `${token}`
-    console.log('hmm')
   } else {
     delete axios.defaults.headers.common['Authorization']
   }

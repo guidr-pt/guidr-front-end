@@ -1,6 +1,5 @@
 import React from 'react';
 import UserModal from './UserModal';
-import { connect } from 'react-redux';
 
 const UserCard = props => {
   return(

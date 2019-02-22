@@ -1,16 +1,22 @@
 import {
-  LOADING /* X */,
-  GET_USER /* X */,
-  GET_USERS /* X */,
-  EDIT_USER /* - */,
-  GET_TRIP /* X */,
-  GET_TRIPS /* X */, 
-  ADD_TRIP /* X */,
-  EDIT_TRIP /* - */,
-  DELETE_TRIP /* X */, 
-  SEARCH_TRIPS /* X */,
-  SEARCH_USERS /* X */,
-  FILTER_TRIPS /* X */
+  LOADING,
+  
+  /* User Actions */
+  GET_USER,
+  GET_USERS,
+  EDIT_USER,
+
+  /* Trip Actions */
+  GET_TRIP,
+  GET_TRIPS, 
+  ADD_TRIP,
+  EDIT_TRIP,
+  DELETE_TRIP, 
+
+  /* Search and Filter */
+  SEARCH_TRIPS,
+  SEARCH_USERS,
+  FILTER_TRIPS
 } from '../actions';
 
 const initialState = {
@@ -39,7 +45,6 @@ export const appReducer = (state = initialState, action) => {
       }
 
     case GET_USERS:
-      console.log(action.payload)
       return {
         ...state,
         allUsers: action.payload,
