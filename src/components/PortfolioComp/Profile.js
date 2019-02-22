@@ -41,7 +41,7 @@ class Profile extends React.Component {
      tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
      age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
    }
-   console.log('UPDATE', update)
+
    this.props.editUser(update)
    this.setState({
      edit: false,
