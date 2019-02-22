@@ -12,8 +12,10 @@ const SidePanel = props => {
 
   /* Handle Filter Selection, Sort based on Case */
   const filterHandler = e => {
+    e.preventDefault();
+
     const type = e.target.innerText.toLowerCase();
-    const trips = [ ...props.trips ];
+    let trips = [ ...props.trips ];
 
     switch(type) {
       /* Return to default order */
@@ -31,9 +33,12 @@ const SidePanel = props => {
 
       /* Sort Alphabetically */
       case 'alphabetical':
-        trips.sort((a,b) => {
-          return ('' + a.name).localeCompare(b.name);
+      console.log('trips')
+        trips = trips.sort((a,b) => {
+          return ('' + a.title).localeCompare(b.title);
         })
+
+        console.log(trips)
         break;
 
       /* Sort By Date - Newest First */

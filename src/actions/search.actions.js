@@ -9,13 +9,13 @@ export const searchTrip = filteredArr => dispatch => {
     dispatch({ type: SEARCH_TRIPS, payload: filteredArr })
   }
   
-  /* Search For User */
-  export const searchUsers = filteredArr => dispatch => {
-    dispatch({ type: SEARCH_USERS, payload: filteredArr })
-  }
-  
-  /* Filter Trips By User Selection */
-  export const filterTrips = filterArr => dispatch => {
-    dispatch({ type: FILTER_TRIPS, payload: filterArr });
-  }
+/* Search For User */
+export const searchUsers = filteredArr => dispatch => {
+  dispatch({ type: SEARCH_USERS, payload: filteredArr })
+}
+
+/* Filter Trips By User Selection */
+export const filterTrips = filterArr => dispatch => {
+  dispatch({ type: FILTER_TRIPS, payload: filterArr });
+}
   

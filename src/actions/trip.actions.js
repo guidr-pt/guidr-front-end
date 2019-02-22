@@ -51,7 +51,7 @@ export const addTrip = newTrip => dispatch => {
 }
 
 /*  Edit Trip from Modal */
-export const editTrip = (update,id, username) => dispatch => {
+export const editTrip = (update, id, username) => dispatch => {
   dispatch({ type: LOADING });
   axios.put(`https://guidr-back-end.herokuapp.com/trips/${id}`, update, reqOptions)
        .then(res => {

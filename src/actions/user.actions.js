@@ -29,7 +29,7 @@ export const getAllUsers = () => dispatch => {
 /*   Get current user data   */
 export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
-  
+
   axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`, reqOptions)
        .then(res => { dispatch({ type: GET_USER, payload: res.data[0] }) })
        .catch(err => console.log(err));
@@ -41,8 +41,8 @@ export const editUser = update => dispatch => {
 
   const id = update.id;
   update.profileImage = 'test';
-
-  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions)
+  console.log(id)
+  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions )
        .then(res => dispatch({ type: EDIT_USER, payload: update }))
        .catch(err => console.log(err));
 }

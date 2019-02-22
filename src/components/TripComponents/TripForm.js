@@ -60,6 +60,7 @@ addTripHandler = e => {
 
   const newTrip = this.state;
 
+  console.log(newTrip)
   this.props.addTrip(newTrip);
 }
 
