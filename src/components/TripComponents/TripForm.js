@@ -41,9 +41,9 @@ handleDropdown = e => {
 }
 
 handleDate = e => {
-  const date = new Date()
+  const date = new Date(e)
  
-  this.setState({ date: date.toDateString(), start: date })
+  this.setState({ date: date.toDateString(), start: e })
 }
 
 /* Ensure user is signed in by checking token, alternate route if denied */

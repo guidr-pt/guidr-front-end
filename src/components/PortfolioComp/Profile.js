@@ -35,22 +35,24 @@ class Profile extends React.Component {
 
 /* Update User based on Form Input in Edit mode */
  saveEdit = () => {
-   const update = {
-     ...this.props.user,
-     "title": this.state.title === '' ? this.props.user.title : this.state.title,
-     "tagline": this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
-     "age": this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age) || 0,
-   }
+  const update = {
+    ...this.props.user,
+    title: this.state.title || this.props.user.title,
+    tagline: this.state.tagline || this.props.user.tagline,
+    age: Number(this.state.age) || Number(this.props.user.age),
+    timeAsGuide: this.state.timeAsGuide || this.props.user.timeAsGuide
+  }
 
-    console.log(update)
-   this.props.editUser(update)
-   this.setState({
-     edit: false,
-     title: '',
-     tagline: '',
-     age: '',
-     timeAsGuide: ''
-   })
+  const id = this.props.user.id
+
+  this.props.editUser(update, id)
+  this.setState({
+    edit: false,
+    title: '',
+    tagline: '',
+    age: '',
+    timeAsGuide: ''
+  })
  }
 
  componentDidMount() {
