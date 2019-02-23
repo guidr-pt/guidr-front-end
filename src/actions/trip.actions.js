@@ -1,13 +1,5 @@
 import axios from 'axios';
 
-/* Authentication and Authorization */
-const token = localStorage.getItem('jwtToken');
-const reqOptions = {
-  headers: {
-    Authorization: token
-  }
-}
-
 /* Multi-use */
 export const LOADING = 'LOADING';
 

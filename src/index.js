@@ -11,7 +11,7 @@ import { setAuth, verifyUser } from './actions';
 
 import jwt from 'jsonwebtoken';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+/*import logger from 'redux-logger';*/
 import rootReducer from './reducers';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, /*logger*/));
 
 if(localStorage.jwtToken) {
   setAuth(localStorage.jwtToken);
