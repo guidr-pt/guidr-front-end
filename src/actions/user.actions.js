@@ -2,11 +2,7 @@ import axios from 'axios';
 
 /* Authentication and Authorization */
 const token = localStorage.getItem('jwtToken');
-const reqOptions = {
-  headers: {
-    Authorization: token
-  }
-}
+axios.defaults.headers.common['Authorization'] = token;
 
 /* Multi-use */
 export const LOADING = 'LOADING';
@@ -20,8 +16,7 @@ export const EDIT_USER = 'EDIT_USER';
 /*   Get all user data   */
 export const getAllUsers = () => dispatch => {
     dispatch({ type: LOADING });
-    console.log('getUesers: ', reqOptions)
-    axios.get(`https://guidr-back-end.herokuapp.com/users`, reqOptions)
+    axios.get(`https://guidr-back-end.herokuapp.com/users`, )
          .then(res => dispatch({ type: GET_USERS, payload: res.data}))
          .catch(err => console.log(err));
 }
@@ -30,21 +25,20 @@ export const getAllUsers = () => dispatch => {
 export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
   
-  axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`, reqOptions)
+  axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`, )
        .then(res => { dispatch({ type: GET_USER, payload: res.data[0] }) })
        .catch(err => console.log(err));
 }
 
 /* Edit User from Profile */
-export const editUser = (update) => dispatch => {
+export const editUser = (update, id) => dispatch => {
   dispatch({ type: LOADING });
 
-  const id = update.id;
   update.profileImage = 'test';
-
-  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions )
+  delete update.timeAsGuide;
+  console.log('UPDATE', update)
+  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update)
        .then(res =>{ 
-         console.log(res)
          console.log(update);
          dispatch({ type: EDIT_USER, payload: update }) 
         })

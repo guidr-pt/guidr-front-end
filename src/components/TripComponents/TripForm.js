@@ -41,7 +41,9 @@ handleDropdown = e => {
 }
 
 handleDate = e => {
-  this.setState({ date: e })
+  const date = new Date(e)
+ 
+  this.setState({ date: date.toDateString(), start: e })
 }
 
 /* Ensure user is signed in by checking token, alternate route if denied */
@@ -70,6 +72,7 @@ addTripHandler = e => {
   e.preventDefault();
 
   const newTrip = this.state;
+  delete newTrip.start;
   this.props.addTrip(newTrip);
   
 }
