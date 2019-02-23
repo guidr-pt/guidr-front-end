@@ -7,6 +7,7 @@ class Navigation extends React.Component {
   /* removes token to deny access until another login is completed */
   signout = () => {
     localStorage.removeItem('jwtToken');
+    localStorage.removeItem('user');
     this.props.history.push('/');
   }
 

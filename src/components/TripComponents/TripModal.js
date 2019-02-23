@@ -148,9 +148,9 @@ class TripModal extends React.Component {
                 { editMode ? <div>
                                 <label>Description</label> 
                                 <textarea name='description'
-                                       placeholder='Description '
-                                       onChange={this.handleChange}
-                                       value={this.state.description}></textarea>
+                                          placeholder={trip.description}
+                                          onChange={this.handleChange}
+                                          value={this.state.description}></textarea>
                              </div>
 
                             : <p>{trip.description}</p> }

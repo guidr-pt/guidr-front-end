@@ -35,6 +35,17 @@ class HomeSearch extends React.Component {
     })
   }
 
+  changeView = e => {
+    e.preventDefault();
+
+    this.setState(prevState => {
+      return {
+        users: !prevState.users,
+        trips: !prevState.trips
+      }
+    })
+  }
+
   render() {
     let display = '';
     let panel = '';
@@ -59,6 +70,7 @@ class HomeSearch extends React.Component {
       <div className='home-search'>
         {panel}
         {display}
+        <button onClick={this.changeView}>{this.state.trips ? 'Users' : 'Trips'}</button>
       </div>
     );
   }

@@ -44,6 +44,8 @@ const SidePanel = props => {
       /* Sort By Date - Newest First */
       case 'date':
         trips.sort((a,b) => {
+          console.log('a: ', a.date)
+          console.log('b: ', b.date)
           /* Check for Date Field */ 
           if(a.date === null) {
             return -1;

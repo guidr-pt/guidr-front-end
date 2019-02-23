@@ -1,7 +1,12 @@
 import React from 'react';
 
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+
 import { connect } from 'react-redux';
 import { addTrip } from '../../actions';
+
 
 class TripForm extends React.Component {
   constructor(props) {
@@ -14,6 +19,7 @@ class TripForm extends React.Component {
       "description": '',
       "private": false,
       "type": 'hiking',
+      "date": new Date()
     }
   }
 
@@ -31,6 +37,10 @@ handleDropdown = e => {
      ...this.state,
      type: e.target.value
    });
+}
+
+handleDate = e => {
+  this.setState({ date: e })
 }
 
 /* Ensure user is signed in by checking token, alternate route if denied */
@@ -60,6 +70,7 @@ addTripHandler = e => {
 
   const newTrip = this.state;
   this.props.addTrip(newTrip);
+  
 }
 
 componentDidMount() {
@@ -101,14 +112,14 @@ componentDidMount() {
                    value={this.state.duration} />
           </div>
 
-          <div className='textbox'>
+          <div id='date-picker'>
             <label>Date:</label>
-            <input type='text'
-                   name='date'
-                   placeholder='MM / DD / YYYY'
-                   onChange={this.handleChange}
-                   value={this.state.date}/>
+            <DatePicker
+                    selected={this.state.date}
+                    onChange={this.handleDate}
+                  />
           </div>
+          
 
           <div className='btnbox'>
             <button onClick={this.privateSelect} className='selected'>Professional</button>
