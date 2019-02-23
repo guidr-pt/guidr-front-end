@@ -38,7 +38,6 @@ const SidePanel = props => {
           return ('' + a.title).localeCompare(b.title);
         })
 
-        console.log(trips)
         break;
 
       /* Sort By Date - Newest First */
@@ -67,7 +66,7 @@ const SidePanel = props => {
   return(
     <div className='side-panel'>
       <div className='side-panel__title'>
-        <h1>Side Panel</h1>
+        <h1>Search For {props.users ? 'Users' : 'Trips'}</h1>
       </div>
 
       {searchbar}
