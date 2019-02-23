@@ -70,7 +70,7 @@ class HomeSearch extends React.Component {
       <div className='home-search'>
         {panel}
         {display}
-        <button id='view-button' onClick={this.changeView}>{this.state.trips ? 'Users' : 'Trips'}</button>
+        {this.state.option ? null : <button id='view-button' onClick={this.changeView}>{this.state.trips ? 'Users' : 'Trips'}</button> }
       </div>
     );
   }
