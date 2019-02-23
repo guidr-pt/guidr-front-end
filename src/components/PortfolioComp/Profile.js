@@ -105,12 +105,12 @@ class Profile extends React.Component {
           <div className='spacer' />
 
           <div className='portfolio__profile__time'>
-            { editMode ? <input placeholder='Age'
+            {/* { editMode ? <input placeholder='Age'
                                 name='age'
                                 onChange={this.handleChange}
                                 value={this.state.age}/>
 
-                        : <p>Age: {this.props.user.age}</p> }
+                        : <p>Age: {this.props.user.age}</p> } */}
 
             <p>Time As Guide: {this.props.user.timeAsGuide}</p>
           </div>

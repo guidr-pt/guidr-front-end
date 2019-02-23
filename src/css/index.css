@@ -330,8 +330,11 @@ html body {
   grid-gap: 25px;
   margin-top: 30px;
 }
+.user-grid img {
+  width: 100%;
+}
 .user-grid .user-grid__card {
-  background-color: #eee;
+  background-color: rgba(106, 162, 197, 0.5);
   height: 150px;
   display: flex;
   flex-direction: column;
