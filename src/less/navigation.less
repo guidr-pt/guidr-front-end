@@ -1,4 +1,4 @@
-.navigation {
+.navigation-container {
   position: fixed;
   z-index: 9001;
   top: 0;
@@ -10,10 +10,15 @@
   border-bottom: 1px solid @tertiary;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   font-size: 1.6rem;
+
+  img {
+    height: 43px;
+    width: 100px;
+  }
 
   .search {
     margin-right: 13%;

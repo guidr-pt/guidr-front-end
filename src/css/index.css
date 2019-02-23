@@ -191,7 +191,7 @@ html body {
   text-decoration: underline;
   cursor: pointer;
 }
-.navigation {
+.navigation-container {
   position: fixed;
   z-index: 9001;
   top: 0;
@@ -201,18 +201,22 @@ html body {
   background-color: #eee;
   border-bottom: 1px solid #f99e54;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.6rem;
 }
-.navigation .search {
+.navigation-container img {
+  height: 43px;
+  width: 100px;
+}
+.navigation-container .search {
   margin-right: 13%;
 }
-.navigation .search button {
+.navigation-container .search button {
   font-size: 1.3rem;
   letter-spacing: 2px;
 }
-.navigation .normal {
+.navigation-container .normal {
   color: #f99e54;
   box-sizing: border-box;
   padding: 10px 20px;
@@ -220,32 +224,32 @@ html body {
   transition: color 300ms;
 }
 @media (min-width: 1024px) {
-  .navigation .normal {
+  .navigation-container .normal {
     color: #133139;
   }
-  .navigation .normal:hover {
+  .navigation-container .normal:hover {
     color: #f99e54;
   }
 }
-.navigation .normal:hover {
+.navigation-container .normal:hover {
   text-decoration: none;
 }
-.navigation .active {
+.navigation-container .active {
   color: #133139;
   background-color: #f99e54;
   font-weight: 600;
 }
 @media (min-width: 1024px) {
-  .navigation .active {
+  .navigation-container .active {
     color: inherit;
     background-color: transparent;
     font-weight: inherit;
   }
-  .navigation .active:hover {
+  .navigation-container .active:hover {
     color: #f99e54;
   }
 }
-.navigation button {
+.navigation-container button {
   border: 1px solid #133139;
   font-weight: 500;
   color: #133139;
@@ -254,7 +258,7 @@ html body {
   margin: 0 30px 0 15px;
   transition: background-color 0.4s;
 }
-.navigation button:hover {
+.navigation-container button:hover {
   background-color: #f99e54;
   color: black;
 }
