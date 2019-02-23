@@ -123,7 +123,7 @@ componentDidMount() {
             </div>
           </div>
           <div className='imageUploader'>
-            <img src={this.state.image} />
+            <img src={this.state.image} alt='avatar'/>
             <p>Please paste an image link for your trip</p>
             <div className='linkInput'>
               <Label>Link</Label>
