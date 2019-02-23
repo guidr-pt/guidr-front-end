@@ -14,7 +14,7 @@ class Login extends React.Component {
       passVal: '',
       passDisplay: '',
       nameVal:'chris',
-      imageVal: 'https://services.garmin.cn/appsLibraryBusinessServices_v0/rest/apps/a230c855-7adf-415a-bb1c-289f27304563/icon/237aff7c-ea68-4e74-9026-2ccce4512117',
+      imageVal: 'https://images.pexels.com/photos/840719/pexels-photo-840719.jpeg?cs=srgb&dl=adventure-backpack-conifer-840719.jpg&fm=jpg',
       remember: false,
       register: false,
       isValid: true,
@@ -168,7 +168,7 @@ class Login extends React.Component {
                                 value={this.state.name}
                                 />
                                 <div className='imageUploader'>
-                                  <img src={this.state.imageVal}  />
+                                  <img src={this.state.imageVal} alt='avatar' />
                                   <p>Image link for your Avatar</p>
                                   <div className='linkInput'>
                                      
