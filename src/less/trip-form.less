@@ -1,0 +1,121 @@
+Input {
+  padding: 7px;
+}
+
+.trip-form__container {
+  background-color: rgba(106, 162, 197, 0.5);
+  width: 83%;
+  max-width: 1000px;
+  height: auto;
+  margin: 125px;
+  padding: 60px;
+  border: 2px solid @tertiary;
+  -webkit-box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4); 
+box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4);
+  form {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    Label {
+      background-color: @secondary;
+      padding: 5px 15px;
+      color: white;
+      font-size: 16px;
+      border-bottom-left-radius: 15%;
+      border-top-left-radius: 15%
+    }
+    h2 {
+      background-color: rgba(127,192,232, 0.8);
+      border-bottom:3px solid @tertiary;
+      padding: 15px;
+      color: white;
+      margin: 10px;
+      margin-bottom:25px;
+      text-align: center;
+      -webkit-box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4); 
+box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4);
+    }
+    .textbox {
+      display: flex;
+      flex-direction: row;
+      margin: 10px;
+    }
+    .middleSegment {
+      display: flex;
+      margin: 25px 0;
+      .typeAndTimes {
+        display: flex;
+        flex-direction: column;
+        padding: 23px;
+        .duration{
+          margin-top: 45px
+        }
+        #date-picker {
+          display: flex;
+          flex-direction: row;
+          margin-top: 35px;
+          
+        }
+      }
+      .imageUploader{
+        img {
+          width: 80%;
+          margin-left: 5px;
+          margin-bottom: 10px;
+          -webkit-box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4); 
+box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4);
+        }
+        p {
+          color: white;
+          text-align: left;
+          font-size: 15px;
+        }
+        .linkInput {
+          display: flex;
+          width: 80%;
+        }
+      }
+    }
+    .btnbox {
+      width: 60%;
+      align-self: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .buttons {
+        background-color: @med-main;
+        border: 2px solid @tertiary;
+      }
+      .buttons:hover {
+        background-color: white;
+        color: @med-main;
+        -webkit-box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4); 
+        box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4);
+       }
+    }
+    .description {
+      display: flex;
+      flex-direction: row;
+      margin: 25px;
+      .textarea {
+        width: 80%;
+        height: 100px;
+      }
+    }
+    .submit {
+      width: 30%;
+      align-self: center;
+      margin-top:40px;
+      background-color: @med-main;
+      border: 2px solid @tertiary;
+    }
+    .submit:hover {
+      background-color: white;
+      color: @med-main;
+      -webkit-box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4); 
+      box-shadow: 2px 4px 14px 2px rgba(0,0,0,0.4);
+     }
+   }
+ }
+
+

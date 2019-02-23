@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button, Form, Label, Input, FormText } from 'reactstrap';
 import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,7 +20,7 @@ class TripForm extends React.Component {
       "private": false,
       "type": 'hiking',
       "date": new Date(),
-      start: new Date()
+      "image": 'https://images.pexels.com/photos/868097/pexels-photo-868097.jpeg?cs=srgb&dl=adventure-backpack-climb-868097.jpg&fm=jpg'  
     }
   }
 
@@ -85,62 +85,75 @@ componentDidMount() {
   render() {
     return (
       <div className='trip-form__container'>
-        <form onSubmit={this.addTripHandler}>
+        <Form onSubmit={this.addTripHandler}>
           <h2>Add Another Trip?</h2>
 
           <div className='textbox'>
-            <label>Title:</label>
-            <input type='text'
+            <Label>Title:</Label>
+            <Input type='text'
                    name='title'
                    placeholder='Title'
                    onChange={this.handleChange}
                    value={this.state.title} />
           </div>
-
-          <div className='textbox'>
-            <label>Type:</label>
-            <select name="type"
+       <div className='middleSegment'>   
+         <div className='typeAndTimes'>
+            <div className='textbox'>
+              <Label>Type:</Label>
+                <select name="type"
                     onChange={this.handleDropdown}>
-               <option value="hiking">Hiking</option>
-               <option value="camping">Camping</option>
-               <option value="rafting">Rafting</option>
-               <option value="backpacking">Backpacking</option>
-             </select>
-          </div>
-
-          <div className='textbox'>
-            <label>Duration:</label>
-            <input name='duration'
-                   placeholder='XX Days'
-                   onChange={this.handleChange}
-                   value={this.state.duration} />
-          </div>
-
-          <div id='date-picker'>
-            <label>Date:</label>
-            <DatePicker
-                    selected={this.state.start}
+                   <option value="hiking">Hiking</option>
+                   <option value="biking">Biking</option>
+                   <option value="rafting">Rafting</option>
+                   <option value="backpacking">Backpacking</option>
+                </select>
+            </div>
+            <div className='dateContainer'>
+              <div className='textbox duration'>
+                 <Label>Duration:</Label>
+                 <Input name='duration'
+                     placeholder='XX Days'
+                     onChange={this.handleChange}
+                     value={this.state.duration} />
+              </div>
+              <div id='date-picker'>
+                <Label>Date:</Label>
+                <DatePicker
+                    selected={this.state.date}
                     onChange={this.handleDate}
-                  />
+                 />
+              </div>
+            </div>
           </div>
+          <div className='imageUploader'>
+            <img src={this.state.image} alt='avatar'/>
+            <p>Please paste an image link for your trip</p>
+            <div className='linkInput'>
+              <Label>Link</Label>
+              <Input name='image'onChange={this.handleChange}type='link'/>
+            </div>
+          </div>
+        </div> 
           
 
           <div className='btnbox'>
-            <button onClick={this.privateSelect} className='selected'>Professional</button>
+            <Button onClick={this.privateSelect} className='selected buttons'>Professional</Button>
 
-            <button onClick={this.privateSelect}>Private</button>
+            <Button className='buttons'onClick={this.privateSelect}>Private</Button>
           </div>
 
           <div className='description'>
-            <label>Description:</label>
-            <textarea name='description'
-                      onChange={this.handleChange}
-                      value={this.state.description} />
+            <Label>Description:</Label>
+            <textarea 
+              className='textarea'
+              name='description'
+              onChange={this.handleChange}
+              value={this.state.description} />
           </div>
 
 
-          <button type='submit'>Add Trip</button>
-        </form>
+          <Button className='submit'type='submit'>Add Trip</Button>
+        </Form>
       </div>
     )
   }
