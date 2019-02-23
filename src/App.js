@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 /* Custom Components */
 import Navigation from './components/Navigation';
 import { PrivateRoute } from './components/PrivateRoute';
-import TripForm from './components/PortfolioComp/TripForm';
+import TripForm from './components/TripComponents/TripForm';
 
 import Register from './views/Register';
 import Home from './views/Home';

@@ -59,7 +59,6 @@ addTripHandler = e => {
   e.preventDefault();
 
   const newTrip = this.state;
-
   this.props.addTrip(newTrip);
 }
 

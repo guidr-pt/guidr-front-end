@@ -5,9 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser, setAuth, verifyUser } from '../actions';
 
-import jwt from 'jsonwebtoken';
-import { dispatch } from 'rxjs/internal/observable/pairs';
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -90,7 +87,7 @@ class Login extends React.Component {
   /* Login Authentication */
   login = e => {
     e.preventDefault();
-    console.log('LOGIN')
+
     const endpoint =  'https://guidr-back-end.herokuapp.com/users/login'; /*'http://localhost:7070/users/login'*/
     const userInfo = {
         username: this.state.userVal,
@@ -99,26 +96,25 @@ class Login extends React.Component {
   
     axios.post(endpoint, userInfo)
          .then(res => {
+           /* Store Authentication Data in Local Storage */
            localStorage.setItem('jwtToken', res.data.token);
            localStorage.setItem('user', userInfo);
           
+           /* Retrieve token from localStorage */
            const token = localStorage.getItem('jwtToken');
           
-           console.log(this.props)
-           this.props.setAuth(token);
+          /* Set Auth Header */ 
+          if(token) {
+            axios.defaults.headers.common['Authorization'] = token;
+          }
 
+          /* Get current uder by id */
            const id = res.data.user.id;
-           
-           console.log('PRE GET USER');
            this.props.getUser(id)
 
-           console.log('POST GET USER');
-           if(token) {
-             console.log('SUCCESS')
-             this.props.history.push('/portfolio');
-           } else {
-             this.props.history.push('/access-denied');
-           }
+           /* Determine Route Post Login */
+           token ? this.props.history.push('/portfolio') 
+                 : this.props.history.push('/access-denied') 
          })
          .catch(err => { 
             this.setState(prevState => ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import TripGrid from '../HomeComp/TripGrid';
+import TripGrid from '../TripComponents/TripGrid';
 
 import { connect } from 'react-redux';
 import { editUser, getUserTrips } from '../../actions';
@@ -37,11 +37,12 @@ class Profile extends React.Component {
  saveEdit = () => {
    const update = {
      ...this.props.user,
-     title: this.state.title === '' ? this.props.user.title : this.state.title,
-     tagline: this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
-     age: this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age),
+     "title": this.state.title === '' ? this.props.user.title : this.state.title,
+     "tagline": this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
+     "age": this.state.age === '' ? Number(this.props.user.age) : Number(this.state.age) || 0,
    }
-   console.log('UPDATE', update)
+
+    console.log(update)
    this.props.editUser(update)
    this.setState({
      edit: false,
@@ -59,6 +60,7 @@ class Profile extends React.Component {
  }
 
   render() {
+    /* Condition for Render Type */
     const editMode = this.state.edit;
 
     return(
