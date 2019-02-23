@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, Label, Input } from 'reactstrap';
 import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";

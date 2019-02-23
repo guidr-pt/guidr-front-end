@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Input, Label} from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser, setAuth, verifyUser } from '../actions';
@@ -159,14 +158,16 @@ class Login extends React.Component {
           </div>
 
           <form onSubmit={!register?this.login:this.registration}>
-            { register ? <div className='login__input--container'>
-                          <i className="fas fa-user"></i>
-                          <input type='text'
-                                placeholder='full name'
-                                name='nameVal'
-                                onChange={this.changeHandler}
-                                value={this.state.name}
-                                />
+            { register ? <div className='login__input--container reg'>
+                            <div>
+                              <i className="fas fa-user"></i>
+                              <input type='text'
+                                    placeholder='full name'
+                                    name='nameVal'
+                                    onChange={this.changeHandler}
+                                    value={this.state.name}
+                                    />
+                            </div>
                                 <div className='imageUploader'>
                                   <img src={this.state.imageVal} alt='avatar' />
                                   <p>Image link for your Avatar</p>
