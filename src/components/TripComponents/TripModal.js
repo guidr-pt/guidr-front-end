@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { editTrip, deleteTrip, getUserTrips } from '../../actions';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Badge } from 'reactstrap';
+import { Button, Form, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Badge } from 'reactstrap';
 import { badges } from '../../badges';
 
 
@@ -17,6 +17,7 @@ class TripModal extends React.Component {
       type: '',
       duration: '',
       private: false,
+      image: 'https://images.pexels.com/photos/868097/pexels-photo-868097.jpeg?cs=srgb&dl=adventure-backpack-climb-868097.jpg&fm=jpg'
     };
   }
 
@@ -48,7 +49,8 @@ class TripModal extends React.Component {
       duration: this.state.duration || this.props.trip.duration,
       date: this.state.date || this.props.trip.date,
       private: this.state.private || this.props.trip.private,
-      type: this.state.type || this.props.trip.type
+      type: this.state.type || this.props.trip.type,
+      image: this.state.image || this.props.trip.image
     }
 
     const id = this.props.trip.id;
@@ -63,6 +65,7 @@ class TripModal extends React.Component {
       type: '',
       duration: '',
       private: false,
+      image: ''
     })
   }
 
@@ -104,12 +107,12 @@ class TripModal extends React.Component {
                             <select name="type"
                                     onChange={this.handleDropdown}>
                               <option value="hiking">Hiking</option>
-                              <option value="camping">Camping</option>
+                              <option value="biking">Biking</option>
                               <option value="rafting">Rafting</option>
                               <option value="backpacking">Backpacking</option>
                             </select>
                           </div>
-
+    const imageUrl = trip.image === null ? this.state.image : trip.image
     return (
 
       /*
@@ -118,24 +121,33 @@ class TripModal extends React.Component {
 
           { editMode(bool) ? <input/> : <display element> }
       */
-
+      
       <div className='modal-container'>
         <Button color="danger" onClick={this.toggle}>View</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
 
-          <ModalHeader>
+          <ModalHeader className='pseudoLabel'>
             { trip.title }
-            {this.props.trip.username === this.props.user.username ? <span onClick={this.deleteTripHandler}>&times;</span> : null }
+            {this.props.trip.username === this.props.user.username ? <Button onClick={this.deleteTripHandler}>Delete</Button> : null }
           </ModalHeader>
 
           <ModalBody>
             <div className='modal-info'>
-              <img src={trip.img} alt={trip.title} id='modal-image'/>
-
+              <div className='imageUploader'>
+              <img src={imageUrl} alt={trip.title} id='modal-image'/>
+                           
+              { editMode ? <div className='linkInput'> 
+                             <p>Please paste an image link for your trip</p>
+                             <Label>Link</Label>
+                             <Input name='image'onChange={this.handleChange}type='link'/>
+                           </div>
+                           : <p>Trip Image</p>
+              }
+              </div>
               <div>
                 { editMode ? <div>
-                                <label>Title:</label>
-                                <input placeholder={trip.title}
+                                <Label>Title:</Label>
+                                <Input placeholder={trip.title}
                                     name='title'
                                     type='text'
                                     onChange={this.handleChange}
@@ -146,7 +158,7 @@ class TripModal extends React.Component {
 
 
                 { editMode ? <div>
-                                <label>Description</label> 
+                                <Label>Description</Label> 
                                 <textarea name='description'
                                           placeholder={trip.description}
                                           onChange={this.handleChange}
@@ -165,8 +177,8 @@ class TripModal extends React.Component {
           <ModalFooter>
             <div>
               { editMode ? <div>
-                              <label>Duration:</label>
-                              <input placeholder={trip.duration}
+                              <Label>Duration:</Label>
+                              <Input placeholder={trip.duration}
                                   name='duration'
                                   type='text'
                                   onChange={this.handleChange}
@@ -175,8 +187,8 @@ class TripModal extends React.Component {
                           : <p>{trip.duration}</p> }
 
               { editMode ? <div>
-                              <label>Date:</label>
-                              <input placeholder={trip.date}
+                              <Label>Date:</Label>
+                              <Input placeholder={trip.date}
                                   name='date'
                                   type='text'
                                   onChange={this.handleChange}

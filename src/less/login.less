@@ -1,3 +1,7 @@
+.linkSpace {
+  width: 200px;
+}
+
 .login {
   background-image: linear-gradient(to left bottom, #f99e54, #dea142, #c1a338, #a3a435, #83a33b, #68a851, #49ac69, #1cae82, #00b5a8, #00bbc7, #4ebedd, #7fc0e8);
   height: 100vh;
@@ -50,10 +54,13 @@
     form {
       margin-top: 70px;
       width: 80%;
-
+      img {
+        width: 150px;
+      }
       .login__input--container {
         font-size: 1.6rem;
-
+        display: flex;
+        flex-direction: column-reverse;
         i {
           margin-right: 12px;
           color: @white-1l;
@@ -105,8 +112,8 @@
             &:-moz-placeholder { /* Firefox 18- */
               color: @white-1l;
             }
-
           }
+          
         }
       }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { Input, Label} from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser, setAuth, verifyUser } from '../actions';
@@ -14,6 +14,7 @@ class Login extends React.Component {
       passVal: '',
       passDisplay: '',
       nameVal:'chris',
+      imageVal: 'https://services.garmin.cn/appsLibraryBusinessServices_v0/rest/apps/a230c855-7adf-415a-bb1c-289f27304563/icon/237aff7c-ea68-4e74-9026-2ccce4512117',
       remember: false,
       register: false,
       isValid: true,
@@ -31,6 +32,11 @@ class Login extends React.Component {
   toggleRemember = e => {
     this.setState({
       remember: e.target.checked
+    })
+  }
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
     })
   }
 
@@ -131,7 +137,8 @@ class Login extends React.Component {
     const registerInfo = {
       username: this.state.userVal,
       name: this.state.nameVal,
-      password: this.state.passVal
+      password: this.state.passVal,
+      profileImage: this.state.imageVal
     }
 
     axios.post(endpoint, registerInfo)
@@ -160,7 +167,15 @@ class Login extends React.Component {
                                 onChange={this.changeHandler}
                                 value={this.state.name}
                                 />
-                        </div>
+                                <div className='imageUploader'>
+                                  <img src={this.state.imageVal}  />
+                                  <p>Image link for your Avatar</p>
+                                  <div className='linkInput'>
+                                     
+                                     <input className='linkSpace'name='imageVal'onChange={this.handleChange}type='link'/>
+                                  </div>
+                                </div>
+                               </div>
                         : null }
 
             <div className='login__input--container'>
