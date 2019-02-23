@@ -16,6 +16,7 @@ const SidePanel = props => {
 
     const type = e.target.innerText.toLowerCase();
     let trips = [ ...props.trips ];
+    console.log(trips)
 
     switch(type) {
       /* Return to default order */
@@ -33,8 +34,7 @@ const SidePanel = props => {
 
       /* Sort Alphabetically */
       case 'alphabetical':
-      console.log('trips')
-        trips = trips.sort((a,b) => {
+        trips.sort((a,b) => {
           return ('' + a.title).localeCompare(b.title);
         })
 
@@ -43,38 +43,16 @@ const SidePanel = props => {
 
       /* Sort By Date - Newest First */
       case 'date':
-        trips.sort((a,b) => {
-          console.log('a: ', a.date)
-          console.log('b: ', b.date)
-          /* Check for Date Field */ 
-          if(a.date === null) {
-            return -1;
-          } else if (b.date === null) {
-            return 1;
-          }
+        const datedTrips = trips.filter(trip =>  trip.date);
+        const noDateTrips = trips.filter(trip =>  !trip.date);
+        console.log(noDateTrips)
+        console.log(datedTrips)
 
-          /* Create Arrays of Date Numbers [Day, Month, Year] */
-          let dateArr1 = a.date.split('/');
-          let dateArr2 = b.date.split('/');
-
-          dateArr1 = dateArr1.map(date => Number(date))
-          dateArr2 = dateArr2.map(date => Number(date))
-
-          console.log('DATE',dateArr1)
-
-          /* Year and Month Match - Check Day */
-          if(dateArr1[2] === dateArr2[2] && dateArr1[1] === dateArr2[1]) {
-            return dateArr1[0] - dateArr2[0];
-          } 
-           /* Year - Check Month */
-          else if(dateArr1[2] === dateArr2[2]) {
-            return dateArr1[1] - dateArr2[1];
-          } 
-           /* Check Year */
-          else {
-            return dateArr1[2] - dateArr2[2];
-          }
+        datedTrips.sort((a,b) => {
+          return a.date.slice(11) - b.date.slice(11);
         })
+
+        trips=datedTrips.concat(noDateTrips);
         break;
 
       default:

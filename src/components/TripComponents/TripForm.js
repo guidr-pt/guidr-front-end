@@ -19,7 +19,8 @@ class TripForm extends React.Component {
       "description": '',
       "private": false,
       "type": 'hiking',
-      "date": new Date()
+      "date": new Date(),
+      start: new Date()
     }
   }
 
@@ -40,7 +41,9 @@ handleDropdown = e => {
 }
 
 handleDate = e => {
-  this.setState({ date: e })
+  const date = new Date()
+ 
+  this.setState({ date: date.toDateString(), start: date })
 }
 
 /* Ensure user is signed in by checking token, alternate route if denied */
@@ -69,6 +72,7 @@ addTripHandler = e => {
   e.preventDefault();
 
   const newTrip = this.state;
+  delete newTrip.start;
   this.props.addTrip(newTrip);
   
 }
@@ -115,7 +119,7 @@ componentDidMount() {
           <div id='date-picker'>
             <label>Date:</label>
             <DatePicker
-                    selected={this.state.date}
+                    selected={this.state.start}
                     onChange={this.handleDate}
                   />
           </div>
