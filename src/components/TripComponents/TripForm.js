@@ -85,7 +85,7 @@ componentDidMount() {
   render() {
     return (
       <div className='trip-form__container'>
-        <Form onSubmit={this.addTripHandler}>
+        <form onSubmit={this.addTripHandler}>
           <h2>Add Another Trip?</h2>
 
           <div className='textbox'>
@@ -153,7 +153,7 @@ componentDidMount() {
 
 
           <Button className='submit'type='submit'>Add Trip</Button>
-        </Form>
+        </form>
       </div>
     )
   }
