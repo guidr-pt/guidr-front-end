@@ -52,7 +52,7 @@ export const appReducer = (state = initialState, action) => {
       }
 
     case EDIT_USER:
-    console.log('REDUCER FIRED')
+    console.log('REDUCER FIRED', action.payload)
       return {
         ...state,
         user: action.payload,
