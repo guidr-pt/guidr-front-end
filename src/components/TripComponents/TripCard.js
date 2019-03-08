@@ -2,7 +2,6 @@ import React from 'react';
 import TripModal from './TripModal';
 
 const TripCard = props => {
-  console.log('TRIps,', props.trip )
   return(
     <div className='tripgrid__card'>
       <h2>{props.trip.title}</h2>

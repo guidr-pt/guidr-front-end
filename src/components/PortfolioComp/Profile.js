@@ -41,8 +41,10 @@ class Profile extends React.Component {
      "title": this.state.title === '' ? this.props.user.title : this.state.title,
      "tagline": this.state.tagline === '' ? this.props.user.tagline : this.state.tagline,
      "age": this.state.age === '' ? this.props.user.age : this.state.age,
-     "profileImage": this.props.user.profileImage === null ? this.state.image : this.props.user.profileImage || "https://www.demilked.com/magazine/wp-content/uploads/2018/03/5aaa1cc087975-funny-weird-wtf-stock-photos-54-5a3a3e128ba2b__700.jpg",
+     "profileImage": this.props.user.profileImage === null ? this.props.user.profileImage || "https://www.demilked.com/magazine/wp-content/uploads/2018/03/5aaa1cc087975-funny-weird-wtf-stock-photos-54-5a3a3e128ba2b__700.jpg" : this.state.image,
    }
+
+   console.log(update.profileImage)
 
    this.props.editUser(update)
    this.setState({
