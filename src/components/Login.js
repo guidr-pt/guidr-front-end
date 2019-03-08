@@ -103,7 +103,7 @@ class Login extends React.Component {
          .then(res => {
            /* Store Authentication Data in Local Storage */
            localStorage.setItem('jwtToken', res.data.token);
-           localStorage.setItem('user', userInfo);
+           localStorage.setItem('user', JSON.stringify(userInfo));
           
            /* Retrieve token from localStorage */
            const token = localStorage.getItem('jwtToken');
