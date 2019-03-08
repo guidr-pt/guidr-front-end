@@ -44,7 +44,7 @@ class Profile extends React.Component {
      "profileImage": this.props.user.profileImage === null ? this.props.user.profileImage || "https://www.demilked.com/magazine/wp-content/uploads/2018/03/5aaa1cc087975-funny-weird-wtf-stock-photos-54-5a3a3e128ba2b__700.jpg" : this.state.image,
    }
 
-   console.log(update.profileImage)
+   console.log(update)
 
    this.props.editUser(update)
    this.setState({
