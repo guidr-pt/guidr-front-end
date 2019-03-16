@@ -13,7 +13,7 @@ class TripForm extends React.Component {
     super(props);
 
     this.state = {
-      "username": this.props.user.username,
+      "username": JSON.parse(localStorage.getItem('user')).username,
       "duration": '',
       "title": '',
       "description": '',
@@ -43,7 +43,7 @@ handleDropdown = e => {
 handleDate = e => {
   const date = new Date(e)
  
-  this.setState({ date: date.toDateString(), start: e })
+  this.setState({ date: date, start: e })
 }
 
 /* Ensure user is signed in by checking token, alternate route if denied */
@@ -73,6 +73,7 @@ addTripHandler = e => {
 
   const newTrip = this.state;
   delete newTrip.start;
+  console.log(newTrip)
   this.props.addTrip(newTrip);
   
 }
@@ -80,6 +81,7 @@ addTripHandler = e => {
 componentDidMount() {
   /* Ensure User is Logged In*/
   this.authenticate();
+  console.log(JSON.parse(localStorage.getItem('user')).username)
 }
 
   render() {

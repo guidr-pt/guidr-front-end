@@ -32,7 +32,10 @@ export const getUser = id => dispatch => {
   dispatch({ type: LOADING });
   
   axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`)
-       .then(res => { dispatch({ type: GET_USER, payload: res.data[0] }) })
+       .then(res => {
+          console.log('GET', res.data[0])
+          dispatch({ type: GET_USER, payload: res.data[0] }) 
+        })
        .catch(err => console.log(err));
 }
 
@@ -41,11 +44,15 @@ export const editUser = update => dispatch => {
   dispatch({ type: LOADING });
   const id = update.id;
   delete update.timeAsGuide;
-
-  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update, reqOptions)
+  console.log(update)
+  axios.put(`https://guidr-back-end.herokuapp.com/users/${id}`, update)
        .then(res =>{ 
-         console.log(res);
-         dispatch({ type: EDIT_USER, payload: res.data }) 
+          axios.get(`https://guidr-back-end.herokuapp.com/users/${id}`)
+            .then(res => {
+              console.log('GET', res.data[0])
+              dispatch({ type: GET_USER, payload: res.data[0] }) 
+            })
+            .catch(err => console.log(err));
         })
        .catch(err => console.log(err));
 }
