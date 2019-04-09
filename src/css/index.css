@@ -284,6 +284,17 @@ html body {
   background-color: #f99e54;
   color: black;
 }
+@media (max-width: 552px) {
+  .navigation {
+    font-size: 1.4rem;
+  }
+  .navigation .normal {
+    padding: 8px;
+  }
+  .navigation button {
+    margin: 0 20px 0 5px;
+  }
+}
 .home {
   margin-top: 45px;
   display: flex;
@@ -297,8 +308,8 @@ html body {
 }
 .home .home-search #view-button {
   position: fixed;
-  top: 105px;
-  left: 75px;
+  top: 75px;
+  left: 95px;
   font-size: 1.4rem;
   letter-spacing: 2px;
   background-color: #009ac0;
