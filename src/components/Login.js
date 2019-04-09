@@ -158,8 +158,10 @@ class Login extends React.Component {
           </div>
 
           <form onSubmit={!register?this.login:this.registration}>
+
             { register ? <div className='login__input--container reg'>
                             <div>
+
                               <i className="fas fa-user"></i>
                               <input type='text'
                                     placeholder='full name'
@@ -167,13 +169,22 @@ class Login extends React.Component {
                                     onChange={this.changeHandler}
                                     value={this.state.name}
                                     />
+
                             </div>
                                 <div className='imageUploader'>
+
                                   <img src={this.state.imageVal} alt='avatar' />
                                   <p>Image link for your Avatar</p>
+
                                   <div className='linkInput'>
-                                     
-                                     <input className='linkSpace'name='imageVal'onChange={this.handleChange}type='link'/>
+
+                                     <i className="fas fa-user"></i>
+                                     <input className='linkSpace'
+                                            name='imageVal'
+                                            onChange={this.handleChange} 
+                                            type='link' 
+                                            placeholder='image link'/>
+
                                   </div>
                                 </div>
                                </div>
@@ -199,7 +210,7 @@ class Login extends React.Component {
                      />
             </div>
 
-            <div>
+            <div className='remember'>
               <input onClick={this.toggleRemember} type='checkbox' /> <span>Remember Me</span>
             </div>
 
@@ -207,7 +218,7 @@ class Login extends React.Component {
             { register ? <button type='submit'>Create Account</button> : <button type='submit'>Log In</button>}
             { !this.state.isValid ? <p>There Was An Error. Please Try Again.</p> : null }
           </form>
-        </div>
+        </div> 
 
         {/* Determine if the LogIn or SignUp toggle is rendered */}
         { register ? <p> Have An Account?

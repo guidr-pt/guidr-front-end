@@ -65,6 +65,7 @@ html body {
   max-width: 450px;
   height: 600px;
   margin-bottom: 15px;
+  padding-bottom: 25px;
   background-color: #55A04B;
   justify-content: flex-start;
   overflow-x: hidden;
@@ -88,7 +89,7 @@ html body {
   color: #eee;
 }
 .login div form {
-  margin-top: 70px;
+  margin-top: 30px;
   width: 80%;
 }
 .login div form img {
@@ -97,6 +98,7 @@ html body {
 .login div form .login__input--container {
   font-size: 1.6rem;
   display: flex;
+  margin-bottom: 10px;
 }
 .login div form .login__input--container i {
   margin-right: 12px;
@@ -153,6 +155,15 @@ html body {
 }
 .login div form .reg {
   flex-direction: column;
+  margin-bottom: 0;
+}
+.login div form .reg .imageUploader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.login div form .remember {
+  margin: 0;
 }
 .login div form div {
   flex-direction: row;
@@ -538,6 +549,10 @@ html body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.home-search .grid .tripgrid__card img,
+.portfolio-container .grid .tripgrid__card img {
+  width: 75%;
 }
 /* Modal Styles */
 div ModalHeader {
