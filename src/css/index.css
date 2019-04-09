@@ -553,6 +553,7 @@ html body {
 .home-search .grid .tripgrid__card img,
 .portfolio-container .grid .tripgrid__card img {
   width: 75%;
+  height: 60%;
 }
 /* Modal Styles */
 div ModalHeader {

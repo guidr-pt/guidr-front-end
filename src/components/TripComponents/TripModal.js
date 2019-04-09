@@ -127,7 +127,6 @@ class TripModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
 
           <ModalHeader className='pseudoLabel'>
-            { trip.title }
             {this.props.trip.username === this.props.user.username ? <Button onClick={this.deleteTripHandler}>Delete</Button> : null }
           </ModalHeader>
 
